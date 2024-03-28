@@ -1,0 +1,16 @@
+PODS:
+  - KdanToolsKit (0.1.0)
+
+DEPENDENCIES:
+  - KdanToolsKit (from `../`)
+
+EXTERNAL SOURCES:
+  KdanToolsKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KdanToolsKit: 237c26cf3574f6525b5d422c39e25e482d4b9ea9
+
+PODFILE CHECKSUM: 247aa23eeba7818ee0da3e406c748f18db5da730
+
+COCOAPODS: 1.15.2

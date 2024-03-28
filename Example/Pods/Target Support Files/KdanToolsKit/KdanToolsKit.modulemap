@@ -1,0 +1,6 @@
+framework module KdanToolsKit {
+  umbrella header "KdanToolsKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

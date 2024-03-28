@@ -1,0 +1,200 @@
+//
+//  AAPLCustomPresentationController.swift
+//  ComPDFKit_Tools
+//
+//  Copyright © 2014-2024 PDF Technologies, Inc. All Rights Reserved.
+//
+//  THIS SOURCE CODE AND ANY ACCOMPANYING DOCUMENTATION ARE PROTECTED BY INTERNATIONAL COPYRIGHT LAW
+//  AND MAY NOT BE RESOLD OR REDISTRIBUTED. USAGE IS BOUND TO THE ComPDFKit LICENSE AGREEMENT.
+//  UNAUTHORIZED REPRODUCTION OR DISTRIBUTION IS SUBJECT TO CIVIL AND CRIMINAL PENALTIES.
+//  This notice may not be removed from this file.
+//
+
+import UIKit
+
+
+class SignatureCustomPresentationController: UIPresentationController,UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning {
+
+    var dimmingView:UIView?
+    var presentationWrappingView:UIView?
+    
+    let CORNER_RADIUS: CGFloat = 16.0
+    
+    init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController) {
+        super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
+        presentedViewController.modalPresentationStyle = .custom
+    }
+    
+    override var presentedView: UIView? {
+        return presentationWrappingView
+    }
+    
+    override func presentationTransitionWillBegin() {
+        guard let presentedViewControllerView = super.presentedView else { return }
+        let presentationWrapperView = UIView(frame: frameOfPresentedViewInContainerView)
+        presentationWrapperView.layer.shadowOpacity = 0.44
+        presentationWrapperView.layer.shadowRadius = 13
+        presentationWrapperView.layer.shadowOffset = CGSize(width: 0, height: -6)
+        presentationWrappingView = presentationWrapperView
+        
+        let presentationRoundedCornerView = UIView(frame: presentationWrapperView.bounds.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: -CORNER_RADIUS, right: 0)))
+        presentationRoundedCornerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        presentationRoundedCornerView.layer.cornerRadius = CORNER_RADIUS
+        presentationRoundedCornerView.layer.masksToBounds = true
+        
+        let presentedViewControllerWrapperView = UIView(frame: presentationRoundedCornerView.bounds.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: CORNER_RADIUS, right: 0)))
+        presentedViewControllerWrapperView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        presentedViewControllerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        presentedViewControllerView.frame = presentedViewControllerWrapperView.bounds
+        presentedViewControllerWrapperView.addSubview(presentedViewControllerView)
+        
+        presentationRoundedCornerView.addSubview(presentedViewControllerWrapperView)
+        presentationWrapperView.addSubview(presentationRoundedCornerView)
+        
+        if let containerView = self.containerView {
+            let dimmingView = UIView(frame: containerView.bounds)
+            dimmingView.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.1)
+            dimmingView.isOpaque = false
+            dimmingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            dimmingView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dimmingViewTapped)))
+            self.dimmingView? = dimmingView
+            containerView.addSubview(dimmingView)
+            
+            if let transitionCoordinator = presentingViewController.transitionCoordinator {
+                self.dimmingView?.alpha = 0.0
+                transitionCoordinator.animate(alongsideTransition: { (context) in
+                    self.dimmingView?.alpha = 0.5
+                }, completion: nil)
+            }
+        }
+    }
+    
+    override func presentationTransitionDidEnd(_ completed: Bool) {
+        if completed == false {
+            self.presentationWrappingView = nil
+            self.dimmingView = nil
+        }
+    }
+    
+    override func dismissalTransitionWillBegin() {
+        guard let transitionCoordinator = presentingViewController.transitionCoordinator else { return }
+        transitionCoordinator.animate(alongsideTransition: { (context) in
+            self.dimmingView?.alpha = 0.0
+        }, completion: nil)
+        
+    }
+    override func dismissalTransitionDidEnd(_ completed: Bool) {
+        if completed == true {
+            self.presentationWrappingView = nil
+            self.dimmingView = nil
+        }
+    }
+    
+    // MARK: - Layout
+    override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
+        super.preferredContentSizeDidChange(forChildContentContainer: container)
+        if container === presentedViewController {
+            containerView?.setNeedsLayout()
+        }
+        
+    }
+        
+    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
+        
+        if container === presentedViewController {
+            return presentedViewController.preferredContentSize
+        } else {
+            return super.size(forChildContentContainer: container, withParentContainerSize: parentSize)
+        }
+    }
+    
+    override var frameOfPresentedViewInContainerView: CGRect {
+        let containerViewBounds = containerView?.bounds ?? CGRect.zero
+        let presentedViewContentSize = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerViewBounds.size)
+        var presentedViewControllerFrame = containerViewBounds
+        presentedViewControllerFrame.size.height = presentedViewContentSize.height
+        presentedViewControllerFrame.origin.y = containerViewBounds.maxY - presentedViewContentSize.height
+        return presentedViewControllerFrame
+        
+    }
+    
+    override func containerViewWillLayoutSubviews() {
+        super.containerViewWillLayoutSubviews()
+        dimmingView?.frame = containerView?.bounds ?? CGRect.zero
+        let width = containerView?.frame.size.width ?? 0
+        presentationWrappingView?.frame = CGRect(x: (frameOfPresentedViewInContainerView.size.width - width)/2, y: frameOfPresentedViewInContainerView.origin.y, width: width, height: frameOfPresentedViewInContainerView.size.height)
+        
+    }
+    
+    // MARK: - Tap Gesture Recognizer
+    @objc func dimmingViewTapped() {
+        self.presentingViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - UIViewControllerAnimatedTransitioning
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return transitionContext?.isAnimated ?? false ? 0.35 : 0
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let fromViewController = transitionContext.viewController(forKey: .from),
+              let toViewController = transitionContext.viewController(forKey: .to) else {
+            return
+        }
+        
+        let containerView = transitionContext.containerView
+        
+        let toView = transitionContext.view(forKey: .to)
+        let fromView = transitionContext.view(forKey: .from)
+        
+        let isPresenting = (fromViewController == presentingViewController)
+        
+        var fromViewFinalFrame = transitionContext.finalFrame(for: fromViewController)
+        var toViewInitialFrame = transitionContext.initialFrame(for: toViewController)
+        let toViewFinalFrame = transitionContext.finalFrame(for: toViewController)
+        if(toView != nil) {
+            containerView.addSubview(toView!)
+        }
+        
+        if isPresenting {
+            toViewInitialFrame.origin = CGPoint(x: containerView.bounds.minX, y: containerView.bounds.maxY)
+            toViewInitialFrame.size = toViewFinalFrame.size
+            toView?.frame = toViewInitialFrame
+        } else {
+            if(fromView != nil) {
+                fromViewFinalFrame = fromView!.frame.offsetBy(dx: 0, dy: fromView!.frame.height)
+            }
+        }
+        
+        let transitionDuration = self.transitionDuration(using: transitionContext)
+        
+        UIView.animate(withDuration: transitionDuration, animations: {
+            if isPresenting {
+                toView?.frame = toViewFinalFrame
+            } else {
+                fromView?.frame = fromViewFinalFrame
+            }
+        }) { (finished) in
+            let wasCancelled = transitionContext.transitionWasCancelled
+            transitionContext.completeTransition(!wasCancelled)
+        }
+    }
+    
+    
+    // MARK: - UIViewControllerTransitioningDelegate
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        assert(self.presentedViewController == presented, "You didn’t initialize (self) with the correct presentedViewController. Expected (presented), got (self.presentedViewController)")
+        return self
+        
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self
+    }
+    
+}
