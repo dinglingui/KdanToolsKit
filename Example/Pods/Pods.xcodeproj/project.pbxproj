@@ -6,460 +6,101 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		1E8F7349E745C0AE7F5F1321639BAB1D /* ComPDFKit */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C7BE94C3399A185DF8D1704B915E41C2 /* Build configuration list for PBXAggregateTarget "ComPDFKit" */;
+			buildPhases = (
+				1BF0F7C11932B96D1A46763B82490106 /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+			);
+			name = ComPDFKit;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		0012620413D149E803531DB9DC95A5DD /* CPDFFreeTextAnnotation+PDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCEF66C926E1A3C1E8AA6A490C100CD /* CPDFFreeTextAnnotation+PDFListView.swift */; };
-		01E38E41DF1F771FBF3D85D77EE235E4 /* CPDFInkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7583C132225670F8B5F0E716811C22 /* CPDFInkViewController.swift */; };
-		01F33CB06A521BDC57FD3C0CDFE40588 /* CPDFShapeArrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B7A117AA09753A895E42BD6E56FE2E /* CPDFShapeArrowViewController.swift */; };
-		0259D762A6C5C71A0F334E999982634D /* CPDFPopMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10358F724648A68E0524AC167E5EB6C1 /* CPDFPopMenuView.swift */; };
-		025E105171E6B5AD932923CCD5E78213 /* CPDFThumbnailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9AAD6A22404B13BCFF72F1FCC89BC8 /* CPDFThumbnailViewController.swift */; };
-		07569B10C6A485BBA2CED596D5C9BCAB /* CPDFTextProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F5EC6A568C8159A30DD58CD7BAC789 /* CPDFTextProperty.swift */; };
-		080385FC8029DB98F69CCF3F89C8C6A0 /* CPDFListView+ContentEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1A38AB9D94A1F672EBDF20E6DC4D6 /* CPDFListView+ContentEditor.swift */; };
-		088F927E1171C23B8BB6BEC5EB6CBF40 /* CPDFPageIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222B4CCC4DA6DCD213B2011418EC2731 /* CPDFPageIndicatorView.swift */; };
-		0B74449ADE8D9CFABC523BC62BBF8EC5 /* CDigitalPropertyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3792DF8A6BD8F44CFCC5CD2275362E23 /* CDigitalPropertyTableView.swift */; };
-		0E5A422C68AC3E5D23E4FD4B1E244D70 /* CNavBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472BB194EA4FE6F98CD4491E4582694D /* CNavBarButtonItem.swift */; };
 		0F3BB1E9C9D2B23003019D7A9737C0AE /* Pods-KdanToolsKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E53082EB31F175DA92E125FC5151A1E /* Pods-KdanToolsKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0F8E66D21506794B93900E0F5DBEFEE3 /* CPDFButtonWidgetAnnotation+PDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3BB17633294066BC90C214B5B70B7A /* CPDFButtonWidgetAnnotation+PDFListView.swift */; };
-		0FF04E8D89333BFBAC405D1BA86F9CB3 /* CPageEditToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C368CA3D3D0844D1404648BD1B3E78 /* CPageEditToolBar.swift */; };
-		100F1A679AA2048931B9A6F38EB8330C /* Pods-KdanToolsKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C9D023EBA567EEDE1E19E2D5BC5700 /* Pods-KdanToolsKit_Example-dummy.m */; };
-		106C54A07F0E78E44100B530ACE956F3 /* CCustomizeStampTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47BC012983E7DABB2DCE6CB16248BE7 /* CCustomizeStampTableViewCell.swift */; };
-		11E0A9B5F5F36F25252BD35E40B14D72 /* CPDFFormArrowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986D6C224891E8B4331A2360D33801F /* CPDFFormArrowCell.swift */; };
-		11E26B62AD9E40159C3491C0AA750D9B /* StampCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ECEA6D7FE2835206ACB68D5F902246 /* StampCollectionHeaderView.swift */; };
-		125C909E645D7EDE7A87C06BA3B46FDF /* CPDFDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3EE6E075906D277C1C464C144B181 /* CPDFDisplayViewController.swift */; };
-		14861294E6E9E9BAA455019215165072 /* CPDFListView+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894146C0A187E5374775A27637D35A0C /* CPDFListView+Annotation.swift */; };
-		16B0BCDD738EEC5E546B4366CA1879C9 /* CSignatureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8903E1482A733BEF847FD2BE59B89F8 /* CSignatureTextField.swift */; };
-		17A04853C53DCE0C3B3610FF18738CF2 /* CPDFDrawArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78763B693DE708786C022EAE0E2336C4 /* CPDFDrawArrowView.swift */; };
-		196C7BCB32BF9D8AF249B1B4C514A4B8 /* CPDFSigntureVerifyDetailsTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CE25ACE1402B839ABE58A6EA76E7F /* CPDFSigntureVerifyDetailsTopCell.swift */; };
-		1A8CDCD783E570869A8B026BA36670F5 /* CNavigationRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771B733E15D7636619512D9ED72245E /* CNavigationRightView.swift */; };
-		1E6FEC1D1E5E2C2252F3393FB55DB533 /* CPDFInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F75EC5E75152FB87050130E14A04FBA /* CPDFInfoViewController.swift */; };
-		1E931239C44B09E2E5F496E6FFEB6319 /* CPDFFormLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAEDB8B3DB67BCD313D2AF147D38594 /* CPDFFormLinkViewController.swift */; };
-		1F3734C7AA653B9FDA349DECFECB5720 /* CTextWatermarkPreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7222AE1094BD5A1012786E557E0449A9 /* CTextWatermarkPreView.swift */; };
-		208BB16ECBE09B4EBF87C89C62969A27 /* CPDFOpacitySliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C921C39A9BECE7507C35B39B0C2949 /* CPDFOpacitySliderView.swift */; };
-		2495B82546B44EA14FDF97E4E99591C9 /* CPDFDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FA2C4652C1D0F89A86F4DFACE7DE65 /* CPDFDisplayModel.swift */; };
-		260FEB66AA9A79D000283B48B3B45F03 /* CPDFArrowStyleTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98147DBFE69A0E352A9C9D1575C4CA14 /* CPDFArrowStyleTableView.swift */; };
-		26D84D154075CA74EEEE941F48E392C2 /* CPDFEditToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8117FEDA3908CC686F850124B1D0E4C2 /* CPDFEditToolBar.swift */; };
-		26DD4C410D92AAD74A077F37A86EDA10 /* CPDFShapeCircleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E66C79D9158D8278104473D63DEB00 /* CPDFShapeCircleViewController.swift */; };
-		27F8E8CC1184FF5A617F8D0D7DDD6035 /* UIPopBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8410FFD443F6FD5881691FE7B8F6681 /* UIPopBackgroundView.swift */; };
-		29D0AD5C5D22A111242606C260699D06 /* CPDFAnnotionColorDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F275F44644752BDBDF3EF19FB36D01 /* CPDFAnnotionColorDrawView.swift */; };
-		2A25E10D67EAAE25F376DC7D8765503D /* CPDFTextWidgetAnnotation+PDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246971495EF7F4FE6F490F395D796BCA /* CPDFTextWidgetAnnotation+PDFListView.swift */; };
-		2AF62C1C71E4865FAA42A673FF72A942 /* CPDFColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601B47CEFC47B7822141E83B26C00D1E /* CPDFColorPickerView.swift */; };
-		2D6EA6D8D41A0626749C0485B9CBB6D6 /* CPDFSecureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914C382A404DF932B56883775613FBA8 /* CPDFSecureViewController.swift */; };
-		2E9D47724C7617CD512C2596961E3389 /* CDocumentPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98927693FC6739FF1689C8EF2C1A26B /* CDocumentPasswordViewController.swift */; };
-		2FE20CFAD4233650D639C58D9361FA27 /* CPDFNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747A6773251F0F808CFD418628C23A34 /* CPDFNoteViewController.swift */; };
-		308A78146258F429225F683DF26F37A4 /* CPDFSquigglyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C508A5087A7FAADEE208DE206DEA82 /* CPDFSquigglyViewController.swift */; };
-		32C9ADD8B9D67A415D7F32EEF65F4D40 /* CReasonPropertiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8595F41E09B4F0B5C9E0D1C5F57991FC /* CReasonPropertiesCell.swift */; };
-		34A866C8EA47423A7ADC6AA4178CBA2B /* CPDFFormTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD63B87DBABB24DC152D9B38FA3BC464 /* CPDFFormTextFieldView.swift */; };
-		38D76E90B3403AA1735564E61F086BCA /* CPDFBookmarkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC70B1934769DF03099796EA4187AA5 /* CPDFBookmarkViewCell.swift */; };
-		38E2CEC02F3D88E62AA398B418B332BD /* CAnnotListHeaderInSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AE53F18C58832681BF8F9C75EA11D /* CAnnotListHeaderInSection.swift */; };
-		39AAE6067E0C0DF8EF59FF2CC4844C90 /* CReasonPropertiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEEC02A4113D1D8118BEFFBEC75D9C8 /* CReasonPropertiesViewController.swift */; };
-		3ADB8EBFEEFE03B45E80CF5EA21006CD /* CPDFThumbnailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71BC05A57DE260C7885E0AC8930AD59 /* CPDFThumbnailViewCell.swift */; };
-		3F78DBA279D830390DDEF8BD418A86C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		3F826B75AEA104DFD8016CF253182FB3 /* CPDFSigntureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834FF92B307C9615D7D444D4A45D8264 /* CPDFSigntureListViewController.swift */; };
-		40351850A993EE0E6A2A4E3CBA1103ED /* CPDFSigntureVerifyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E171AADE85505FF3AD7DA37B8A7E992 /* CPDFSigntureVerifyDetailsViewController.swift */; };
-		40E51C0004530E443C08C0B07A0B1802 /* CPDFFormSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B5E432F37FF0A6BC430EDFC58CF07 /* CPDFFormSwitchView.swift */; };
-		44904FC63770DE9E1DA061493C1DE6B3 /* CPDFHighlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBB75D7C5D940C0390ACAD0B42757F2 /* CPDFHighlightViewController.swift */; };
-		44BA331B06C4A582834B495172E49A69 /* CImageWatermarkPreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E524A6A01C91FDF7C5E5BE90960345 /* CImageWatermarkPreView.swift */; };
-		457B934632F64DF8E50AB4EFC5A2F931 /* CSearchSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E353B7B0A5A0CBF6B2389DF3EC6FD6 /* CSearchSettingViewController.swift */; };
-		45DCFEB5033333B013AC44BAB5972DE7 /* CPDFEditFontNameSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FFDF8F4596090434E217050CF995B7 /* CPDFEditFontNameSelectView.swift */; };
-		4691C8D86D94B85865063EE47765BE4C /* CPDFSigntureVerifyCells.xib in Sources */ = {isa = PBXBuildFile; fileRef = A7599ADEAA631F72958FB8A0614BB12B /* CPDFSigntureVerifyCells.xib */; };
-		47CD2B6A66736B85B6E673097234CA79 /* CLocationSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E291ED5D7B6DE46A6B6FED8E3950D4A /* CLocationSelectView.swift */; };
-		4862AA73D93D0B28ADDFBFF4A9DE9B36 /* CSignatureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE81B87C5E42E7247FC896440FE3BF8 /* CSignatureManager.swift */; };
-		4881BFCBF0F65300DA3CB64823161D3D /* CPDFFormToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504C6AC1543F38A2CD4AE36B7720DA9 /* CPDFFormToolBar.swift */; };
-		4B0E1FB401435C84CDF5EE4B3C92E341 /* CPDFSoundPlayBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB501BCC63A2EB8E507B83E4907B147 /* CPDFSoundPlayBar.swift */; };
-		4BD7B4F88F2FF8B05FC47A699647B09E /* CPDFFormArrowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BEC398C0D6EA2399230286AC5760CA /* CPDFFormArrowModel.swift */; };
-		4E1F2AF3295D39137860E6B947307523 /* WPAutoSpringTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10606437853BDB16229D5AA3BAE4BE25 /* WPAutoSpringTextViewController.swift */; };
-		4E38411F9D69FC92FF98A0779D4712AB /* CPDFFontSettingSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF81CDFFCE2BA35A93D47D8B6965619A /* CPDFFontSettingSubView.swift */; };
-		4EA9FC96AF30BF748CCAB1463B601628 /* CPDFAnnotationBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C868509FD2A0CAB89E53C3B78A1D1 /* CPDFAnnotationBaseViewController.swift */; };
-		571997E34918B0EF4E29071EF1F1538A /* CPDFFormRadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375AE71CE87B81146A02D3AA564352A /* CPDFFormRadioButtonViewController.swift */; };
-		5C122577CB1B9776F8AA3FB23B0E2745 /* CPDFSigntureVerifyDetailsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BDDFB1E67055965C5821FA3D7BB23C /* CPDFSigntureVerifyDetailsCells.swift */; };
-		608B74E64947229202AAE9697185ECBE /* CPDFSignatureWidgetAnnotation+PDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC5CC9DAC4CBC99D226CA0AB4103483 /* CPDFSignatureWidgetAnnotation+PDFListView.swift */; };
-		614203AC5E964E4053535ED92CDCF920 /* CPDFSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BFCEFEDAC17DAA9FBC2DAB14F896F /* CPDFSearchResultsViewController.swift */; };
-		620E98062FFF52806973B0E715256304 /* CPDFConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D82FD3842BA8BAA776768DF74DDFB3 /* CPDFConfiguration.swift */; };
-		62940F6A7947A8DC49E73DFEF4F0B484 /* CPDFTextPropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C73ACC8CDEC492E48A90C64D5270E9 /* CPDFTextPropertyCell.swift */; };
-		64ED5BCF36ED2CC34B21B466864CA627 /* UIResponder+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B24D8C2642A8C505E13F6A0FF7F565D /* UIResponder+FirstResponder.swift */; };
-		6612FEA1495112752D0D741EE88FD0E1 /* CImageSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D3DD7B61C2605D4C16DA091B3FCE2B /* CImageSelectView.swift */; };
-		681F6F2ED5D59482C4C78C71625182C3 /* CPDFColorSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE19AD5E54845FCD22B589CE5389028 /* CPDFColorSelectView.swift */; };
-		68367DD78BDDC153EBFAA6DCEF10571D /* CPDFDrawPencilKitFuncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FEDFFA0BBE74919F2B2C5551A5E99B /* CPDFDrawPencilKitFuncView.swift */; };
-		6A596FB72EDA03FAD719DD6368008BE3 /* CPDFImageProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB75B67F587429AE84971787956CF3 /* CPDFImageProperty.swift */; };
-		6BF20CB6BA6C10C22D81FE6A68D63E20 /* CPDFAnnotationToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307206E85B694C5B2A8DD38029E6D50 /* CPDFAnnotationToolBar.swift */; };
-		6F44FE1650391F1810AB2429CDF11FD0 /* CStampPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895758F826FB6E9F2F338917F5D03EB3 /* CStampPreview.swift */; };
-		6FB0A47ED157424DAC8F1BA30C7EC14E /* AAPLCustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1A555CE60D2B51F1C33B80EF8E8531 /* AAPLCustomPresentationController.swift */; };
-		6FB1BA4AEB0997CBE5FE91A80F19EA0B /* CPDFOutlineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736CCC890E72E576AF0354DDB2E4E2B9 /* CPDFOutlineModel.swift */; };
-		6FB2919CAAEED205A107DCD10F29599F /* CPDFColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41B4BBE62819D377FF5B497FE6ABF78 /* CPDFColorUtils.swift */; };
-		6FC2F59D06F2BC29334B6F90150E1AB7 /* CImportCertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6485B4832836DE349D986108F1799F1B /* CImportCertificateViewController.swift */; };
-		6FD0E63F7A2366B940C5F4E2D0D4FCDD /* CPDFFormTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A557B4578A8ACA181DC80198990AB7 /* CPDFFormTextViewController.swift */; };
-		70134D8D6A645C34BD8FC36052FC0209 /* CSearchToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27524F8F2F43ECE3C75C364CC9ADE295 /* CSearchToolbar.swift */; };
-		705ED2E037C4F0C0F50D7AB9913476AB /* UIViewController+LeftItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60B248EF9D58D0761A9D16B06C8E3E7 /* UIViewController+LeftItem.swift */; };
-		70FA095A9C6462E16CCC913341173BCF /* CPDFNoteOpenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66EB4A4FC87B7D7EE624925DD0F92C5 /* CPDFNoteOpenViewController.swift */; };
-		715C0B055662C087BF38B96772A0FD06 /* CStampColorSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5756B33A63D3C6D11DB2B9E54CA7EC /* CStampColorSelectView.swift */; };
-		71D9DAF5C7F718563944734AAB400549 /* CPDFStampViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70400B9014D01462B55D079DB3CC1674 /* CPDFStampViewController.swift */; };
-		71F5A65C6DE472EAB53D8CE92B57FC74 /* CPDFImagePropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0554BC0CFAD085556FBC6AEA82418034 /* CPDFImagePropertyCell.swift */; };
-		7383BD77B0938C8833462ECF48F1436C /* CStringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9585BBEEA69D0B8ADC75C58248BCE2 /* CStringConstants.swift */; };
-		73C4AFC761FA7DB1E2F7B9F00D55C065 /* CTileSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E85A89C5040155688BCCB564A4FA6B /* CTileSelectView.swift */; };
-		73EDBDEE0079607D47187B400F961851 /* CPDFFormCheckBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1F285DF89F9008804E322A787CA47 /* CPDFFormCheckBoxViewController.swift */; };
-		7498753CFF0CB99E38F3983DA24D36B8 /* CPDFFontStyleTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB76995FCDEA0F7F319019CC5253F3B /* CPDFFontStyleTableView.swift */; };
-		75E48B227312532ED10C20E48399D13B /* AnnotationUserDefaults.plist in Sources */ = {isa = PBXBuildFile; fileRef = 25D5676BBE8A16AEE05A3596F7A53710 /* AnnotationUserDefaults.plist */; };
-		77E6F6839C69EDCF1C0472D294738339 /* CPDFSigntureDetailsCells.xib in Sources */ = {isa = PBXBuildFile; fileRef = A448787FB1AF7A28BA905D784F548641 /* CPDFSigntureDetailsCells.xib */; };
-		78794BA07489722BC8337BACDCD8ECA4 /* CPDFFormListOptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B1C69642069C70779EE31445368918 /* CPDFFormListOptionVC.swift */; };
-		79B2C393DDF7B0B0E9B922E8B9146841 /* CPDFPageInsertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8843B0E03F9216E60A0196A0F7007E7D /* CPDFPageInsertViewController.swift */; };
-		79E7A238AAFA21002D02E730A5EC98AC /* CPDFUnderlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EAED6D3E7CFDB35BB977C0B67551DF /* CPDFUnderlineViewController.swift */; };
-		7BE7BD7D7955BBDE3398B9F30904FC37 /* CSearchTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D6F57970B7A87125DB928DCB610445 /* CSearchTitleView.swift */; };
-		7D34C107A62CC933F0D7C679C7B28293 /* CStampTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18072BC4A3B376C2180C3AE1DA5B9DCF /* CStampTextViewController.swift */; };
-		7D7C49E406F55D62336261CF7B546450 /* CDigitalTypeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554BD74AECD78966857F53CB8417C798 /* CDigitalTypeSelectView.swift */; };
-		81AD341950EEDFF56F753E551F612B04 /* CPDFBookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D7800E7B306DE4DB3D2D3EA212D9C /* CPDFBookmarkViewController.swift */; };
-		81C83758EBC6F763672994313E8C601F /* CPDFArrowStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5650F18C7C2348A53CC68D6620C61F3 /* CPDFArrowStyleView.swift */; };
-		8215847F109DDE9CE78AFE0C9660F97D /* CPDFFormBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D84489CC144A0B5FA4AB97A5A6D691 /* CPDFFormBaseViewController.swift */; };
-		82294AEA2FB4E4D4F2383D6AE8AD71D9 /* CAddSignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0100B7BCC613AD864A80B3F937FC1E25 /* CAddSignatureViewController.swift */; };
-		8339A587939207FBCB6448CED99590A7 /* CStampCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA37F7DB46B978D509A9A11EC3FB9C6 /* CStampCollectionViewCell.swift */; };
-		8509EE79AE939906D7FF03E9D456E39C /* CPDFAnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950F26033718D30900A5FF480B54FF7A /* CPDFAnnotationViewController.swift */; };
-		851434476865D5E7B0FE78711CEA29C5 /* CPDFFontAlignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BE0DB3D86FFD697CBF128BAB861C34 /* CPDFFontAlignView.swift */; };
-		87DEF1807E5280C019D99CE06E67C72D /* CPDFDigitalSignatureEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEF06868D763560B77C51B8F18C6EC /* CPDFDigitalSignatureEditViewController.swift */; };
-		88EBFE5C30A84852C42364F3048D54B4 /* CPDFListViewAnnotationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDFB436E61AFCD7A117A6C958DA8063 /* CPDFListViewAnnotationConfig.swift */; };
-		8C140B1E723781EB0B78127452B16AE8 /* CInsertBlankPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB95AC8065F5F7227A8A5CC72E95B6EA /* CInsertBlankPageCell.swift */; };
-		8C391D5F457B6037734CAA647ED83FAD /* CPDFImageWatermarkSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53D3369FB775D81DC5F4EF51480A35 /* CPDFImageWatermarkSettingViewController.swift */; };
-		8D299161BC87D98FD4754057A3AF8B7F /* CPDFSearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AE3AED018FF75EDBFCA339B871C6CD /* CPDFSearchViewCell.swift */; };
-		8DF891B4EB17DA03EEFB8B18DA55C0F0 /* CPDFInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237C2CA46356A471775A55124B9AA103 /* CPDFInfoTableCell.swift */; };
-		8ECB0EF537A7C56DE0842831F0EB37EE /* Pods-KdanToolsKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 13BDB9957866176E80A17F0587CA0A25 /* Pods-KdanToolsKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8F99E7110ABAB979049ED66E173A17D5 /* CStampButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E685A173CFD8B3192F0A674EAE5FC460 /* CStampButton.swift */; };
-		8FCF230B3714DBC267D459D2CFBB713C /* CPDFListView+Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE660A654700697222735719B190212E /* CPDFListView+Form.swift */; };
-		8FD69CC46527915EA0710C185F3850DF /* CPDFThicknessSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA9BB048FE9571C338272BC599BB3BD /* CPDFThicknessSliderView.swift */; };
-		90706A08BE77102142DCB87123FE4548 /* CCreateCertificateViewPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70432240E2ECC9196EA9592B891FA4B4 /* CCreateCertificateViewPasswordController.swift */; };
-		957068B7F97A509B4CB5EFF7168A8E03 /* CPDFSigntureCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9450BF8B03260022AC7DA22861A10A /* CPDFSigntureCells.swift */; };
-		99216A96EC52862853AD31F697888AAF /* CPDFSigntureDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1468EA5CA80B516F951F04D009A95B /* CPDFSigntureDetailsViewController.swift */; };
-		9978FCF630F57855DAB39D047CA1A3C7 /* CStampShapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0378511043EDAAF0A7E2CBDE2D06E99 /* CStampShapView.swift */; };
-		9C759C61835FA3BBCC03BE124E86C40A /* CPDFSigntureVerifyCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8289D647AF6B280BB062273AF6F80D6 /* CPDFSigntureVerifyCells.swift */; };
-		9C94F7A90189B24AC228D7BD16CB7B26 /* KdanToolsKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A895E8B3B71F1C274E8A12864201A765 /* KdanToolsKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9E06CB0D86EE7C474C1ED151AC9458E5 /* CAnnotationManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B0B560268DBC2EED69590E58CEABB0 /* CAnnotationManage.swift */; };
-		9E6A119C8B8E1A8EC05227267F4BB3B3 /* CPDFAnnotationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA63FD0F8BF388BB9968F574DD25518 /* CPDFAnnotationListCell.swift */; };
+		3173998AD5BAF469CD2ACA5978CFBDD6 /* KdanToolsKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CB6CDF95FA7FBFDB00093CF15835B95 /* KdanToolsKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		340C015E7A718B10235B4AB0DE9DC240 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		4370FAB55E3D99BCB22421B6EE26731F /* CPDFAddWatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8B8E08AC0F7FA41D8335F60A59C39F /* CPDFAddWatermarkViewController.swift */; };
+		54D481CFA0FC1A2681BAD72A9ECDF6F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		9EDE2FD440CC91352145F120CC446911 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		9FD396F9CD733936D7F01E3B4601D751 /* CWatermarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE86DD88554E2247E98BB297967510 /* CWatermarkModel.swift */; };
-		A054D9A0A453ABB63718293CD41241CC /* CPDFSigntureDetailsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D734A58426DB4974C9EB510922BF64A /* CPDFSigntureDetailsCells.swift */; };
-		A0799811592FC5E0105E3DC1638EDD05 /* CPDFOutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F84491D0184182CAD7BC42AF8857D /* CPDFOutlineViewController.swift */; };
-		A0BC265C80B34DEDF0B3E437D5C1F88E /* CPDFSigntureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F2EDC62157D9FEE36A584A7C62643 /* CPDFSigntureViewController.swift */; };
-		A2037B411656F74318FF1E4D89072691 /* CPDFFreeTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C251714DDA2B12F8E45D8A06C2BB86 /* CPDFFreeTextViewController.swift */; };
-		A3186ADFCE9A8680F1B375B07F18284A /* CPDFKeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBEB2516F7DA05B81DB091454D9F1D8 /* CPDFKeyboardToolbar.swift */; };
-		A3E6B20B13E70F6052F6ADB055297E83 /* CFormStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2585E5203BBB68C615F99E12B8D900A4 /* CFormStyle.swift */; };
-		A4EF80E6A4BC308DED7676AC6FDF2329 /* CPDFFormListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA787326F9F2AAE1E5134213121F31 /* CPDFFormListViewController.swift */; };
-		A58E661FFED22907F1D4F336E4C75896 /* CPDFToolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19997D41649DC71027BBD139A6CCAF96 /* CPDFToolsViewController.swift */; };
-		A686B1FE345D0DCE6BEB7E617997505B /* CNavigationBarTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F75E404E08772C1D92E8EBC9C4EEF1 /* CNavigationBarTitleButton.swift */; };
-		A864B75EB0FF7693B10EE31BE06F41B2 /* CPDFDigitalSignatureToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC7A06C92DE1F907D4E5AA9B4C7F06 /* CPDFDigitalSignatureToolBar.swift */; };
-		AA751F3F14C0AA5C699931ABCB6B8907 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB042C66E3CD630332B640FA4F3FE87 /* UIView+Extension.swift */; };
-		AAE6788B7F22A5FE934EB0625EB61F37 /* CCreateCertificateInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA52E6474A6EF400807A880E8916505 /* CCreateCertificateInfoViewController.swift */; };
-		AD7263086F092DDD6EA19E742C5C3EDD /* CPDFPageEditViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887781C86D1718C60C283D4114BE0EF6 /* CPDFPageEditViewCell.swift */; };
-		AEB0040EB4DBA5F70A5DB2B7C17F2F7A /* CPDFAnnotationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96141897D45540C55553EE1BDAE4FCCF /* CPDFAnnotationHeader.swift */; };
-		AF14F13C1D8A5155A08F9477E5404D98 /* CPageRangeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D874594882117DF09A72CB3F5D52B /* CPageRangeSelectView.swift */; };
-		AF239A0BF48660C18326B640D21A8A72 /* CPDFSigntureDetailsFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C8D45DB4624BF4B844B0BF89146AE9 /* CPDFSigntureDetailsFootView.swift */; };
-		AF8048B05631BC2F43937E4938C09F86 /* CDigitalTypeSelectView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 398C7E2E3B43F04757429D7B524C5C85 /* CDigitalTypeSelectView.xib */; };
-		B2B0DD407C3012324C14CC2E726D4744 /* CPDFAddWatermarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3523876FA2742489B5515C8752027FE /* CPDFAddWatermarkViewController.swift */; };
-		B458B56FCB3DAED8C0101882E4813E87 /* CPDFFormArrowStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA3F3FF77483748515E496A49C9BE6A /* CPDFFormArrowStyleView.swift */; };
-		B5822A52CF013B9758590F5293A8A089 /* CAnnotStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C6C1B33D4C3D3767A04ECF23A85891 /* CAnnotStyle.swift */; };
-		B81CE83C5F50D6CF2CC12E3226344E95 /* CLocationPropertiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF870557ACB48D1A53CCA647BDD3AF /* CLocationPropertiesViewController.swift */; };
-		BA0676E9485A763B5085E090EC8F35AD /* CPDFChoiceWidgetAnnotation+PDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A722192BB4243645CA1145FE13249BE /* CPDFChoiceWidgetAnnotation+PDFListView.swift */; };
-		BB7AC31F582E764B8863A1F538B2EA74 /* CPDFEditImageSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB555625B6ADC43D55EE0307F1FF469A /* CPDFEditImageSampleView.swift */; };
-		BBB2E92002C79976798A87673D830AA0 /* CSearchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096AD4328BEC2D7C11DB23A3F8CC766F /* CSearchContentView.swift */; };
-		BBCA9274C07C2AC7EB644E776922ACB4 /* CPDFSignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F1409C16973C5B3CB0585E49F45688 /* CPDFSignatureViewController.swift */; };
-		BC49C1D8EF54B9937BA27C46ADBD1D2E /* CPDFOutlineViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D67FA88393DF2F561929118583B9D0 /* CPDFOutlineViewCell.swift */; };
-		BECA92DE0A62EC00D187222352523E5B /* CPDFFormButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E7B1D5857222E65CD5A5052C3972D5 /* CPDFFormButtonViewController.swift */; };
-		BECF1CAFA3A4AD3F7F0F0A2A4B2D0C80 /* CStampFileManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A0CAA62033F7FA8DCFC3A68C4FF961 /* CStampFileManger.swift */; };
-		C0F6F2E0EC6F7910D77BD5D04B388FAB /* CShapeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461279B10917844CD398B32028F74991 /* CShapeSelectView.swift */; };
-		C17F925F8A20CB5DCE212CEDB911F15D /* CPDFTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3989970EB4D9D77035146C97B61DFE42 /* CPDFTipsView.swift */; };
-		C59AF4151E367ED5D745E4860665DBEE /* CPDFFormComboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A458D112C0B607D9C1E9B1D22720D /* CPDFFormComboxViewController.swift */; };
-		C6D8A19F63CDC883466FCB5BAA8CFF02 /* CPDFArrowStyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0058DD4C72C0F05B3537574F679752 /* CPDFArrowStyleCell.swift */; };
-		C71A86EB3026E1EC228E219CAB3A8E58 /* CPDFSigntureCells.xib in Sources */ = {isa = PBXBuildFile; fileRef = 0D22709FE6CDEC712D145193F725CDA2 /* CPDFSigntureCells.xib */; };
-		C768DE195E81013C85E5B5430A5FEB1D /* CInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA7406FBBCFDE5983903F1725AD8B4A /* CInputTextField.swift */; };
-		C874F7417BF88D98DC9FDC75CB56B2CE /* CAddSignatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBC438AF67712DB529DAD3E84BF08F2 /* CAddSignatureCell.swift */; };
-		CFEC5EA71DA5E447FFC8F23C998DED26 /* CPDFAnnotationBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EADD8317615E1945B41B86349AD1378 /* CPDFAnnotationBarButton.swift */; };
-		D0851DD464E38873F28A7718FE35A928 /* StampCollectionHeaderView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0032A653EDD83A346013E44613D9F3AD /* StampCollectionHeaderView1.swift */; };
-		D1E532E8DEE82F056EC41829D5EEFF1D /* CPDFDisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8BBA8A88BBD1438E5D077A085E2B1D /* CPDFDisplayTableViewCell.swift */; };
-		D210DFC60BE1B7D32D2BE89A9EEAEB7F /* CPDFSquareAnnotation+PDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D828874BDA7421518691878A7C4ACF /* CPDFSquareAnnotation+PDFListView.swift */; };
-		D33FC8E01E4816D9DE02DF9202A10C1E /* CActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BECD9872528D7A817D4AB606108CDE /* CActivityIndicatorView.swift */; };
-		D424FBCA034EE6B250CCE9348CD956BC /* CPDFSignatureEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1CFA6B37148F512166C125032EDDF7 /* CPDFSignatureEditViewController.swift */; };
-		D44AE6CFF73B9EE4C2CDC8A35941E59C /* CPDFStrikeoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CCE68E4722F1E32DC81A1D86F15DB /* CPDFStrikeoutViewController.swift */; };
-		D4DAEECAC07BC215B53AD921A379EEB6 /* CPDFSigntureVerifyDetailsCells.xib in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E174DF4DDF8BE63D3EA1FA9AB2B7F /* CPDFSigntureVerifyDetailsCells.xib */; };
-		D5BC8357055968E59AEDA4F554A64D8C /* CPDFSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F511CBA86FDE64D5714083E5440C719 /* CPDFSampleView.swift */; };
-		D751179385196928BAABF09A04AB0EA1 /* CPDFSignatureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA021C1DFA30B3E486207B2C1DBD601F /* CPDFSignatureViewCell.swift */; };
-		D75BF75D86E840374D9BAF3A6CC2A7E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		D76F2C5B9C956E7FDFEF715851C1EE80 /* CPDFMediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11046AB07756BCCA7A93A6CEBF194AC3 /* CPDFMediaManager.swift */; };
-		D8F7D289973CF1FE3C0A8ECDB7B33FD7 /* CPDFPDFInsertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF08EFB139DCAB1FBE3FBBAF3D042E8 /* CPDFPDFInsertViewController.swift */; };
-		DBED625B5A82DA35415154B44EA40D1F /* CPDFInkTopToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4E690402E5F33D37A8F5152CA1005F /* CPDFInkTopToolBar.swift */; };
-		DCCBC9CC90D01A4C08CC705E1BA4BF55 /* CPDFDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95793939FB63DDAF707D01AA06FC87B3 /* CPDFDropDownMenu.swift */; };
-		DCF40110AD07DDB763EA1257F799AB7D /* CPDFTextWatermarkSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276DD1F4CA21A5EE1B0B5821A04D137D /* CPDFTextWatermarkSettingViewController.swift */; };
-		DD8AF3FB31D3D3F74715F301A5831E8F /* CPDFListView+UndoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479DFA05E2F2892C3DA9753C51702357 /* CPDFListView+UndoManager.swift */; };
-		DE14310002B7B531BF52CF6071E3FD64 /* CPDFFormInputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BE0F4163A0F26324874805206C5FD /* CPDFFormInputTextView.swift */; };
-		E0EED8C9CE83316F868F20BA3E1F4795 /* CPDFEditTextSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC518322D683B288F266C88600D6E0 /* CPDFEditTextSampleView.swift */; };
-		E15F65C1D496652515FC97B25E6EBE2A /* CPDFCircleAnnotation+PDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E082EDCC4F4FD52789D3DA97AB2973D /* CPDFCircleAnnotation+PDFListView.swift */; };
-		E412C1449AE3E575BD0DAD610F843D29 /* CHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7C36EBD7566EE7ABAEE27B8C3B37F /* CHeaderView.swift */; };
-		E5500D7CD2E883B8FEEC24B40990F003 /* NSUserDefaults+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3EC0FCCA98A204A7F093BDCE9FB290 /* NSUserDefaults+Utils.swift */; };
-		E5EFA992FA0D6DBB1A464E82926D1AAB /* CBlankPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC8B69F975CC3A909D36BD9FB3E10D8 /* CBlankPageModel.swift */; };
-		E61587BFF0010059ACD3BDEFF8941326 /* CSignatureTypeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3F0498A30B68C3F1674612B7238F7 /* CSignatureTypeSelectView.swift */; };
-		E6545E26B032CAE60E1DF4A7AE0D077D /* CPDFPageEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F45721829D3BAD1FBF4C7F48EF2C /* CPDFPageEditViewController.swift */; };
-		E855A91AC81260B32677EA39C94FC7AA /* SignatureCustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6107ADDA1AC96DBC990280DA0A039F8A /* SignatureCustomPresentationController.swift */; };
-		E86F862EF8F7D950AF0C68081D11C78B /* CPDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C119C49ECC9487214615A854DFBDDE /* CPDFListView.swift */; };
-		E9B048CFA8A79CE860BFE084937BA9F6 /* CPDFSigntureVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7303A958391254E0B76013B37866F8F /* CPDFSigntureVerifyViewController.swift */; };
-		EB5B23A25C06FE89AA011BFBAEC06839 /* CPDFViewBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9573A6129BCDD3D37472A42268F0405 /* CPDFViewBaseController.swift */; };
-		EC00FAAB08943FE78EDF2D6E19F26AEB /* CPDFJSONDataParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E28F1C0A3E3CC36AC5558C9C4EBC38 /* CPDFJSONDataParse.swift */; };
-		EC22E9B8697A01FE3BA4BE5DA8EEDA39 /* KdanToolsKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F21E15CA76ACF15FE846862EDBD2EE7 /* KdanToolsKit-dummy.m */; };
-		EC7DD4A93D2F3811B72DAE245F61552E /* CPDFSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDB9922AACFD97C47ABED57E199F50 /* CPDFSlider.swift */; };
-		ED7D57041147350D74F60947E6F80444 /* CPDFWidgetAnnotation+PDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55179E44D5EF38DA7CFBC12777F35F7C /* CPDFWidgetAnnotation+PDFListView.swift */; };
-		EE551C0E3974CBDAF82A512F72B2FDC3 /* ComPDFKit_Tools.h in Headers */ = {isa = PBXBuildFile; fileRef = CB7CEFD2E3512CE49F0DB0047E3FAFBD /* ComPDFKit_Tools.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EF5FC522861C41B7D04D02689DD80C61 /* CTileWatermarkPreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE38943B2BCFD65FEA0501C64A22AA4 /* CTileWatermarkPreView.swift */; };
-		F072407F7B11D7E4E256F159D8DE702B /* CPDFBOTAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3410ACDE78468899C627C09DEE890E6C /* CPDFBOTAViewController.swift */; };
-		F2DBC45D6E21F8104D151C6108DA147E /* CPDFAnnotation+PDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA9FA868767C282509931243D23A44 /* CPDFAnnotation+PDFListView.swift */; };
+		BA2CB64152B015AB62E1AC128660CDB2 /* Pods-KdanToolsKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 13BDB9957866176E80A17F0587CA0A25 /* Pods-KdanToolsKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F133C4D725789048EF3D86411DB7CCD3 /* KdanToolsKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E43717534349E418451F9BB71BAD364 /* KdanToolsKit-dummy.m */; };
 		F53BAAD2002E35E5188AE80E05F6CEE0 /* Pods-KdanToolsKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C2693A4396E9FD305B7A6B4CA5B748 /* Pods-KdanToolsKit_Tests-dummy.m */; };
-		F633B474D62B22ACA33672DD906053F7 /* CPDFPopMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79213D08D3FECCD823C16EEB31A4490 /* CPDFPopMenuItem.swift */; };
-		F6463CDD9EBAC56DF78B6A495E70A2EE /* CPDFLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBC56EB7DFD0902B4EF61D8E397B6D2 /* CPDFLinkViewController.swift */; };
-		F841FABD4E393A70D03B0092A9AD8E98 /* CPDFEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCFC8FFD7114295DACDCB10A355207B /* CPDFEditViewController.swift */; };
-		F9EF3C582757DC42B79637FCBE7E3232 /* CNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DE081E2052CBFB388E59BDD926890 /* CNavigationController.swift */; };
-		FBEF95C74A20E79BA6C23D97B5E57404 /* CSignatureDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810EBA38E3EDF778E01739C656068192 /* CSignatureDrawView.swift */; };
-		FE2D1E5C5996A14291359C609739B2D6 /* CPDFPopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC665804235B5B7726FE1F7634781A5 /* CPDFPopMenu.swift */; };
-		FECF21807D4332B3E6ED8AF2D25C6748 /* CPDFLineAnnotation+PDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F2D1CCD359A6932B6B174C1A873E8 /* CPDFLineAnnotation+PDFListView.swift */; };
+		FCFC44193C3FE1FB9FDCFACCA0329226 /* Pods-KdanToolsKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C9D023EBA567EEDE1E19E2D5BC5700 /* Pods-KdanToolsKit_Example-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1A6B6C407AEC7C3ED48A18419D933F91 /* PBXContainerItemProxy */ = {
+		1041A415626EF9A1A9ADE7DBF94903D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A86AB4D148BC48EB1658A8390BD44E82;
-			remoteInfo = "Pods-KdanToolsKit_Example";
+			remoteGlobalIDString = 1E8F7349E745C0AE7F5F1321639BAB1D;
+			remoteInfo = ComPDFKit;
 		};
-		472134192F0B58863127501D3FE5EFBF /* PBXContainerItemProxy */ = {
+		765FA2623A1BD20C715B5CFAC02C0E97 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 082AB9600328DDF62A35A7A21B75F36D;
 			remoteInfo = KdanToolsKit;
 		};
+		A3B061F71E7605354FF0705D659E28A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E8F7349E745C0AE7F5F1321639BAB1D;
+			remoteInfo = ComPDFKit;
+		};
+		FB34A0C4CFCF14C6CBA9BA4BB98D03CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A86AB4D148BC48EB1658A8390BD44E82;
+			remoteInfo = "Pods-KdanToolsKit_Example";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0032A653EDD83A346013E44613D9F3AD /* StampCollectionHeaderView1.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StampCollectionHeaderView1.swift; sourceTree = "<group>"; };
-		0100B7BCC613AD864A80B3F937FC1E25 /* CAddSignatureViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CAddSignatureViewController.swift; sourceTree = "<group>"; };
-		01D67FA88393DF2F561929118583B9D0 /* CPDFOutlineViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFOutlineViewCell.swift; sourceTree = "<group>"; };
-		037A458D112C0B607D9C1E9B1D22720D /* CPDFFormComboxViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormComboxViewController.swift; sourceTree = "<group>"; };
-		047BE0F4163A0F26324874805206C5FD /* CPDFFormInputTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormInputTextView.swift; sourceTree = "<group>"; };
-		0554BC0CFAD085556FBC6AEA82418034 /* CPDFImagePropertyCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFImagePropertyCell.swift; sourceTree = "<group>"; };
-		06A0CAA62033F7FA8DCFC3A68C4FF961 /* CStampFileManger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CStampFileManger.swift; sourceTree = "<group>"; };
-		0771B733E15D7636619512D9ED72245E /* CNavigationRightView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CNavigationRightView.swift; sourceTree = "<group>"; };
+		058E322FF5A11B8D7B5BD2B21894951D /* KdanToolsKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KdanToolsKit-prefix.pch"; sourceTree = "<group>"; };
 		07DA414370282608719148A613E39699 /* Pods-KdanToolsKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KdanToolsKit_Example.release.xcconfig"; sourceTree = "<group>"; };
-		096AD4328BEC2D7C11DB23A3F8CC766F /* CSearchContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CSearchContentView.swift; sourceTree = "<group>"; };
-		09E28F1C0A3E3CC36AC5558C9C4EBC38 /* CPDFJSONDataParse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFJSONDataParse.swift; sourceTree = "<group>"; };
-		0A722192BB4243645CA1145FE13249BE /* CPDFChoiceWidgetAnnotation+PDFListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFChoiceWidgetAnnotation+PDFListView.swift"; sourceTree = "<group>"; };
-		0BC70B1934769DF03099796EA4187AA5 /* CPDFBookmarkViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFBookmarkViewCell.swift; sourceTree = "<group>"; };
-		0D22709FE6CDEC712D145193F725CDA2 /* CPDFSigntureCells.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CPDFSigntureCells.xib; sourceTree = "<group>"; };
-		0EC8CD832D668B5398D6AA0B67D542FB /* KdanToolsKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KdanToolsKit.release.xcconfig; sourceTree = "<group>"; };
-		0F9E174DF4DDF8BE63D3EA1FA9AB2B7F /* CPDFSigntureVerifyDetailsCells.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CPDFSigntureVerifyDetailsCells.xib; sourceTree = "<group>"; };
-		0FBB75D7C5D940C0390ACAD0B42757F2 /* CPDFHighlightViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFHighlightViewController.swift; sourceTree = "<group>"; };
-		0FDFEEBA152438AAD6264B125C140A8C /* KdanToolsKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KdanToolsKit.modulemap; sourceTree = "<group>"; };
-		10358F724648A68E0524AC167E5EB6C1 /* CPDFPopMenuView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFPopMenuView.swift; sourceTree = "<group>"; };
-		10606437853BDB16229D5AA3BAE4BE25 /* WPAutoSpringTextViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WPAutoSpringTextViewController.swift; sourceTree = "<group>"; };
-		11046AB07756BCCA7A93A6CEBF194AC3 /* CPDFMediaManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFMediaManager.swift; sourceTree = "<group>"; };
-		11F75E404E08772C1D92E8EBC9C4EEF1 /* CNavigationBarTitleButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CNavigationBarTitleButton.swift; sourceTree = "<group>"; };
 		13BDB9957866176E80A17F0587CA0A25 /* Pods-KdanToolsKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KdanToolsKit_Example-umbrella.h"; sourceTree = "<group>"; };
-		13FEDFFA0BBE74919F2B2C5551A5E99B /* CPDFDrawPencilKitFuncView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFDrawPencilKitFuncView.swift; sourceTree = "<group>"; };
 		16C2693A4396E9FD305B7A6B4CA5B748 /* Pods-KdanToolsKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KdanToolsKit_Tests-dummy.m"; sourceTree = "<group>"; };
-		18072BC4A3B376C2180C3AE1DA5B9DCF /* CStampTextViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CStampTextViewController.swift; sourceTree = "<group>"; };
-		1986D6C224891E8B4331A2360D33801F /* CPDFFormArrowCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormArrowCell.swift; sourceTree = "<group>"; };
-		19997D41649DC71027BBD139A6CCAF96 /* CPDFToolsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFToolsViewController.swift; sourceTree = "<group>"; };
-		1AA52E6474A6EF400807A880E8916505 /* CCreateCertificateInfoViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CCreateCertificateInfoViewController.swift; sourceTree = "<group>"; };
 		1B17FC2DD428F219DBB6AAF16FD66B73 /* Pods-KdanToolsKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KdanToolsKit_Example.modulemap"; sourceTree = "<group>"; };
-		1B3BB17633294066BC90C214B5B70B7A /* CPDFButtonWidgetAnnotation+PDFListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFButtonWidgetAnnotation+PDFListView.swift"; sourceTree = "<group>"; };
-		1CCEF66C926E1A3C1E8AA6A490C100CD /* CPDFFreeTextAnnotation+PDFListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFFreeTextAnnotation+PDFListView.swift"; sourceTree = "<group>"; };
-		1DA1F285DF89F9008804E322A787CA47 /* CPDFFormCheckBoxViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormCheckBoxViewController.swift; sourceTree = "<group>"; };
+		1E8B8E08AC0F7FA41D8335F60A59C39F /* CPDFAddWatermarkViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CPDFAddWatermarkViewController.swift; path = KdanToolsKit/Classes/CPDFAddWatermarkViewController.swift; sourceTree = "<group>"; };
 		1FB1A92167682E23E91FD7EE69A6C4FC /* Pods-KdanToolsKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KdanToolsKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		222B4CCC4DA6DCD213B2011418EC2731 /* CPDFPageIndicatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFPageIndicatorView.swift; sourceTree = "<group>"; };
-		237C2CA46356A471775A55124B9AA103 /* CPDFInfoTableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFInfoTableCell.swift; sourceTree = "<group>"; };
-		246971495EF7F4FE6F490F395D796BCA /* CPDFTextWidgetAnnotation+PDFListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFTextWidgetAnnotation+PDFListView.swift"; sourceTree = "<group>"; };
 		25379E38DCA4CE65A092DFA3EC578DC1 /* KdanToolsKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KdanToolsKit; path = KdanToolsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2585E5203BBB68C615F99E12B8D900A4 /* CFormStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CFormStyle.swift; sourceTree = "<group>"; };
-		259B5E432F37FF0A6BC430EDFC58CF07 /* CPDFFormSwitchView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormSwitchView.swift; sourceTree = "<group>"; };
-		25D5676BBE8A16AEE05A3596F7A53710 /* AnnotationUserDefaults.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = AnnotationUserDefaults.plist; sourceTree = "<group>"; };
-		26D1A38AB9D94A1F672EBDF20E6DC4D6 /* CPDFListView+ContentEditor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFListView+ContentEditor.swift"; sourceTree = "<group>"; };
-		27524F8F2F43ECE3C75C364CC9ADE295 /* CSearchToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CSearchToolbar.swift; sourceTree = "<group>"; };
-		276DD1F4CA21A5EE1B0B5821A04D137D /* CPDFTextWatermarkSettingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFTextWatermarkSettingViewController.swift; sourceTree = "<group>"; };
-		28C119C49ECC9487214615A854DFBDDE /* CPDFListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFListView.swift; sourceTree = "<group>"; };
-		2AE81B87C5E42E7247FC896440FE3BF8 /* CSignatureManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CSignatureManager.swift; sourceTree = "<group>"; };
-		2E1E64C4D5253FD66A614B353244D574 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		2E291ED5D7B6DE46A6B6FED8E3950D4A /* CLocationSelectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CLocationSelectView.swift; sourceTree = "<group>"; };
-		32C921C39A9BECE7507C35B39B0C2949 /* CPDFOpacitySliderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFOpacitySliderView.swift; sourceTree = "<group>"; };
-		3410ACDE78468899C627C09DEE890E6C /* CPDFBOTAViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFBOTAViewController.swift; sourceTree = "<group>"; };
-		3792DF8A6BD8F44CFCC5CD2275362E23 /* CDigitalPropertyTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CDigitalPropertyTableView.swift; sourceTree = "<group>"; };
-		3989970EB4D9D77035146C97B61DFE42 /* CPDFTipsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFTipsView.swift; sourceTree = "<group>"; };
-		398C7E2E3B43F04757429D7B524C5C85 /* CDigitalTypeSelectView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CDigitalTypeSelectView.xib; sourceTree = "<group>"; };
-		3B24D8C2642A8C505E13F6A0FF7F565D /* UIResponder+FirstResponder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIResponder+FirstResponder.swift"; sourceTree = "<group>"; };
-		3CDFB436E61AFCD7A117A6C958DA8063 /* CPDFListViewAnnotationConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFListViewAnnotationConfig.swift; sourceTree = "<group>"; };
-		3D734A58426DB4974C9EB510922BF64A /* CPDFSigntureDetailsCells.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSigntureDetailsCells.swift; sourceTree = "<group>"; };
-		3E171AADE85505FF3AD7DA37B8A7E992 /* CPDFSigntureVerifyDetailsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSigntureVerifyDetailsViewController.swift; sourceTree = "<group>"; };
+		2B0183423A949B2F26D421586230D9B3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		3E53082EB31F175DA92E125FC5151A1E /* Pods-KdanToolsKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KdanToolsKit_Tests-umbrella.h"; sourceTree = "<group>"; };
-		41B7A117AA09753A895E42BD6E56FE2E /* CPDFShapeArrowViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFShapeArrowViewController.swift; sourceTree = "<group>"; };
-		42A557B4578A8ACA181DC80198990AB7 /* CPDFFormTextViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormTextViewController.swift; sourceTree = "<group>"; };
-		42BF870557ACB48D1A53CCA647BDD3AF /* CLocationPropertiesViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CLocationPropertiesViewController.swift; sourceTree = "<group>"; };
-		43E524A6A01C91FDF7C5E5BE90960345 /* CImageWatermarkPreView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CImageWatermarkPreView.swift; sourceTree = "<group>"; };
-		461279B10917844CD398B32028F74991 /* CShapeSelectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CShapeSelectView.swift; sourceTree = "<group>"; };
-		46D3DD7B61C2605D4C16DA091B3FCE2B /* CImageSelectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CImageSelectView.swift; sourceTree = "<group>"; };
-		472BB194EA4FE6F98CD4491E4582694D /* CNavBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CNavBarButtonItem.swift; sourceTree = "<group>"; };
-		479DFA05E2F2892C3DA9753C51702357 /* CPDFListView+UndoManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFListView+UndoManager.swift"; sourceTree = "<group>"; };
-		48C7C36EBD7566EE7ABAEE27B8C3B37F /* CHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CHeaderView.swift; sourceTree = "<group>"; };
-		4CBEB2516F7DA05B81DB091454D9F1D8 /* CPDFKeyboardToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFKeyboardToolbar.swift; sourceTree = "<group>"; };
-		4F3EC0FCCA98A204A7F093BDCE9FB290 /* NSUserDefaults+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Utils.swift"; sourceTree = "<group>"; };
-		4F511CBA86FDE64D5714083E5440C719 /* CPDFSampleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSampleView.swift; sourceTree = "<group>"; };
-		50AE3AED018FF75EDBFCA339B871C6CD /* CPDFSearchViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSearchViewCell.swift; sourceTree = "<group>"; };
-		51EAED6D3E7CFDB35BB977C0B67551DF /* CPDFUnderlineViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFUnderlineViewController.swift; sourceTree = "<group>"; };
-		52FC518322D683B288F266C88600D6E0 /* CPDFEditTextSampleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFEditTextSampleView.swift; sourceTree = "<group>"; };
-		530F2D1CCD359A6932B6B174C1A873E8 /* CPDFLineAnnotation+PDFListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFLineAnnotation+PDFListView.swift"; sourceTree = "<group>"; };
-		55179E44D5EF38DA7CFBC12777F35F7C /* CPDFWidgetAnnotation+PDFListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFWidgetAnnotation+PDFListView.swift"; sourceTree = "<group>"; };
-		554BD74AECD78966857F53CB8417C798 /* CDigitalTypeSelectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CDigitalTypeSelectView.swift; sourceTree = "<group>"; };
-		55C8D45DB4624BF4B844B0BF89146AE9 /* CPDFSigntureDetailsFootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSigntureDetailsFootView.swift; sourceTree = "<group>"; };
+		43905A0067F401ABA8BAB1C1AAD784EC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		4C36A4FCEE69C746522D7F65B746B183 /* KdanToolsKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KdanToolsKit.debug.xcconfig; sourceTree = "<group>"; };
 		56C9D023EBA567EEDE1E19E2D5BC5700 /* Pods-KdanToolsKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KdanToolsKit_Example-dummy.m"; sourceTree = "<group>"; };
-		57E85A89C5040155688BCCB564A4FA6B /* CTileSelectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CTileSelectView.swift; sourceTree = "<group>"; };
-		5BFDB9922AACFD97C47ABED57E199F50 /* CPDFSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSlider.swift; sourceTree = "<group>"; };
 		5F4BD6CA40A58B2B6A3D9CE845A66B09 /* Pods-KdanToolsKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KdanToolsKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		5F9585BBEEA69D0B8ADC75C58248BCE2 /* CStringConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CStringConstants.swift; sourceTree = "<group>"; };
-		5FA63FD0F8BF388BB9968F574DD25518 /* CPDFAnnotationListCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFAnnotationListCell.swift; sourceTree = "<group>"; };
-		601B47CEFC47B7822141E83B26C00D1E /* CPDFColorPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFColorPickerView.swift; sourceTree = "<group>"; };
-		6107ADDA1AC96DBC990280DA0A039F8A /* SignatureCustomPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignatureCustomPresentationController.swift; sourceTree = "<group>"; };
-		6485B4832836DE349D986108F1799F1B /* CImportCertificateViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CImportCertificateViewController.swift; sourceTree = "<group>"; };
-		67C251714DDA2B12F8E45D8A06C2BB86 /* CPDFFreeTextViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFreeTextViewController.swift; sourceTree = "<group>"; };
-		6A5756B33A63D3C6D11DB2B9E54CA7EC /* CStampColorSelectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CStampColorSelectView.swift; sourceTree = "<group>"; };
-		6C7583C132225670F8B5F0E716811C22 /* CPDFInkViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFInkViewController.swift; sourceTree = "<group>"; };
-		6DEEC02A4113D1D8118BEFFBEC75D9C8 /* CReasonPropertiesViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CReasonPropertiesViewController.swift; sourceTree = "<group>"; };
-		6FBC56EB7DFD0902B4EF61D8E397B6D2 /* CPDFLinkViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFLinkViewController.swift; sourceTree = "<group>"; };
-		70400B9014D01462B55D079DB3CC1674 /* CPDFStampViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFStampViewController.swift; sourceTree = "<group>"; };
-		70432240E2ECC9196EA9592B891FA4B4 /* CCreateCertificateViewPasswordController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CCreateCertificateViewPasswordController.swift; sourceTree = "<group>"; };
-		7222AE1094BD5A1012786E557E0449A9 /* CTextWatermarkPreView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CTextWatermarkPreView.swift; sourceTree = "<group>"; };
-		722BFCEFEDAC17DAA9FBC2DAB14F896F /* CPDFSearchResultsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSearchResultsViewController.swift; sourceTree = "<group>"; };
+		6C3661FD819931551DBF1AB6E6F778B8 /* KdanToolsKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = KdanToolsKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		6DC03698FA337DA40C9D2FF7F74A5F3F /* ComPDFKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ComPDFKit.debug.xcconfig; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		736CCC890E72E576AF0354DDB2E4E2B9 /* CPDFOutlineModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFOutlineModel.swift; sourceTree = "<group>"; };
-		747A6773251F0F808CFD418628C23A34 /* CPDFNoteViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFNoteViewController.swift; sourceTree = "<group>"; };
-		74D6F57970B7A87125DB928DCB610445 /* CSearchTitleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CSearchTitleView.swift; sourceTree = "<group>"; };
-		751CCE68E4722F1E32DC81A1D86F15DB /* CPDFStrikeoutViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFStrikeoutViewController.swift; sourceTree = "<group>"; };
-		78763B693DE708786C022EAE0E2336C4 /* CPDFDrawArrowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFDrawArrowView.swift; sourceTree = "<group>"; };
-		79A3EE6E075906D277C1C464C144B181 /* CPDFDisplayViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFDisplayViewController.swift; sourceTree = "<group>"; };
-		7E1468EA5CA80B516F951F04D009A95B /* CPDFSigntureDetailsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSigntureDetailsViewController.swift; sourceTree = "<group>"; };
-		7EADD8317615E1945B41B86349AD1378 /* CPDFAnnotationBarButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFAnnotationBarButton.swift; sourceTree = "<group>"; };
-		810EBA38E3EDF778E01739C656068192 /* CSignatureDrawView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CSignatureDrawView.swift; sourceTree = "<group>"; };
-		8117FEDA3908CC686F850124B1D0E4C2 /* CPDFEditToolBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFEditToolBar.swift; sourceTree = "<group>"; };
-		81BDDFB1E67055965C5821FA3D7BB23C /* CPDFSigntureVerifyDetailsCells.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSigntureVerifyDetailsCells.swift; sourceTree = "<group>"; };
-		82BEC398C0D6EA2399230286AC5760CA /* CPDFFormArrowModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormArrowModel.swift; sourceTree = "<group>"; };
-		834FF92B307C9615D7D444D4A45D8264 /* CPDFSigntureListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSigntureListViewController.swift; sourceTree = "<group>"; };
-		83D828874BDA7421518691878A7C4ACF /* CPDFSquareAnnotation+PDFListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFSquareAnnotation+PDFListView.swift"; sourceTree = "<group>"; };
-		8595F41E09B4F0B5C9E0D1C5F57991FC /* CReasonPropertiesCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CReasonPropertiesCell.swift; sourceTree = "<group>"; };
-		87F1409C16973C5B3CB0585E49F45688 /* CPDFSignatureViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSignatureViewController.swift; sourceTree = "<group>"; };
-		8843B0E03F9216E60A0196A0F7007E7D /* CPDFPageInsertViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFPageInsertViewController.swift; sourceTree = "<group>"; };
-		887781C86D1718C60C283D4114BE0EF6 /* CPDFPageEditViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFPageEditViewCell.swift; sourceTree = "<group>"; };
-		894146C0A187E5374775A27637D35A0C /* CPDFListView+Annotation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFListView+Annotation.swift"; sourceTree = "<group>"; };
-		895758F826FB6E9F2F338917F5D03EB3 /* CStampPreview.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CStampPreview.swift; sourceTree = "<group>"; };
-		899F2EDC62157D9FEE36A584A7C62643 /* CPDFSigntureViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSigntureViewController.swift; sourceTree = "<group>"; };
-		8D4E690402E5F33D37A8F5152CA1005F /* CPDFInkTopToolBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFInkTopToolBar.swift; sourceTree = "<group>"; };
-		8E082EDCC4F4FD52789D3DA97AB2973D /* CPDFCircleAnnotation+PDFListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFCircleAnnotation+PDFListView.swift"; sourceTree = "<group>"; };
-		8E5DE081E2052CBFB388E59BDD926890 /* CNavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CNavigationController.swift; sourceTree = "<group>"; };
-		914C382A404DF932B56883775613FBA8 /* CPDFSecureViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSecureViewController.swift; sourceTree = "<group>"; };
-		91ECEA6D7FE2835206ACB68D5F902246 /* StampCollectionHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StampCollectionHeaderView.swift; sourceTree = "<group>"; };
+		7CB6CDF95FA7FBFDB00093CF15835B95 /* KdanToolsKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KdanToolsKit-umbrella.h"; sourceTree = "<group>"; };
+		8E43717534349E418451F9BB71BAD364 /* KdanToolsKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KdanToolsKit-dummy.m"; sourceTree = "<group>"; };
 		92306E5DA940E1B690E3FFE5C79820B6 /* Pods-KdanToolsKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KdanToolsKit_Tests.modulemap"; sourceTree = "<group>"; };
-		92C6C1B33D4C3D3767A04ECF23A85891 /* CAnnotStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CAnnotStyle.swift; sourceTree = "<group>"; };
-		94D84489CC144A0B5FA4AB97A5A6D691 /* CPDFFormBaseViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormBaseViewController.swift; sourceTree = "<group>"; };
-		94E353B7B0A5A0CBF6B2389DF3EC6FD6 /* CSearchSettingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CSearchSettingViewController.swift; sourceTree = "<group>"; };
-		950F26033718D30900A5FF480B54FF7A /* CPDFAnnotationViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFAnnotationViewController.swift; sourceTree = "<group>"; };
-		95793939FB63DDAF707D01AA06FC87B3 /* CPDFDropDownMenu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFDropDownMenu.swift; sourceTree = "<group>"; };
-		95BECD9872528D7A817D4AB606108CDE /* CActivityIndicatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CActivityIndicatorView.swift; sourceTree = "<group>"; };
-		96141897D45540C55553EE1BDAE4FCCF /* CPDFAnnotationHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFAnnotationHeader.swift; sourceTree = "<group>"; };
-		980C868509FD2A0CAB89E53C3B78A1D1 /* CPDFAnnotationBaseViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFAnnotationBaseViewController.swift; sourceTree = "<group>"; };
-		98147DBFE69A0E352A9C9D1575C4CA14 /* CPDFArrowStyleTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFArrowStyleTableView.swift; sourceTree = "<group>"; };
-		98EB75B67F587429AE84971787956CF3 /* CPDFImageProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFImageProperty.swift; sourceTree = "<group>"; };
-		9C35F45721829D3BAD1FBF4C7F48EF2C /* CPDFPageEditViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFPageEditViewController.swift; sourceTree = "<group>"; };
-		9C9AAD6A22404B13BCFF72F1FCC89BC8 /* CPDFThumbnailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFThumbnailViewController.swift; sourceTree = "<group>"; };
-		9CB042C66E3CD630332B640FA4F3FE87 /* UIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F21E15CA76ACF15FE846862EDBD2EE7 /* KdanToolsKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KdanToolsKit-dummy.m"; sourceTree = "<group>"; };
-		9F75EC5E75152FB87050130E14A04FBA /* CPDFInfoViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFInfoViewController.swift; sourceTree = "<group>"; };
-		A0378511043EDAAF0A7E2CBDE2D06E99 /* CStampShapView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CStampShapView.swift; sourceTree = "<group>"; };
-		A448787FB1AF7A28BA905D784F548641 /* CPDFSigntureDetailsCells.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CPDFSigntureDetailsCells.xib; sourceTree = "<group>"; };
-		A504C6AC1543F38A2CD4AE36B7720DA9 /* CPDFFormToolBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormToolBar.swift; sourceTree = "<group>"; };
-		A60B248EF9D58D0761A9D16B06C8E3E7 /* UIViewController+LeftItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+LeftItem.swift"; sourceTree = "<group>"; };
-		A7303A958391254E0B76013B37866F8F /* CPDFSigntureVerifyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSigntureVerifyViewController.swift; sourceTree = "<group>"; };
-		A7599ADEAA631F72958FB8A0614BB12B /* CPDFSigntureVerifyCells.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = CPDFSigntureVerifyCells.xib; sourceTree = "<group>"; };
-		A895E8B3B71F1C274E8A12864201A765 /* KdanToolsKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KdanToolsKit-umbrella.h"; sourceTree = "<group>"; };
-		A9AC7A06C92DE1F907D4E5AA9B4C7F06 /* CPDFDigitalSignatureToolBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFDigitalSignatureToolBar.swift; sourceTree = "<group>"; };
-		AA7C466C18252B4E5803D5631BEACD8F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		A357325C180CB24F9092D7156EDB5FC7 /* ComPDFKit.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = ComPDFKit.xcframework; path = Lib/ComPDFKit.xcframework; sourceTree = "<group>"; };
 		ABDF692F10BD51876D04B062D395233E /* Pods-KdanToolsKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KdanToolsKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		ACF3F0498A30B68C3F1674612B7238F7 /* CSignatureTypeSelectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CSignatureTypeSelectView.swift; sourceTree = "<group>"; };
-		AD63B87DBABB24DC152D9B38FA3BC464 /* CPDFFormTextFieldView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormTextFieldView.swift; sourceTree = "<group>"; };
-		ADE19AD5E54845FCD22B589CE5389028 /* CPDFColorSelectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFColorSelectView.swift; sourceTree = "<group>"; };
-		AF9450BF8B03260022AC7DA22861A10A /* CPDFSigntureCells.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSigntureCells.swift; sourceTree = "<group>"; };
-		AFA9ADD45741E845A9D041E1795E693E /* KdanToolsKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KdanToolsKit-Info.plist"; sourceTree = "<group>"; };
 		B2E9B387862AE5F55DA6007AF728F576 /* Pods-KdanToolsKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KdanToolsKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B41B4BBE62819D377FF5B497FE6ABF78 /* CPDFColorUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFColorUtils.swift; sourceTree = "<group>"; };
-		B4D82FD3842BA8BAA776768DF74DDFB3 /* CPDFConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFConfiguration.swift; sourceTree = "<group>"; };
-		B625DBBB8A789C67ECAB9B5EA2843542 /* KdanToolsKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KdanToolsKit.debug.xcconfig; sourceTree = "<group>"; };
-		B66EB4A4FC87B7D7EE624925DD0F92C5 /* CPDFNoteOpenViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFNoteOpenViewController.swift; sourceTree = "<group>"; };
-		B71BC05A57DE260C7885E0AC8930AD59 /* CPDFThumbnailViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFThumbnailViewCell.swift; sourceTree = "<group>"; };
-		BA021C1DFA30B3E486207B2C1DBD601F /* CPDFSignatureViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSignatureViewCell.swift; sourceTree = "<group>"; };
-		BAAEDB8B3DB67BCD313D2AF147D38594 /* CPDFFormLinkViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormLinkViewController.swift; sourceTree = "<group>"; };
-		BAC665804235B5B7726FE1F7634781A5 /* CPDFPopMenu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFPopMenu.swift; sourceTree = "<group>"; };
-		BB53D3369FB775D81DC5F4EF51480A35 /* CPDFImageWatermarkSettingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFImageWatermarkSettingViewController.swift; sourceTree = "<group>"; };
-		BB95AC8065F5F7227A8A5CC72E95B6EA /* CInsertBlankPageCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CInsertBlankPageCell.swift; sourceTree = "<group>"; };
+		B552D79F31C6FA4DB8EFEBCA1FA862A7 /* KdanToolsKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KdanToolsKit.release.xcconfig; sourceTree = "<group>"; };
 		BC9C009675694EACB81A07E4885D4B7F /* Pods-KdanToolsKit_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-KdanToolsKit_Example"; path = Pods_KdanToolsKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC1CA0766BB04D8BAE35173FDB05503 /* Pods-KdanToolsKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KdanToolsKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BD7FC7DF169D7C46BCE893A1DB16DA75 /* Pods-KdanToolsKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KdanToolsKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		BEC5CC9DAC4CBC99D226CA0AB4103483 /* CPDFSignatureWidgetAnnotation+PDFListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFSignatureWidgetAnnotation+PDFListView.swift"; sourceTree = "<group>"; };
-		BEDA787326F9F2AAE1E5134213121F31 /* CPDFFormListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormListViewController.swift; sourceTree = "<group>"; };
-		C0C508A5087A7FAADEE208DE206DEA82 /* CPDFSquigglyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSquigglyViewController.swift; sourceTree = "<group>"; };
-		C28D7800E7B306DE4DB3D2D3EA212D9C /* CPDFBookmarkViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFBookmarkViewController.swift; sourceTree = "<group>"; };
-		C307206E85B694C5B2A8DD38029E6D50 /* CPDFAnnotationToolBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFAnnotationToolBar.swift; sourceTree = "<group>"; };
-		C3BE0DB3D86FFD697CBF128BAB861C34 /* CPDFFontAlignView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFontAlignView.swift; sourceTree = "<group>"; };
+		C40F3E0EDFD3C040CDF11EE0CBA54A6D /* ComPDFKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ComPDFKit.release.xcconfig; sourceTree = "<group>"; };
 		C6BDBBBE94476874C1BF12ADF2238C67 /* Pods-KdanToolsKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KdanToolsKit_Example-Info.plist"; sourceTree = "<group>"; };
-		C8E66C79D9158D8278104473D63DEB00 /* CPDFShapeCircleViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFShapeCircleViewController.swift; sourceTree = "<group>"; };
+		C869AE458DC85C99C63356EE0B1F1048 /* KdanToolsKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KdanToolsKit.modulemap; sourceTree = "<group>"; };
 		C9C7CA00B300541CBC54AE59145828C9 /* Pods-KdanToolsKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KdanToolsKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CA3A088CEFAB256569B707C0CE44811A /* Pods-KdanToolsKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KdanToolsKit_Example-frameworks.sh"; sourceTree = "<group>"; };
-		CB7CEFD2E3512CE49F0DB0047E3FAFBD /* ComPDFKit_Tools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ComPDFKit_Tools.h; path = KdanToolsKit/Classes/ComPDFKit_Tools.h; sourceTree = "<group>"; };
-		CCF08EFB139DCAB1FBE3FBBAF3D042E8 /* CPDFPDFInsertViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFPDFInsertViewController.swift; sourceTree = "<group>"; };
-		CDCFC8FFD7114295DACDCB10A355207B /* CPDFEditViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFEditViewController.swift; sourceTree = "<group>"; };
-		CDE38943B2BCFD65FEA0501C64A22AA4 /* CTileWatermarkPreView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CTileWatermarkPreView.swift; sourceTree = "<group>"; };
-		CE660A654700697222735719B190212E /* CPDFListView+Form.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFListView+Form.swift"; sourceTree = "<group>"; };
-		D3523876FA2742489B5515C8752027FE /* CPDFAddWatermarkViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFAddWatermarkViewController.swift; sourceTree = "<group>"; };
-		D3B1C69642069C70779EE31445368918 /* CPDFFormListOptionVC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormListOptionVC.swift; sourceTree = "<group>"; };
-		D5FA2C4652C1D0F89A86F4DFACE7DE65 /* CPDFDisplayModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFDisplayModel.swift; sourceTree = "<group>"; };
-		D7BE86DD88554E2247E98BB297967510 /* CWatermarkModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CWatermarkModel.swift; sourceTree = "<group>"; };
-		D7F275F44644752BDBDF3EF19FB36D01 /* CPDFAnnotionColorDrawView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFAnnotionColorDrawView.swift; sourceTree = "<group>"; };
-		D8410FFD443F6FD5881691FE7B8F6681 /* UIPopBackgroundView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIPopBackgroundView.swift; sourceTree = "<group>"; };
-		D8903E1482A733BEF847FD2BE59B89F8 /* CSignatureTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CSignatureTextField.swift; sourceTree = "<group>"; };
-		DAA3F3FF77483748515E496A49C9BE6A /* CPDFFormArrowStyleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormArrowStyleView.swift; sourceTree = "<group>"; };
-		DBB501BCC63A2EB8E507B83E4907B147 /* CPDFSoundPlayBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSoundPlayBar.swift; sourceTree = "<group>"; };
-		DF1CFA6B37148F512166C125032EDDF7 /* CPDFSignatureEditViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSignatureEditViewController.swift; sourceTree = "<group>"; };
-		DFA7406FBBCFDE5983903F1725AD8B4A /* CInputTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CInputTextField.swift; sourceTree = "<group>"; };
-		DFBC438AF67712DB529DAD3E84BF08F2 /* CAddSignatureCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CAddSignatureCell.swift; sourceTree = "<group>"; };
-		DFC8B69F975CC3A909D36BD9FB3E10D8 /* CBlankPageModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CBlankPageModel.swift; sourceTree = "<group>"; };
-		E0F5EC6A568C8159A30DD58CD7BAC789 /* CPDFTextProperty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFTextProperty.swift; sourceTree = "<group>"; };
+		CF155D377F49B795C3F9A9E9B04399FC /* ComPDFKit-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "ComPDFKit-xcframeworks.sh"; sourceTree = "<group>"; };
 		E0FF3783F238E27D5DC6CD0505EFA7F1 /* Pods-KdanToolsKit_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-KdanToolsKit_Tests"; path = Pods_KdanToolsKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E375AE71CE87B81146A02D3AA564352A /* CPDFFormRadioButtonViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormRadioButtonViewController.swift; sourceTree = "<group>"; };
-		E47BC012983E7DABB2DCE6CB16248BE7 /* CCustomizeStampTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CCustomizeStampTableViewCell.swift; sourceTree = "<group>"; };
-		E5C368CA3D3D0844D1404648BD1B3E78 /* CPageEditToolBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPageEditToolBar.swift; sourceTree = "<group>"; };
-		E685A173CFD8B3192F0A674EAE5FC460 /* CStampButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CStampButton.swift; sourceTree = "<group>"; };
-		E8289D647AF6B280BB062273AF6F80D6 /* CPDFSigntureVerifyCells.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSigntureVerifyCells.swift; sourceTree = "<group>"; };
-		E98927693FC6739FF1689C8EF2C1A26B /* CDocumentPasswordViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CDocumentPasswordViewController.swift; sourceTree = "<group>"; };
-		E9B0B560268DBC2EED69590E58CEABB0 /* CAnnotationManage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CAnnotationManage.swift; sourceTree = "<group>"; };
-		E9FFDF8F4596090434E217050CF995B7 /* CPDFEditFontNameSelectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFEditFontNameSelectView.swift; sourceTree = "<group>"; };
-		EC8BBA8A88BBD1438E5D077A085E2B1D /* CPDFDisplayTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFDisplayTableViewCell.swift; sourceTree = "<group>"; };
-		ED0058DD4C72C0F05B3537574F679752 /* CPDFArrowStyleCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFArrowStyleCell.swift; sourceTree = "<group>"; };
-		EDA9BB048FE9571C338272BC599BB3BD /* CPDFThicknessSliderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFThicknessSliderView.swift; sourceTree = "<group>"; };
-		EECA9FA868767C282509931243D23A44 /* CPDFAnnotation+PDFListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CPDFAnnotation+PDFListView.swift"; sourceTree = "<group>"; };
-		F09F84491D0184182CAD7BC42AF8857D /* CPDFOutlineViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFOutlineViewController.swift; sourceTree = "<group>"; };
-		F1C73ACC8CDEC492E48A90C64D5270E9 /* CPDFTextPropertyCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFTextPropertyCell.swift; sourceTree = "<group>"; };
-		F2DE20CCD3571D5B7743C71E4415100B /* KdanToolsKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = KdanToolsKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F3BEF06868D763560B77C51B8F18C6EC /* CPDFDigitalSignatureEditViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFDigitalSignatureEditViewController.swift; sourceTree = "<group>"; };
-		F5650F18C7C2348A53CC68D6620C61F3 /* CPDFArrowStyleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFArrowStyleView.swift; sourceTree = "<group>"; };
-		F59F6B1575EDA0933B04812616A639F0 /* KdanToolsKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KdanToolsKit-prefix.pch"; sourceTree = "<group>"; };
-		F5E7B1D5857222E65CD5A5052C3972D5 /* CPDFFormButtonViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFormButtonViewController.swift; sourceTree = "<group>"; };
-		F68CE25ACE1402B839ABE58A6EA76E7F /* CPDFSigntureVerifyDetailsTopCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFSigntureVerifyDetailsTopCell.swift; sourceTree = "<group>"; };
+		E2B710820581043D122B6E58736CD543 /* KdanToolsKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KdanToolsKit-Info.plist"; sourceTree = "<group>"; };
 		F71473065B418BF303020CD06CBFAC81 /* Pods-KdanToolsKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KdanToolsKit_Tests-Info.plist"; sourceTree = "<group>"; };
-		F79213D08D3FECCD823C16EEB31A4490 /* CPDFPopMenuItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFPopMenuItem.swift; sourceTree = "<group>"; };
-		F9573A6129BCDD3D37472A42268F0405 /* CPDFViewBaseController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFViewBaseController.swift; sourceTree = "<group>"; };
-		FB1D874594882117DF09A72CB3F5D52B /* CPageRangeSelectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPageRangeSelectView.swift; sourceTree = "<group>"; };
-		FB555625B6ADC43D55EE0307F1FF469A /* CPDFEditImageSampleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFEditImageSampleView.swift; sourceTree = "<group>"; };
-		FC5AE53F18C58832681BF8F9C75EA11D /* CAnnotListHeaderInSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CAnnotListHeaderInSection.swift; sourceTree = "<group>"; };
-		FE1A555CE60D2B51F1C33B80EF8E8531 /* AAPLCustomPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AAPLCustomPresentationController.swift; sourceTree = "<group>"; };
-		FEA37F7DB46B978D509A9A11EC3FB9C6 /* CStampCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CStampCollectionViewCell.swift; sourceTree = "<group>"; };
-		FEB76995FCDEA0F7F319019CC5253F3B /* CPDFFontStyleTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFontStyleTableView.swift; sourceTree = "<group>"; };
-		FF81CDFFCE2BA35A93D47D8B6965619A /* CPDFFontSettingSubView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPDFFontSettingSubView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,347 +112,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		79DF880432B2E78F472D8AF38A6F13D8 /* Frameworks */ = {
+		3A6AA8E0AAF4017E995D210250D2F36B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D75BF75D86E840374D9BAF3A6CC2A7E8 /* Foundation.framework in Frameworks */,
+				340C015E7A718B10235B4AB0DE9DC240 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A9BAF1F9099A531003522887DEC37173 /* Frameworks */ = {
+		A49A3A499CD11D48D0F15179164B1246 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F78DBA279D830390DDEF8BD418A86C2 /* Foundation.framework in Frameworks */,
+				54D481CFA0FC1A2681BAD72A9ECDF6F6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		030F5A34AA4BD31E3D9E41A2AFE918F8 /* Model */ = {
+		460928B63DD1809F38135E912CD6C804 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2585E5203BBB68C615F99E12B8D900A4 /* CFormStyle.swift */,
-				82BEC398C0D6EA2399230286AC5760CA /* CPDFFormArrowModel.swift */,
+				D9CC6757C5E404188D41A7E0B8E11EDB /* ComPDFKit */,
 			);
-			name = Model;
-			path = Model;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		07A833A9108E6A44E4A07ED89280F19D /* Control */ = {
+		549D8CDCC9A52A784DEAF25E8A7DAE0C /* KdanToolsKit */ = {
 			isa = PBXGroup;
 			children = (
-				8843B0E03F9216E60A0196A0F7007E7D /* CPDFPageInsertViewController.swift */,
-				CCF08EFB139DCAB1FBE3FBBAF3D042E8 /* CPDFPDFInsertViewController.swift */,
+				1E8B8E08AC0F7FA41D8335F60A59C39F /* CPDFAddWatermarkViewController.swift */,
+				954CF9F88EB2F96C42A292B44D259F21 /* Pod */,
+				7C2CAC0F402A3016C61C80D216662A52 /* Support Files */,
 			);
-			name = Control;
-			path = Control;
-			sourceTree = "<group>";
-		};
-		0A33E0A02CAE27F410F4ADDE1AA42DA1 /* PDFSearch */ = {
-			isa = PBXGroup;
-			children = (
-				722BFCEFEDAC17DAA9FBC2DAB14F896F /* CPDFSearchResultsViewController.swift */,
-				50AE3AED018FF75EDBFCA339B871C6CD /* CPDFSearchViewCell.swift */,
-				096AD4328BEC2D7C11DB23A3F8CC766F /* CSearchContentView.swift */,
-				94E353B7B0A5A0CBF6B2389DF3EC6FD6 /* CSearchSettingViewController.swift */,
-				74D6F57970B7A87125DB928DCB610445 /* CSearchTitleView.swift */,
-				27524F8F2F43ECE3C75C364CC9ADE295 /* CSearchToolbar.swift */,
-			);
-			name = PDFSearch;
-			path = PDFSearch;
-			sourceTree = "<group>";
-		};
-		0B38E2B5149409A82598F53EB9A5B1E5 /* PDFUnderline */ = {
-			isa = PBXGroup;
-			children = (
-				51EAED6D3E7CFDB35BB977C0B67551DF /* CPDFUnderlineViewController.swift */,
-			);
-			name = PDFUnderline;
-			path = PDFUnderline;
-			sourceTree = "<group>";
-		};
-		0C2234A176CE65E33D336EF59EC68EF7 /* PDFThumbnail */ = {
-			isa = PBXGroup;
-			children = (
-				B71BC05A57DE260C7885E0AC8930AD59 /* CPDFThumbnailViewCell.swift */,
-				9C9AAD6A22404B13BCFF72F1FCC89BC8 /* CPDFThumbnailViewController.swift */,
-			);
-			name = PDFThumbnail;
-			path = PDFThumbnail;
-			sourceTree = "<group>";
-		};
-		0CFEA38D14BF86F51BBFCEDC2534DBA6 /* BOTA */ = {
-			isa = PBXGroup;
-			children = (
-				3410ACDE78468899C627C09DEE890E6C /* CPDFBOTAViewController.swift */,
-			);
-			name = BOTA;
-			path = BOTA;
-			sourceTree = "<group>";
-		};
-		13B958F9D65ACE58AB5EB4C9F694BE21 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				19997D41649DC71027BBD139A6CCAF96 /* CPDFToolsViewController.swift */,
-			);
-			name = Tools;
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		1627A68FA95AD385A79A242C9EC6E97D /* PDFStrikeout */ = {
-			isa = PBXGroup;
-			children = (
-				751CCE68E4722F1E32DC81A1D86F15DB /* CPDFStrikeoutViewController.swift */,
-			);
-			name = PDFStrikeout;
-			path = PDFStrikeout;
-			sourceTree = "<group>";
-		};
-		16B3A74482BB6EFFA7A765D60BF9B254 /* Forms */ = {
-			isa = PBXGroup;
-			children = (
-				EEA98C9A66390929C630F2FD655372B5 /* PDFFormBar */,
-				EADB44326355F829768B81A00D9E19C5 /* PDFFormProperties */,
-			);
-			name = Forms;
-			path = KdanToolsKit/Classes/Forms;
-			sourceTree = "<group>";
-		};
-		17147C66EF93829D703B5F56F79D912B /* PDFSound */ = {
-			isa = PBXGroup;
-			children = (
-				11046AB07756BCCA7A93A6CEBF194AC3 /* CPDFMediaManager.swift */,
-				DBB501BCC63A2EB8E507B83E4907B147 /* CPDFSoundPlayBar.swift */,
-			);
-			name = PDFSound;
-			path = PDFSound;
-			sourceTree = "<group>";
-		};
-		18953138EDB96C196EBC449389935801 /* PDFAnnotationManage */ = {
-			isa = PBXGroup;
-			children = (
-				25D5676BBE8A16AEE05A3596F7A53710 /* AnnotationUserDefaults.plist */,
-				E9B0B560268DBC2EED69590E58CEABB0 /* CAnnotationManage.swift */,
-				92C6C1B33D4C3D3767A04ECF23A85891 /* CAnnotStyle.swift */,
-			);
-			name = PDFAnnotationManage;
-			path = PDFAnnotationManage;
-			sourceTree = "<group>";
-		};
-		218B8968BD2994557A60F40479204FC1 /* PDFPageEdit */ = {
-			isa = PBXGroup;
-			children = (
-				D21A530FFDFF490D8511B157D9BD295D /* Control */,
-				9A9F8F646BA8DD23B9E2CC16D32A2D69 /* View */,
-			);
-			name = PDFPageEdit;
-			path = PDFPageEdit;
-			sourceTree = "<group>";
-		};
-		2204C75F8E143AAA53562DF2F9380465 /* PDFPageEditInsert */ = {
-			isa = PBXGroup;
-			children = (
-				07A833A9108E6A44E4A07ED89280F19D /* Control */,
-				B63E0352F14A8A0CC2BFE311E00B24DD /* Model */,
-				9220ECC3F94D7CD6327ECDB2ED7C0B20 /* View */,
-			);
-			name = PDFPageEditInsert;
-			path = PDFPageEditInsert;
-			sourceTree = "<group>";
-		};
-		2453B95462D10575AFBD9D6E6BBD4919 /* PDFPageIndicatorView */ = {
-			isa = PBXGroup;
-			children = (
-				222B4CCC4DA6DCD213B2011418EC2731 /* CPDFPageIndicatorView.swift */,
-			);
-			name = PDFPageIndicatorView;
-			path = PDFPageIndicatorView;
-			sourceTree = "<group>";
-		};
-		25B34F519C02869DCD848B1D01F3DDE5 /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-				0CFEA38D14BF86F51BBFCEDC2534DBA6 /* BOTA */,
-				E3E8DE4409916F7557782BC7D06B424A /* PDFNavigationController */,
-				9258DC0B11432C5AFF45BD6311A4456E /* PDFViewController */,
-				13B958F9D65ACE58AB5EB4C9F694BE21 /* Tools */,
-			);
-			name = Controls;
-			path = Controls;
-			sourceTree = "<group>";
-		};
-		2AE303ED9D346245402E9A52061D6907 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				7E1468EA5CA80B516F951F04D009A95B /* CPDFSigntureDetailsViewController.swift */,
-				834FF92B307C9615D7D444D4A45D8264 /* CPDFSigntureListViewController.swift */,
-				3E171AADE85505FF3AD7DA37B8A7E992 /* CPDFSigntureVerifyDetailsViewController.swift */,
-				A7303A958391254E0B76013B37866F8F /* CPDFSigntureVerifyViewController.swift */,
-				899F2EDC62157D9FEE36A584A7C62643 /* CPDFSigntureViewController.swift */,
-			);
-			name = Controller;
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		2C6C6A867F6D48B0E22DDB56FC1CD112 /* DocsEditor */ = {
-			isa = PBXGroup;
-			children = (
-				218B8968BD2994557A60F40479204FC1 /* PDFPageEdit */,
-				6DE25FA8A54B51B13C40548E051E2990 /* PDFPageEditBar */,
-				2204C75F8E143AAA53562DF2F9380465 /* PDFPageEditInsert */,
-			);
-			name = DocsEditor;
-			path = KdanToolsKit/Classes/DocsEditor;
-			sourceTree = "<group>";
-		};
-		2DE2548740FCD0E8D8D1B8A6538F87F8 /* PDFActivityIndicatorView */ = {
-			isa = PBXGroup;
-			children = (
-				95BECD9872528D7A817D4AB606108CDE /* CActivityIndicatorView.swift */,
-			);
-			name = PDFActivityIndicatorView;
-			path = PDFActivityIndicatorView;
-			sourceTree = "<group>";
-		};
-		2E4D886776E4DBFF80BDC80D1683EBD5 /* Annotations */ = {
-			isa = PBXGroup;
-			children = (
-				DF520BD9A4817298A93EBADA07589EBD /* PDFAnnatationList */,
-				CEF97BC5F66A41F153BB3FCAA0CBADD5 /* PDFAnnotationBar */,
-				A59C62B8D5D4249A273FD7057223D7D6 /* PDFAnnotationProperties */,
-			);
-			name = Annotations;
-			path = KdanToolsKit/Classes/Annotations;
-			sourceTree = "<group>";
-		};
-		3273DA8EE84D1E93BEAADA4BD84B7603 /* PDFDisplaySetting */ = {
-			isa = PBXGroup;
-			children = (
-				D5FA2C4652C1D0F89A86F4DFACE7DE65 /* CPDFDisplayModel.swift */,
-				EC8BBA8A88BBD1438E5D077A085E2B1D /* CPDFDisplayTableViewCell.swift */,
-				79A3EE6E075906D277C1C464C144B181 /* CPDFDisplayViewController.swift */,
-			);
-			name = PDFDisplaySetting;
-			path = PDFDisplaySetting;
-			sourceTree = "<group>";
-		};
-		32CD4CCD824AE50587A55BB02124E402 /* PDFHighlight */ = {
-			isa = PBXGroup;
-			children = (
-				0FBB75D7C5D940C0390ACAD0B42757F2 /* CPDFHighlightViewController.swift */,
-			);
-			name = PDFHighlight;
-			path = PDFHighlight;
-			sourceTree = "<group>";
-		};
-		33F9F674EAFC0F94B41C87CC605D96E4 /* PDFStamp */ = {
-			isa = PBXGroup;
-			children = (
-				E47BC012983E7DABB2DCE6CB16248BE7 /* CCustomizeStampTableViewCell.swift */,
-				70400B9014D01462B55D079DB3CC1674 /* CPDFStampViewController.swift */,
-				E685A173CFD8B3192F0A674EAE5FC460 /* CStampButton.swift */,
-				FEA37F7DB46B978D509A9A11EC3FB9C6 /* CStampCollectionViewCell.swift */,
-				6A5756B33A63D3C6D11DB2B9E54CA7EC /* CStampColorSelectView.swift */,
-				06A0CAA62033F7FA8DCFC3A68C4FF961 /* CStampFileManger.swift */,
-				895758F826FB6E9F2F338917F5D03EB3 /* CStampPreview.swift */,
-				A0378511043EDAAF0A7E2CBDE2D06E99 /* CStampShapView.swift */,
-				18072BC4A3B376C2180C3AE1DA5B9DCF /* CStampTextViewController.swift */,
-				91ECEA6D7FE2835206ACB68D5F902246 /* StampCollectionHeaderView.swift */,
-				0032A653EDD83A346013E44613D9F3AD /* StampCollectionHeaderView1.swift */,
-			);
-			name = PDFStamp;
-			path = PDFStamp;
-			sourceTree = "<group>";
-		};
-		373578A76AAA364CF435D765BEE33E2D /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				FE1A555CE60D2B51F1C33B80EF8E8531 /* AAPLCustomPresentationController.swift */,
-				E98927693FC6739FF1689C8EF2C1A26B /* CDocumentPasswordViewController.swift */,
-				B41B4BBE62819D377FF5B497FE6ABF78 /* CPDFColorUtils.swift */,
-				95793939FB63DDAF707D01AA06FC87B3 /* CPDFDropDownMenu.swift */,
-				09E28F1C0A3E3CC36AC5558C9C4EBC38 /* CPDFJSONDataParse.swift */,
-				5F9585BBEEA69D0B8ADC75C58248BCE2 /* CStringConstants.swift */,
-				4F3EC0FCCA98A204A7F093BDCE9FB290 /* NSUserDefaults+Utils.swift */,
-			);
-			name = Utils;
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		398774C6AB1BF9CCD613A8637C46E829 /* PDFSliderView */ = {
-			isa = PBXGroup;
-			children = (
-				5BFDB9922AACFD97C47ABED57E199F50 /* CPDFSlider.swift */,
-			);
-			name = PDFSliderView;
-			path = PDFSliderView;
-			sourceTree = "<group>";
-		};
-		39EB4936B62E59BC2B202B7358C68182 /* DigitalSignature */ = {
-			isa = PBXGroup;
-			children = (
-				5157CA038916468A8146DB147F5FEE4E /* PDFDigitalSignatureBar */,
-				46C73433C2C00DD00DB7F84F243844EC /* PDFDigitalSignatureProperties */,
-			);
-			name = DigitalSignature;
-			path = KdanToolsKit/Classes/DigitalSignature;
-			sourceTree = "<group>";
-		};
-		3F60AD9C05611453A4F58B06604BF7CD /* PDFEditBar */ = {
-			isa = PBXGroup;
-			children = (
-				8117FEDA3908CC686F850124B1D0E4C2 /* CPDFEditToolBar.swift */,
-			);
-			name = PDFEditBar;
-			path = PDFEditBar;
-			sourceTree = "<group>";
-		};
-		44988C0E505E1499CBCE82455D9EAD4A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				46D3DD7B61C2605D4C16DA091B3FCE2B /* CImageSelectView.swift */,
-				43E524A6A01C91FDF7C5E5BE90960345 /* CImageWatermarkPreView.swift */,
-				2E291ED5D7B6DE46A6B6FED8E3950D4A /* CLocationSelectView.swift */,
-				FB1D874594882117DF09A72CB3F5D52B /* CPageRangeSelectView.swift */,
-				7222AE1094BD5A1012786E557E0449A9 /* CTextWatermarkPreView.swift */,
-				57E85A89C5040155688BCCB564A4FA6B /* CTileSelectView.swift */,
-				CDE38943B2BCFD65FEA0501C64A22AA4 /* CTileWatermarkPreView.swift */,
-			);
-			name = View;
-			path = View;
-			sourceTree = "<group>";
-		};
-		45079D7660382EF36161ED5EE9363BD5 /* Line */ = {
-			isa = PBXGroup;
-			children = (
-				ED0058DD4C72C0F05B3537574F679752 /* CPDFArrowStyleCell.swift */,
-				F5650F18C7C2348A53CC68D6620C61F3 /* CPDFArrowStyleView.swift */,
-				78763B693DE708786C022EAE0E2336C4 /* CPDFDrawArrowView.swift */,
-			);
-			name = Line;
-			path = Line;
-			sourceTree = "<group>";
-		};
-		46C73433C2C00DD00DB7F84F243844EC /* PDFDigitalSignatureProperties */ = {
-			isa = PBXGroup;
-			children = (
-				F790640184F83FB2A6CEE8ACFA5BDBA2 /* AddSignature */,
-				7A6D621B8B54739CD7AE53DB1E1B9397 /* VerifySignature */,
-			);
-			name = PDFDigitalSignatureProperties;
-			path = PDFDigitalSignatureProperties;
-			sourceTree = "<group>";
-		};
-		5157CA038916468A8146DB147F5FEE4E /* PDFDigitalSignatureBar */ = {
-			isa = PBXGroup;
-			children = (
-				A9AC7A06C92DE1F907D4E5AA9B4C7F06 /* CPDFDigitalSignatureToolBar.swift */,
-			);
-			name = PDFDigitalSignatureBar;
-			path = PDFDigitalSignatureBar;
+			name = KdanToolsKit;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -820,60 +156,6 @@
 				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		5E90866313A8067866C2ADF14447D668 /* CPDFEditCell */ = {
-			isa = PBXGroup;
-			children = (
-				E9FFDF8F4596090434E217050CF995B7 /* CPDFEditFontNameSelectView.swift */,
-				FB555625B6ADC43D55EE0307F1FF469A /* CPDFEditImageSampleView.swift */,
-				52FC518322D683B288F266C88600D6E0 /* CPDFEditTextSampleView.swift */,
-				0554BC0CFAD085556FBC6AEA82418034 /* CPDFImagePropertyCell.swift */,
-				F1C73ACC8CDEC492E48A90C64D5270E9 /* CPDFTextPropertyCell.swift */,
-			);
-			name = CPDFEditCell;
-			path = CPDFEditCell;
-			sourceTree = "<group>";
-		};
-		60C0C303D11C4B2B98D53130CBEBA2A5 /* PDFPopMenu */ = {
-			isa = PBXGroup;
-			children = (
-				BAC665804235B5B7726FE1F7634781A5 /* CPDFPopMenu.swift */,
-				F79213D08D3FECCD823C16EEB31A4490 /* CPDFPopMenuItem.swift */,
-				10358F724648A68E0524AC167E5EB6C1 /* CPDFPopMenuView.swift */,
-				3989970EB4D9D77035146C97B61DFE42 /* CPDFTipsView.swift */,
-				9CB042C66E3CD630332B640FA4F3FE87 /* UIView+Extension.swift */,
-				3273DA8EE84D1E93BEAADA4BD84B7603 /* PDFDisplaySetting */,
-				F8BA3F044F49A3539F5DD5A6C3383711 /* PDFInfo */,
-			);
-			name = PDFPopMenu;
-			path = PDFPopMenu;
-			sourceTree = "<group>";
-		};
-		664EF4DED897867D51E286E0038A6CE7 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				98147DBFE69A0E352A9C9D1575C4CA14 /* CPDFArrowStyleTableView.swift */,
-				94D84489CC144A0B5FA4AB97A5A6D691 /* CPDFFormBaseViewController.swift */,
-				F5E7B1D5857222E65CD5A5052C3972D5 /* CPDFFormButtonViewController.swift */,
-				1DA1F285DF89F9008804E322A787CA47 /* CPDFFormCheckBoxViewController.swift */,
-				037A458D112C0B607D9C1E9B1D22720D /* CPDFFormComboxViewController.swift */,
-				D3B1C69642069C70779EE31445368918 /* CPDFFormListOptionVC.swift */,
-				BEDA787326F9F2AAE1E5134213121F31 /* CPDFFormListViewController.swift */,
-				E375AE71CE87B81146A02D3AA564352A /* CPDFFormRadioButtonViewController.swift */,
-				42A557B4578A8ACA181DC80198990AB7 /* CPDFFormTextViewController.swift */,
-			);
-			name = Controller;
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		692E1C48505FACFCBFF0733F94916738 /* PDFNavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				11F75E404E08772C1D92E8EBC9C4EEF1 /* CNavigationBarTitleButton.swift */,
-			);
-			name = PDFNavigationBar;
-			path = PDFNavigationBar;
 			sourceTree = "<group>";
 		};
 		6C356209AE7BC3EC4CD21D6B4C3ED4B6 /* Products */ = {
@@ -886,29 +168,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6DE25FA8A54B51B13C40548E051E2990 /* PDFPageEditBar */ = {
-			isa = PBXGroup;
-			children = (
-				E5C368CA3D3D0844D1404648BD1B3E78 /* CPageEditToolBar.swift */,
-			);
-			name = PDFPageEditBar;
-			path = PDFPageEditBar;
-			sourceTree = "<group>";
-		};
-		71CED5B899E0761F3652B970666967CC /* PDFProperties */ = {
-			isa = PBXGroup;
-			children = (
-				601B47CEFC47B7822141E83B26C00D1E /* CPDFColorPickerView.swift */,
-				ADE19AD5E54845FCD22B589CE5389028 /* CPDFColorSelectView.swift */,
-				FEB76995FCDEA0F7F319019CC5253F3B /* CPDFFontStyleTableView.swift */,
-				32C921C39A9BECE7507C35B39B0C2949 /* CPDFOpacitySliderView.swift */,
-				4F511CBA86FDE64D5714083E5440C719 /* CPDFSampleView.swift */,
-				EDA9BB048FE9571C338272BC599BB3BD /* CPDFThicknessSliderView.swift */,
-			);
-			name = PDFProperties;
-			path = PDFProperties;
-			sourceTree = "<group>";
-		};
 		724BA95339A3C6EEA968B8E1512549E1 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -918,250 +177,29 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		742F19D6E4AA966D793AD50554CFAF03 /* PDFView */ = {
+		7C2CAC0F402A3016C61C80D216662A52 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				997ED7F231A2B65F1ECB88E8E7AB470F /* PDFKit Categories */,
-				9E7C795286E22B56C9478F683EC5090B /* PDFListView */,
-				2453B95462D10575AFBD9D6E6BBD4919 /* PDFPageIndicatorView */,
-				398774C6AB1BF9CCD613A8637C46E829 /* PDFSliderView */,
+				C869AE458DC85C99C63356EE0B1F1048 /* KdanToolsKit.modulemap */,
+				8E43717534349E418451F9BB71BAD364 /* KdanToolsKit-dummy.m */,
+				E2B710820581043D122B6E58736CD543 /* KdanToolsKit-Info.plist */,
+				058E322FF5A11B8D7B5BD2B21894951D /* KdanToolsKit-prefix.pch */,
+				7CB6CDF95FA7FBFDB00093CF15835B95 /* KdanToolsKit-umbrella.h */,
+				4C36A4FCEE69C746522D7F65B746B183 /* KdanToolsKit.debug.xcconfig */,
+				B552D79F31C6FA4DB8EFEBCA1FA862A7 /* KdanToolsKit.release.xcconfig */,
 			);
-			name = PDFView;
-			path = PDFView;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/KdanToolsKit";
 			sourceTree = "<group>";
 		};
-		7A6D621B8B54739CD7AE53DB1E1B9397 /* VerifySignature */ = {
+		954CF9F88EB2F96C42A292B44D259F21 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				2AE303ED9D346245402E9A52061D6907 /* Controller */,
-				7BE831FA09FE7AE3A3ABD010D71811DE /* Viewer */,
+				6C3661FD819931551DBF1AB6E6F778B8 /* KdanToolsKit.podspec */,
+				2B0183423A949B2F26D421586230D9B3 /* LICENSE */,
+				43905A0067F401ABA8BAB1C1AAD784EC /* README.md */,
 			);
-			name = VerifySignature;
-			path = VerifySignature;
-			sourceTree = "<group>";
-		};
-		7A8FEA3D4DE0DF09F3C84930B22C7329 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				25B34F519C02869DCD848B1D01F3DDE5 /* Controls */,
-				373578A76AAA364CF435D765BEE33E2D /* Utils */,
-				CFA8437AFE1C7B0E2806B0FF6FAA481D /* Views */,
-			);
-			name = Common;
-			path = KdanToolsKit/Classes/Common;
-			sourceTree = "<group>";
-		};
-		7BE831FA09FE7AE3A3ABD010D71811DE /* Viewer */ = {
-			isa = PBXGroup;
-			children = (
-				AF9450BF8B03260022AC7DA22861A10A /* CPDFSigntureCells.swift */,
-				0D22709FE6CDEC712D145193F725CDA2 /* CPDFSigntureCells.xib */,
-				3D734A58426DB4974C9EB510922BF64A /* CPDFSigntureDetailsCells.swift */,
-				A448787FB1AF7A28BA905D784F548641 /* CPDFSigntureDetailsCells.xib */,
-				55C8D45DB4624BF4B844B0BF89146AE9 /* CPDFSigntureDetailsFootView.swift */,
-				E8289D647AF6B280BB062273AF6F80D6 /* CPDFSigntureVerifyCells.swift */,
-				A7599ADEAA631F72958FB8A0614BB12B /* CPDFSigntureVerifyCells.xib */,
-				81BDDFB1E67055965C5821FA3D7BB23C /* CPDFSigntureVerifyDetailsCells.swift */,
-				0F9E174DF4DDF8BE63D3EA1FA9AB2B7F /* CPDFSigntureVerifyDetailsCells.xib */,
-				F68CE25ACE1402B839ABE58A6EA76E7F /* CPDFSigntureVerifyDetailsTopCell.swift */,
-			);
-			name = Viewer;
-			path = Viewer;
-			sourceTree = "<group>";
-		};
-		7DC3DB3FE0E7DF9A5199D5F60AA3A262 /* PDFOutlie */ = {
-			isa = PBXGroup;
-			children = (
-				736CCC890E72E576AF0354DDB2E4E2B9 /* CPDFOutlineModel.swift */,
-				01D67FA88393DF2F561929118583B9D0 /* CPDFOutlineViewCell.swift */,
-				F09F84491D0184182CAD7BC42AF8857D /* CPDFOutlineViewController.swift */,
-			);
-			name = PDFOutlie;
-			path = PDFOutlie;
-			sourceTree = "<group>";
-		};
-		7E1CDB56F8C338CC213B3C65C9D19D27 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C81C054E36831D0C333EC282CD20B2E4 /* KdanToolsKit */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		828D3542965573EF7888CF520A9A62B6 /* PDFBookmark */ = {
-			isa = PBXGroup;
-			children = (
-				0BC70B1934769DF03099796EA4187AA5 /* CPDFBookmarkViewCell.swift */,
-				C28D7800E7B306DE4DB3D2D3EA212D9C /* CPDFBookmarkViewController.swift */,
-			);
-			name = PDFBookmark;
-			path = PDFBookmark;
-			sourceTree = "<group>";
-		};
-		82B5D637CEA4D9AD1BFC1468C47D4FB1 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D3523876FA2742489B5515C8752027FE /* CPDFAddWatermarkViewController.swift */,
-				BB53D3369FB775D81DC5F4EF51480A35 /* CPDFImageWatermarkSettingViewController.swift */,
-				276DD1F4CA21A5EE1B0B5821A04D137D /* CPDFTextWatermarkSettingViewController.swift */,
-			);
-			name = Controller;
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		88A4446468F6D52B31164FE1C645A02D /* Watermark */ = {
-			isa = PBXGroup;
-			children = (
-				E98B5D207F3174A92C37C5B3C637C71F /* WatermarkSetting */,
-			);
-			name = Watermark;
-			path = KdanToolsKit/Classes/Watermark;
-			sourceTree = "<group>";
-		};
-		89433C223E5578BAEB398E82201AB5BF /* PDFSignature */ = {
-			isa = PBXGroup;
-			children = (
-				DF1CFA6B37148F512166C125032EDDF7 /* CPDFSignatureEditViewController.swift */,
-				BA021C1DFA30B3E486207B2C1DBD601F /* CPDFSignatureViewCell.swift */,
-				87F1409C16973C5B3CB0585E49F45688 /* CPDFSignatureViewController.swift */,
-				810EBA38E3EDF778E01739C656068192 /* CSignatureDrawView.swift */,
-				2AE81B87C5E42E7247FC896440FE3BF8 /* CSignatureManager.swift */,
-				D8903E1482A733BEF847FD2BE59B89F8 /* CSignatureTextField.swift */,
-				6107ADDA1AC96DBC990280DA0A039F8A /* SignatureCustomPresentationController.swift */,
-			);
-			name = PDFSignature;
-			path = PDFSignature;
-			sourceTree = "<group>";
-		};
-		8EA406AE7F322561A7C70BC7972CA684 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D7BE86DD88554E2247E98BB297967510 /* CWatermarkModel.swift */,
-			);
-			name = Model;
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9114EE08FE6578AB4AFA87CDA0ACDA83 /* Viewer */ = {
-			isa = PBXGroup;
-			children = (
-				828D3542965573EF7888CF520A9A62B6 /* PDFBookmark */,
-				7DC3DB3FE0E7DF9A5199D5F60AA3A262 /* PDFOutlie */,
-				60C0C303D11C4B2B98D53130CBEBA2A5 /* PDFPopMenu */,
-				0A33E0A02CAE27F410F4ADDE1AA42DA1 /* PDFSearch */,
-				0C2234A176CE65E33D336EF59EC68EF7 /* PDFThumbnail */,
-			);
-			name = Viewer;
-			path = KdanToolsKit/Classes/Viewer;
-			sourceTree = "<group>";
-		};
-		9220ECC3F94D7CD6327ECDB2ED7C0B20 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BB95AC8065F5F7227A8A5CC72E95B6EA /* CInsertBlankPageCell.swift */,
-			);
-			name = View;
-			path = View;
-			sourceTree = "<group>";
-		};
-		922913AB5CE0DE1CA2739C3A28EE82F1 /* Viewer */ = {
-			isa = PBXGroup;
-			children = (
-				DFBC438AF67712DB529DAD3E84BF08F2 /* CAddSignatureCell.swift */,
-				3792DF8A6BD8F44CFCC5CD2275362E23 /* CDigitalPropertyTableView.swift */,
-				554BD74AECD78966857F53CB8417C798 /* CDigitalTypeSelectView.swift */,
-				398C7E2E3B43F04757429D7B524C5C85 /* CDigitalTypeSelectView.xib */,
-				48C7C36EBD7566EE7ABAEE27B8C3B37F /* CHeaderView.swift */,
-				DFA7406FBBCFDE5983903F1725AD8B4A /* CInputTextField.swift */,
-				8595F41E09B4F0B5C9E0D1C5F57991FC /* CReasonPropertiesCell.swift */,
-				ACF3F0498A30B68C3F1674612B7238F7 /* CSignatureTypeSelectView.swift */,
-			);
-			name = Viewer;
-			path = Viewer;
-			sourceTree = "<group>";
-		};
-		9258DC0B11432C5AFF45BD6311A4456E /* PDFViewController */ = {
-			isa = PBXGroup;
-			children = (
-				472BB194EA4FE6F98CD4491E4582694D /* CNavBarButtonItem.swift */,
-				B4D82FD3842BA8BAA776768DF74DDFB3 /* CPDFConfiguration.swift */,
-				F9573A6129BCDD3D37472A42268F0405 /* CPDFViewBaseController.swift */,
-			);
-			name = PDFViewController;
-			path = PDFViewController;
-			sourceTree = "<group>";
-		};
-		9442E7F543DC2FCEB1F3F83A558077F0 /* PDFNavigationRightView */ = {
-			isa = PBXGroup;
-			children = (
-				0771B733E15D7636619512D9ED72245E /* CNavigationRightView.swift */,
-			);
-			name = PDFNavigationRightView;
-			path = PDFNavigationRightView;
-			sourceTree = "<group>";
-		};
-		94F2944B69572480F05FA7FDF0CA0EDC /* PDFNote */ = {
-			isa = PBXGroup;
-			children = (
-				B66EB4A4FC87B7D7EE624925DD0F92C5 /* CPDFNoteOpenViewController.swift */,
-				747A6773251F0F808CFD418628C23A34 /* CPDFNoteViewController.swift */,
-				D8410FFD443F6FD5881691FE7B8F6681 /* UIPopBackgroundView.swift */,
-			);
-			name = PDFNote;
-			path = PDFNote;
-			sourceTree = "<group>";
-		};
-		997ED7F231A2B65F1ECB88E8E7AB470F /* PDFKit Categories */ = {
-			isa = PBXGroup;
-			children = (
-				EECA9FA868767C282509931243D23A44 /* CPDFAnnotation+PDFListView.swift */,
-				96141897D45540C55553EE1BDAE4FCCF /* CPDFAnnotationHeader.swift */,
-				1B3BB17633294066BC90C214B5B70B7A /* CPDFButtonWidgetAnnotation+PDFListView.swift */,
-				0A722192BB4243645CA1145FE13249BE /* CPDFChoiceWidgetAnnotation+PDFListView.swift */,
-				8E082EDCC4F4FD52789D3DA97AB2973D /* CPDFCircleAnnotation+PDFListView.swift */,
-				1CCEF66C926E1A3C1E8AA6A490C100CD /* CPDFFreeTextAnnotation+PDFListView.swift */,
-				530F2D1CCD359A6932B6B174C1A873E8 /* CPDFLineAnnotation+PDFListView.swift */,
-				BEC5CC9DAC4CBC99D226CA0AB4103483 /* CPDFSignatureWidgetAnnotation+PDFListView.swift */,
-				83D828874BDA7421518691878A7C4ACF /* CPDFSquareAnnotation+PDFListView.swift */,
-				246971495EF7F4FE6F490F395D796BCA /* CPDFTextWidgetAnnotation+PDFListView.swift */,
-				55179E44D5EF38DA7CFBC12777F35F7C /* CPDFWidgetAnnotation+PDFListView.swift */,
-			);
-			name = "PDFKit Categories";
-			path = "PDFKit Categories";
-			sourceTree = "<group>";
-		};
-		9A9F8F646BA8DD23B9E2CC16D32A2D69 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				887781C86D1718C60C283D4114BE0EF6 /* CPDFPageEditViewCell.swift */,
-			);
-			name = View;
-			path = View;
-			sourceTree = "<group>";
-		};
-		9E7C795286E22B56C9478F683EC5090B /* PDFListView */ = {
-			isa = PBXGroup;
-			children = (
-				28C119C49ECC9487214615A854DFBDDE /* CPDFListView.swift */,
-				894146C0A187E5374775A27637D35A0C /* CPDFListView+Annotation.swift */,
-				26D1A38AB9D94A1F672EBDF20E6DC4D6 /* CPDFListView+ContentEditor.swift */,
-				CE660A654700697222735719B190212E /* CPDFListView+Form.swift */,
-				479DFA05E2F2892C3DA9753C51702357 /* CPDFListView+UndoManager.swift */,
-				3CDFB436E61AFCD7A117A6C958DA8063 /* CPDFListViewAnnotationConfig.swift */,
-			);
-			name = PDFListView;
-			path = PDFListView;
-			sourceTree = "<group>";
-		};
-		9EBC4B6E4B98C2A241B2F68CD9A738F2 /* PDFInk */ = {
-			isa = PBXGroup;
-			children = (
-				13FEDFFA0BBE74919F2B2C5551A5E99B /* CPDFDrawPencilKitFuncView.swift */,
-				8D4E690402E5F33D37A8F5152CA1005F /* CPDFInkTopToolBar.swift */,
-				6C7583C132225670F8B5F0E716811C22 /* CPDFInkViewController.swift */,
-			);
-			name = PDFInk;
-			path = PDFInk;
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		A35119110FA9F1917880FA7716CC45C9 /* Pods-KdanToolsKit_Tests */ = {
@@ -1180,75 +218,20 @@
 			path = "Target Support Files/Pods-KdanToolsKit_Tests";
 			sourceTree = "<group>";
 		};
-		A59C62B8D5D4249A273FD7057223D7D6 /* PDFAnnotationProperties */ = {
+		AA682DA7295980F57B7113CCD5577964 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				18953138EDB96C196EBC449389935801 /* PDFAnnotationManage */,
-				CC8419035BF39B3E892D84B368F16969 /* PDFBase */,
-				EDE30D75DC91629F9CAD6F96EA973A39 /* PDFFreeText */,
-				32CD4CCD824AE50587A55BB02124E402 /* PDFHighlight */,
-				9EBC4B6E4B98C2A241B2F68CD9A738F2 /* PDFInk */,
-				B3B79B5F12625A2A68F6B6B84670E277 /* PDFLink */,
-				94F2944B69572480F05FA7FDF0CA0EDC /* PDFNote */,
-				F49D016BD7F0E029E4DD4811F013E38C /* PDFShape */,
-				89433C223E5578BAEB398E82201AB5BF /* PDFSignature */,
-				17147C66EF93829D703B5F56F79D912B /* PDFSound */,
-				AB4801894A9C05178D309BF497521891 /* PDFSquiggly */,
-				33F9F674EAFC0F94B41C87CC605D96E4 /* PDFStamp */,
-				1627A68FA95AD385A79A242C9EC6E97D /* PDFStrikeout */,
-				0B38E2B5149409A82598F53EB9A5B1E5 /* PDFUnderline */,
+				A357325C180CB24F9092D7156EDB5FC7 /* ComPDFKit.xcframework */,
 			);
-			name = PDFAnnotationProperties;
-			path = PDFAnnotationProperties;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AB4801894A9C05178D309BF497521891 /* PDFSquiggly */ = {
+		AD09DDF20AFFCB8EA2DC6FD140D98B1D /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C0C508A5087A7FAADEE208DE206DEA82 /* CPDFSquigglyViewController.swift */,
+				549D8CDCC9A52A784DEAF25E8A7DAE0C /* KdanToolsKit */,
 			);
-			name = PDFSquiggly;
-			path = PDFSquiggly;
-			sourceTree = "<group>";
-		};
-		B3B79B5F12625A2A68F6B6B84670E277 /* PDFLink */ = {
-			isa = PBXGroup;
-			children = (
-				BAAEDB8B3DB67BCD313D2AF147D38594 /* CPDFFormLinkViewController.swift */,
-				6FBC56EB7DFD0902B4EF61D8E397B6D2 /* CPDFLinkViewController.swift */,
-			);
-			name = PDFLink;
-			path = PDFLink;
-			sourceTree = "<group>";
-		};
-		B4B4116408A307B6E8385F9F33101207 /* PDFEditProperties */ = {
-			isa = PBXGroup;
-			children = (
-				CDCFC8FFD7114295DACDCB10A355207B /* CPDFEditViewController.swift */,
-				98EB75B67F587429AE84971787956CF3 /* CPDFImageProperty.swift */,
-				E0F5EC6A568C8159A30DD58CD7BAC789 /* CPDFTextProperty.swift */,
-				5E90866313A8067866C2ADF14447D668 /* CPDFEditCell */,
-			);
-			name = PDFEditProperties;
-			path = PDFEditProperties;
-			sourceTree = "<group>";
-		};
-		B63E0352F14A8A0CC2BFE311E00B24DD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				DFC8B69F975CC3A909D36BD9FB3E10D8 /* CBlankPageModel.swift */,
-			);
-			name = Model;
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B7933D4B44D03EC5176894BBC3EB407A /* PDFKeyboardToolbar */ = {
-			isa = PBXGroup;
-			children = (
-				4CBEB2516F7DA05B81DB091454D9F1D8 /* CPDFKeyboardToolbar.swift */,
-			);
-			name = PDFKeyboardToolbar;
-			path = PDFKeyboardToolbar;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		C4F182BF3D1F42BCD98BE7CEBBBC0F16 /* Pods-KdanToolsKit_Example */ = {
@@ -1268,78 +251,27 @@
 			path = "Target Support Files/Pods-KdanToolsKit_Example";
 			sourceTree = "<group>";
 		};
-		C81C054E36831D0C333EC282CD20B2E4 /* KdanToolsKit */ = {
-			isa = PBXGroup;
-			children = (
-				CB7CEFD2E3512CE49F0DB0047E3FAFBD /* ComPDFKit_Tools.h */,
-				2E4D886776E4DBFF80BDC80D1683EBD5 /* Annotations */,
-				7A8FEA3D4DE0DF09F3C84930B22C7329 /* Common */,
-				CB597454594BFBDECAA8B032C9038230 /* ContentEditor */,
-				39EB4936B62E59BC2B202B7358C68182 /* DigitalSignature */,
-				2C6C6A867F6D48B0E22DDB56FC1CD112 /* DocsEditor */,
-				16B3A74482BB6EFFA7A765D60BF9B254 /* Forms */,
-				D65081CBB026B5130FF737299DE6B570 /* Pod */,
-				D667AE260CC9DEBFF079482DA44FBE86 /* Secure */,
-				E7FD382D5CA423FCCCBF1D481C3D5DD5 /* Support Files */,
-				9114EE08FE6578AB4AFA87CDA0ACDA83 /* Viewer */,
-				88A4446468F6D52B31164FE1C645A02D /* Watermark */,
-			);
-			name = KdanToolsKit;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		CB597454594BFBDECAA8B032C9038230 /* ContentEditor */ = {
-			isa = PBXGroup;
-			children = (
-				3F60AD9C05611453A4F58B06604BF7CD /* PDFEditBar */,
-				B4B4116408A307B6E8385F9F33101207 /* PDFEditProperties */,
-			);
-			name = ContentEditor;
-			path = KdanToolsKit/Classes/ContentEditor;
-			sourceTree = "<group>";
-		};
-		CC8419035BF39B3E892D84B368F16969 /* PDFBase */ = {
-			isa = PBXGroup;
-			children = (
-				980C868509FD2A0CAB89E53C3B78A1D1 /* CPDFAnnotationBaseViewController.swift */,
-			);
-			name = PDFBase;
-			path = PDFBase;
-			sourceTree = "<group>";
-		};
-		CEF97BC5F66A41F153BB3FCAA0CBADD5 /* PDFAnnotationBar */ = {
-			isa = PBXGroup;
-			children = (
-				7EADD8317615E1945B41B86349AD1378 /* CPDFAnnotationBarButton.swift */,
-				C307206E85B694C5B2A8DD38029E6D50 /* CPDFAnnotationToolBar.swift */,
-			);
-			name = PDFAnnotationBar;
-			path = PDFAnnotationBar;
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				7E1CDB56F8C338CC213B3C65C9D19D27 /* Development Pods */,
+				AD09DDF20AFFCB8EA2DC6FD140D98B1D /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				460928B63DD1809F38135E912CD6C804 /* Pods */,
 				6C356209AE7BC3EC4CD21D6B4C3ED4B6 /* Products */,
 				724BA95339A3C6EEA968B8E1512549E1 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		CFA8437AFE1C7B0E2806B0FF6FAA481D /* Views */ = {
+		D0838B2F39FD97A6FAE89D36E6BD2C5A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2DE2548740FCD0E8D8D1B8A6538F87F8 /* PDFActivityIndicatorView */,
-				B7933D4B44D03EC5176894BBC3EB407A /* PDFKeyboardToolbar */,
-				692E1C48505FACFCBFF0733F94916738 /* PDFNavigationBar */,
-				9442E7F543DC2FCEB1F3F83A558077F0 /* PDFNavigationRightView */,
-				71CED5B899E0761F3652B970666967CC /* PDFProperties */,
-				742F19D6E4AA966D793AD50554CFAF03 /* PDFView */,
+				CF155D377F49B795C3F9A9E9B04399FC /* ComPDFKit-xcframeworks.sh */,
+				6DC03698FA337DA40C9D2FF7F74A5F3F /* ComPDFKit.debug.xcconfig */,
+				C40F3E0EDFD3C040CDF11EE0CBA54A6D /* ComPDFKit.release.xcconfig */,
 			);
-			name = Views;
-			path = Views;
+			name = "Support Files";
+			path = "../Target Support Files/ComPDFKit";
 			sourceTree = "<group>";
 		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
@@ -1350,192 +282,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D21A530FFDFF490D8511B157D9BD295D /* Control */ = {
+		D9CC6757C5E404188D41A7E0B8E11EDB /* ComPDFKit */ = {
 			isa = PBXGroup;
 			children = (
-				9C35F45721829D3BAD1FBF4C7F48EF2C /* CPDFPageEditViewController.swift */,
+				AA682DA7295980F57B7113CCD5577964 /* Frameworks */,
+				D0838B2F39FD97A6FAE89D36E6BD2C5A /* Support Files */,
 			);
-			name = Control;
-			path = Control;
-			sourceTree = "<group>";
-		};
-		D65081CBB026B5130FF737299DE6B570 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				F2DE20CCD3571D5B7743C71E4415100B /* KdanToolsKit.podspec */,
-				AA7C466C18252B4E5803D5631BEACD8F /* LICENSE */,
-				2E1E64C4D5253FD66A614B353244D574 /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		D667AE260CC9DEBFF079482DA44FBE86 /* Secure */ = {
-			isa = PBXGroup;
-			children = (
-				914C382A404DF932B56883775613FBA8 /* CPDFSecureViewController.swift */,
-			);
-			name = Secure;
-			path = KdanToolsKit/Classes/Secure;
-			sourceTree = "<group>";
-		};
-		DDA788A5CE09AE27DFA1200225FB2A6C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				0100B7BCC613AD864A80B3F937FC1E25 /* CAddSignatureViewController.swift */,
-				1AA52E6474A6EF400807A880E8916505 /* CCreateCertificateInfoViewController.swift */,
-				70432240E2ECC9196EA9592B891FA4B4 /* CCreateCertificateViewPasswordController.swift */,
-				6485B4832836DE349D986108F1799F1B /* CImportCertificateViewController.swift */,
-				42BF870557ACB48D1A53CCA647BDD3AF /* CLocationPropertiesViewController.swift */,
-				F3BEF06868D763560B77C51B8F18C6EC /* CPDFDigitalSignatureEditViewController.swift */,
-				6DEEC02A4113D1D8118BEFFBEC75D9C8 /* CReasonPropertiesViewController.swift */,
-			);
-			name = Controller;
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		DF520BD9A4817298A93EBADA07589EBD /* PDFAnnatationList */ = {
-			isa = PBXGroup;
-			children = (
-				FC5AE53F18C58832681BF8F9C75EA11D /* CAnnotListHeaderInSection.swift */,
-				5FA63FD0F8BF388BB9968F574DD25518 /* CPDFAnnotationListCell.swift */,
-				950F26033718D30900A5FF480B54FF7A /* CPDFAnnotationViewController.swift */,
-				D7F275F44644752BDBDF3EF19FB36D01 /* CPDFAnnotionColorDrawView.swift */,
-			);
-			name = PDFAnnatationList;
-			path = PDFAnnatationList;
-			sourceTree = "<group>";
-		};
-		E3E8DE4409916F7557782BC7D06B424A /* PDFNavigationController */ = {
-			isa = PBXGroup;
-			children = (
-				8E5DE081E2052CBFB388E59BDD926890 /* CNavigationController.swift */,
-				A60B248EF9D58D0761A9D16B06C8E3E7 /* UIViewController+LeftItem.swift */,
-			);
-			name = PDFNavigationController;
-			path = PDFNavigationController;
-			sourceTree = "<group>";
-		};
-		E7FD382D5CA423FCCCBF1D481C3D5DD5 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				0FDFEEBA152438AAD6264B125C140A8C /* KdanToolsKit.modulemap */,
-				9F21E15CA76ACF15FE846862EDBD2EE7 /* KdanToolsKit-dummy.m */,
-				AFA9ADD45741E845A9D041E1795E693E /* KdanToolsKit-Info.plist */,
-				F59F6B1575EDA0933B04812616A639F0 /* KdanToolsKit-prefix.pch */,
-				A895E8B3B71F1C274E8A12864201A765 /* KdanToolsKit-umbrella.h */,
-				B625DBBB8A789C67ECAB9B5EA2843542 /* KdanToolsKit.debug.xcconfig */,
-				0EC8CD832D668B5398D6AA0B67D542FB /* KdanToolsKit.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/KdanToolsKit";
-			sourceTree = "<group>";
-		};
-		E98B5D207F3174A92C37C5B3C637C71F /* WatermarkSetting */ = {
-			isa = PBXGroup;
-			children = (
-				82B5D637CEA4D9AD1BFC1468C47D4FB1 /* Controller */,
-				8EA406AE7F322561A7C70BC7972CA684 /* Model */,
-				44988C0E505E1499CBCE82455D9EAD4A /* View */,
-			);
-			name = WatermarkSetting;
-			path = WatermarkSetting;
-			sourceTree = "<group>";
-		};
-		EADB44326355F829768B81A00D9E19C5 /* PDFFormProperties */ = {
-			isa = PBXGroup;
-			children = (
-				664EF4DED897867D51E286E0038A6CE7 /* Controller */,
-				ED530D914FB5F19511A9A676218140DB /* KeyBorard */,
-				030F5A34AA4BD31E3D9E41A2AFE918F8 /* Model */,
-				F78734A39191E407C8F6A112397B07A1 /* View */,
-			);
-			name = PDFFormProperties;
-			path = PDFFormProperties;
-			sourceTree = "<group>";
-		};
-		ED530D914FB5F19511A9A676218140DB /* KeyBorard */ = {
-			isa = PBXGroup;
-			children = (
-				3B24D8C2642A8C505E13F6A0FF7F565D /* UIResponder+FirstResponder.swift */,
-				10606437853BDB16229D5AA3BAE4BE25 /* WPAutoSpringTextViewController.swift */,
-			);
-			name = KeyBorard;
-			path = KeyBorard;
-			sourceTree = "<group>";
-		};
-		EDE30D75DC91629F9CAD6F96EA973A39 /* PDFFreeText */ = {
-			isa = PBXGroup;
-			children = (
-				67C251714DDA2B12F8E45D8A06C2BB86 /* CPDFFreeTextViewController.swift */,
-			);
-			name = PDFFreeText;
-			path = PDFFreeText;
-			sourceTree = "<group>";
-		};
-		EEA98C9A66390929C630F2FD655372B5 /* PDFFormBar */ = {
-			isa = PBXGroup;
-			children = (
-				A504C6AC1543F38A2CD4AE36B7720DA9 /* CPDFFormToolBar.swift */,
-			);
-			name = PDFFormBar;
-			path = PDFFormBar;
-			sourceTree = "<group>";
-		};
-		F49D016BD7F0E029E4DD4811F013E38C /* PDFShape */ = {
-			isa = PBXGroup;
-			children = (
-				41B7A117AA09753A895E42BD6E56FE2E /* CPDFShapeArrowViewController.swift */,
-				C8E66C79D9158D8278104473D63DEB00 /* CPDFShapeCircleViewController.swift */,
-				461279B10917844CD398B32028F74991 /* CShapeSelectView.swift */,
-				45079D7660382EF36161ED5EE9363BD5 /* Line */,
-			);
-			name = PDFShape;
-			path = PDFShape;
-			sourceTree = "<group>";
-		};
-		F78734A39191E407C8F6A112397B07A1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				C3BE0DB3D86FFD697CBF128BAB861C34 /* CPDFFontAlignView.swift */,
-				FF81CDFFCE2BA35A93D47D8B6965619A /* CPDFFontSettingSubView.swift */,
-				1986D6C224891E8B4331A2360D33801F /* CPDFFormArrowCell.swift */,
-				DAA3F3FF77483748515E496A49C9BE6A /* CPDFFormArrowStyleView.swift */,
-				047BE0F4163A0F26324874805206C5FD /* CPDFFormInputTextView.swift */,
-				259B5E432F37FF0A6BC430EDFC58CF07 /* CPDFFormSwitchView.swift */,
-				AD63B87DBABB24DC152D9B38FA3BC464 /* CPDFFormTextFieldView.swift */,
-			);
-			name = View;
-			path = View;
-			sourceTree = "<group>";
-		};
-		F790640184F83FB2A6CEE8ACFA5BDBA2 /* AddSignature */ = {
-			isa = PBXGroup;
-			children = (
-				DDA788A5CE09AE27DFA1200225FB2A6C /* Controller */,
-				922913AB5CE0DE1CA2739C3A28EE82F1 /* Viewer */,
-			);
-			name = AddSignature;
-			path = AddSignature;
-			sourceTree = "<group>";
-		};
-		F8BA3F044F49A3539F5DD5A6C3383711 /* PDFInfo */ = {
-			isa = PBXGroup;
-			children = (
-				237C2CA46356A471775A55124B9AA103 /* CPDFInfoTableCell.swift */,
-				9F75EC5E75152FB87050130E14A04FBA /* CPDFInfoViewController.swift */,
-			);
-			name = PDFInfo;
-			path = PDFInfo;
+			name = ComPDFKit;
+			path = ComPDFKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		25A314BFC183A18E5CD1AACE7E568595 /* Headers */ = {
+		4385ACC39CCFBE5ACE8955B57B2C7EB5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ECB0EF537A7C56DE0842831F0EB37EE /* Pods-KdanToolsKit_Example-umbrella.h in Headers */,
+				BA2CB64152B015AB62E1AC128660CDB2 /* Pods-KdanToolsKit_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1547,12 +311,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA04871D0FE774385C20458BCCF96644 /* Headers */ = {
+		DA86F59C7EF97C820E660F7BE52CE46A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE551C0E3974CBDAF82A512F72B2FDC3 /* ComPDFKit_Tools.h in Headers */,
-				9C94F7A90189B24AC228D7BD16CB7B26 /* KdanToolsKit-umbrella.h in Headers */,
+				3173998AD5BAF469CD2ACA5978CFBDD6 /* KdanToolsKit-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1561,16 +324,17 @@
 /* Begin PBXNativeTarget section */
 		082AB9600328DDF62A35A7A21B75F36D /* KdanToolsKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CAEF3864B130F013C635E6E70046DCBE /* Build configuration list for PBXNativeTarget "KdanToolsKit" */;
+			buildConfigurationList = 43EAB29AD2134E980334A0AF48EC9C33 /* Build configuration list for PBXNativeTarget "KdanToolsKit" */;
 			buildPhases = (
-				FA04871D0FE774385C20458BCCF96644 /* Headers */,
-				FCCE4352F9AA394DC19183D09B512956 /* Sources */,
-				A9BAF1F9099A531003522887DEC37173 /* Frameworks */,
-				4DC8E7FD00E5FE2FF53A6FE3D05E6AE5 /* Resources */,
+				DA86F59C7EF97C820E660F7BE52CE46A /* Headers */,
+				17DCB1031319AAF3E1889E89917E70B9 /* Sources */,
+				A49A3A499CD11D48D0F15179164B1246 /* Frameworks */,
+				0CDC125D6A6607735B92403A468D5717 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FF87DCD5D8866951E672D2E2458655F8 /* PBXTargetDependency */,
 			);
 			name = KdanToolsKit;
 			productName = KdanToolsKit;
@@ -1589,7 +353,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				208FCAAC2771A667277A682AE53B1CE0 /* PBXTargetDependency */,
+				4E0FDA33AFDCBF8C0552B94B87EEC4E6 /* PBXTargetDependency */,
 			);
 			name = "Pods-KdanToolsKit_Tests";
 			productName = Pods_KdanToolsKit_Tests;
@@ -1598,17 +362,18 @@
 		};
 		A86AB4D148BC48EB1658A8390BD44E82 /* Pods-KdanToolsKit_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 841863F969EAB20510D0C566DE75E497 /* Build configuration list for PBXNativeTarget "Pods-KdanToolsKit_Example" */;
+			buildConfigurationList = 2A2BCBCC4C4E2DB232D777514292056E /* Build configuration list for PBXNativeTarget "Pods-KdanToolsKit_Example" */;
 			buildPhases = (
-				25A314BFC183A18E5CD1AACE7E568595 /* Headers */,
-				28B53897EC3D32052A8ECB3221CAF789 /* Sources */,
-				79DF880432B2E78F472D8AF38A6F13D8 /* Frameworks */,
-				B90465CBCF314A184A089912E986D168 /* Resources */,
+				4385ACC39CCFBE5ACE8955B57B2C7EB5 /* Headers */,
+				C48A2404E0844A7771FEB78C255B9F00 /* Sources */,
+				3A6AA8E0AAF4017E995D210250D2F36B /* Frameworks */,
+				6B0C294C88EA8E0796F6F340F82EADE1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				51D6C43E60BBE4CAE16708659025FEE5 /* PBXTargetDependency */,
+				BD9B04B8C6E9EC1DA59EC3039E2680A3 /* PBXTargetDependency */,
+				4AA61AEF2E0688C7FFFA1DC6D63CF905 /* PBXTargetDependency */,
 			);
 			name = "Pods-KdanToolsKit_Example";
 			productName = Pods_KdanToolsKit_Example;
@@ -1637,6 +402,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				1E8F7349E745C0AE7F5F1321639BAB1D /* ComPDFKit */,
 				082AB9600328DDF62A35A7A21B75F36D /* KdanToolsKit */,
 				A86AB4D148BC48EB1658A8390BD44E82 /* Pods-KdanToolsKit_Example */,
 				24B100DF1C5F9210BC7E540CEEAF1CC8 /* Pods-KdanToolsKit_Tests */,
@@ -1645,6 +411,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0CDC125D6A6607735B92403A468D5717 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CE8563B7CC1564B53987C2D67780E70 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1652,14 +425,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DC8E7FD00E5FE2FF53A6FE3D05E6AE5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B90465CBCF314A184A089912E986D168 /* Resources */ = {
+		6B0C294C88EA8E0796F6F340F82EADE1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1668,12 +434,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1BF0F7C11932B96D1A46763B82490106 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/ComPDFKit/ComPDFKit-xcframeworks.sh",
+				"${PODS_ROOT}/ComPDFKit/Lib/ComPDFKit.xcframework",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputPaths = (
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ComPDFKit/ComPDFKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/ComPDFKit/ComPDFKit-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		28B53897EC3D32052A8ECB3221CAF789 /* Sources */ = {
+		17DCB1031319AAF3E1889E89917E70B9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				100F1A679AA2048931B9A6F38EB8330C /* Pods-KdanToolsKit_Example-dummy.m in Sources */,
+				4370FAB55E3D99BCB22421B6EE26731F /* CPDFAddWatermarkViewController.swift in Sources */,
+				F133C4D725789048EF3D86411DB7CCD3 /* KdanToolsKit-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1685,228 +473,77 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FCCE4352F9AA394DC19183D09B512956 /* Sources */ = {
+		C48A2404E0844A7771FEB78C255B9F00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FB0A47ED157424DAC8F1BA30C7EC14E /* AAPLCustomPresentationController.swift in Sources */,
-				75E48B227312532ED10C20E48399D13B /* AnnotationUserDefaults.plist in Sources */,
-				D33FC8E01E4816D9DE02DF9202A10C1E /* CActivityIndicatorView.swift in Sources */,
-				C874F7417BF88D98DC9FDC75CB56B2CE /* CAddSignatureCell.swift in Sources */,
-				82294AEA2FB4E4D4F2383D6AE8AD71D9 /* CAddSignatureViewController.swift in Sources */,
-				9E06CB0D86EE7C474C1ED151AC9458E5 /* CAnnotationManage.swift in Sources */,
-				38E2CEC02F3D88E62AA398B418B332BD /* CAnnotListHeaderInSection.swift in Sources */,
-				B5822A52CF013B9758590F5293A8A089 /* CAnnotStyle.swift in Sources */,
-				E5EFA992FA0D6DBB1A464E82926D1AAB /* CBlankPageModel.swift in Sources */,
-				AAE6788B7F22A5FE934EB0625EB61F37 /* CCreateCertificateInfoViewController.swift in Sources */,
-				90706A08BE77102142DCB87123FE4548 /* CCreateCertificateViewPasswordController.swift in Sources */,
-				106C54A07F0E78E44100B530ACE956F3 /* CCustomizeStampTableViewCell.swift in Sources */,
-				0B74449ADE8D9CFABC523BC62BBF8EC5 /* CDigitalPropertyTableView.swift in Sources */,
-				7D7C49E406F55D62336261CF7B546450 /* CDigitalTypeSelectView.swift in Sources */,
-				AF8048B05631BC2F43937E4938C09F86 /* CDigitalTypeSelectView.xib in Sources */,
-				2E9D47724C7617CD512C2596961E3389 /* CDocumentPasswordViewController.swift in Sources */,
-				A3E6B20B13E70F6052F6ADB055297E83 /* CFormStyle.swift in Sources */,
-				E412C1449AE3E575BD0DAD610F843D29 /* CHeaderView.swift in Sources */,
-				6612FEA1495112752D0D741EE88FD0E1 /* CImageSelectView.swift in Sources */,
-				44BA331B06C4A582834B495172E49A69 /* CImageWatermarkPreView.swift in Sources */,
-				6FC2F59D06F2BC29334B6F90150E1AB7 /* CImportCertificateViewController.swift in Sources */,
-				C768DE195E81013C85E5B5430A5FEB1D /* CInputTextField.swift in Sources */,
-				8C140B1E723781EB0B78127452B16AE8 /* CInsertBlankPageCell.swift in Sources */,
-				B81CE83C5F50D6CF2CC12E3226344E95 /* CLocationPropertiesViewController.swift in Sources */,
-				47CD2B6A66736B85B6E673097234CA79 /* CLocationSelectView.swift in Sources */,
-				0E5A422C68AC3E5D23E4FD4B1E244D70 /* CNavBarButtonItem.swift in Sources */,
-				A686B1FE345D0DCE6BEB7E617997505B /* CNavigationBarTitleButton.swift in Sources */,
-				F9EF3C582757DC42B79637FCBE7E3232 /* CNavigationController.swift in Sources */,
-				1A8CDCD783E570869A8B026BA36670F5 /* CNavigationRightView.swift in Sources */,
-				0FF04E8D89333BFBAC405D1BA86F9CB3 /* CPageEditToolBar.swift in Sources */,
-				AF14F13C1D8A5155A08F9477E5404D98 /* CPageRangeSelectView.swift in Sources */,
-				B2B0DD407C3012324C14CC2E726D4744 /* CPDFAddWatermarkViewController.swift in Sources */,
-				F2DBC45D6E21F8104D151C6108DA147E /* CPDFAnnotation+PDFListView.swift in Sources */,
-				CFEC5EA71DA5E447FFC8F23C998DED26 /* CPDFAnnotationBarButton.swift in Sources */,
-				4EA9FC96AF30BF748CCAB1463B601628 /* CPDFAnnotationBaseViewController.swift in Sources */,
-				AEB0040EB4DBA5F70A5DB2B7C17F2F7A /* CPDFAnnotationHeader.swift in Sources */,
-				9E6A119C8B8E1A8EC05227267F4BB3B3 /* CPDFAnnotationListCell.swift in Sources */,
-				6BF20CB6BA6C10C22D81FE6A68D63E20 /* CPDFAnnotationToolBar.swift in Sources */,
-				8509EE79AE939906D7FF03E9D456E39C /* CPDFAnnotationViewController.swift in Sources */,
-				29D0AD5C5D22A111242606C260699D06 /* CPDFAnnotionColorDrawView.swift in Sources */,
-				C6D8A19F63CDC883466FCB5BAA8CFF02 /* CPDFArrowStyleCell.swift in Sources */,
-				260FEB66AA9A79D000283B48B3B45F03 /* CPDFArrowStyleTableView.swift in Sources */,
-				81C83758EBC6F763672994313E8C601F /* CPDFArrowStyleView.swift in Sources */,
-				38D76E90B3403AA1735564E61F086BCA /* CPDFBookmarkViewCell.swift in Sources */,
-				81AD341950EEDFF56F753E551F612B04 /* CPDFBookmarkViewController.swift in Sources */,
-				F072407F7B11D7E4E256F159D8DE702B /* CPDFBOTAViewController.swift in Sources */,
-				0F8E66D21506794B93900E0F5DBEFEE3 /* CPDFButtonWidgetAnnotation+PDFListView.swift in Sources */,
-				BA0676E9485A763B5085E090EC8F35AD /* CPDFChoiceWidgetAnnotation+PDFListView.swift in Sources */,
-				E15F65C1D496652515FC97B25E6EBE2A /* CPDFCircleAnnotation+PDFListView.swift in Sources */,
-				2AF62C1C71E4865FAA42A673FF72A942 /* CPDFColorPickerView.swift in Sources */,
-				681F6F2ED5D59482C4C78C71625182C3 /* CPDFColorSelectView.swift in Sources */,
-				6FB2919CAAEED205A107DCD10F29599F /* CPDFColorUtils.swift in Sources */,
-				620E98062FFF52806973B0E715256304 /* CPDFConfiguration.swift in Sources */,
-				87DEF1807E5280C019D99CE06E67C72D /* CPDFDigitalSignatureEditViewController.swift in Sources */,
-				A864B75EB0FF7693B10EE31BE06F41B2 /* CPDFDigitalSignatureToolBar.swift in Sources */,
-				2495B82546B44EA14FDF97E4E99591C9 /* CPDFDisplayModel.swift in Sources */,
-				D1E532E8DEE82F056EC41829D5EEFF1D /* CPDFDisplayTableViewCell.swift in Sources */,
-				125C909E645D7EDE7A87C06BA3B46FDF /* CPDFDisplayViewController.swift in Sources */,
-				17A04853C53DCE0C3B3610FF18738CF2 /* CPDFDrawArrowView.swift in Sources */,
-				68367DD78BDDC153EBFAA6DCEF10571D /* CPDFDrawPencilKitFuncView.swift in Sources */,
-				DCCBC9CC90D01A4C08CC705E1BA4BF55 /* CPDFDropDownMenu.swift in Sources */,
-				45DCFEB5033333B013AC44BAB5972DE7 /* CPDFEditFontNameSelectView.swift in Sources */,
-				BB7AC31F582E764B8863A1F538B2EA74 /* CPDFEditImageSampleView.swift in Sources */,
-				E0EED8C9CE83316F868F20BA3E1F4795 /* CPDFEditTextSampleView.swift in Sources */,
-				26D84D154075CA74EEEE941F48E392C2 /* CPDFEditToolBar.swift in Sources */,
-				F841FABD4E393A70D03B0092A9AD8E98 /* CPDFEditViewController.swift in Sources */,
-				851434476865D5E7B0FE78711CEA29C5 /* CPDFFontAlignView.swift in Sources */,
-				4E38411F9D69FC92FF98A0779D4712AB /* CPDFFontSettingSubView.swift in Sources */,
-				7498753CFF0CB99E38F3983DA24D36B8 /* CPDFFontStyleTableView.swift in Sources */,
-				11E0A9B5F5F36F25252BD35E40B14D72 /* CPDFFormArrowCell.swift in Sources */,
-				4BD7B4F88F2FF8B05FC47A699647B09E /* CPDFFormArrowModel.swift in Sources */,
-				B458B56FCB3DAED8C0101882E4813E87 /* CPDFFormArrowStyleView.swift in Sources */,
-				8215847F109DDE9CE78AFE0C9660F97D /* CPDFFormBaseViewController.swift in Sources */,
-				BECA92DE0A62EC00D187222352523E5B /* CPDFFormButtonViewController.swift in Sources */,
-				73EDBDEE0079607D47187B400F961851 /* CPDFFormCheckBoxViewController.swift in Sources */,
-				C59AF4151E367ED5D745E4860665DBEE /* CPDFFormComboxViewController.swift in Sources */,
-				DE14310002B7B531BF52CF6071E3FD64 /* CPDFFormInputTextView.swift in Sources */,
-				1E931239C44B09E2E5F496E6FFEB6319 /* CPDFFormLinkViewController.swift in Sources */,
-				78794BA07489722BC8337BACDCD8ECA4 /* CPDFFormListOptionVC.swift in Sources */,
-				A4EF80E6A4BC308DED7676AC6FDF2329 /* CPDFFormListViewController.swift in Sources */,
-				571997E34918B0EF4E29071EF1F1538A /* CPDFFormRadioButtonViewController.swift in Sources */,
-				40E51C0004530E443C08C0B07A0B1802 /* CPDFFormSwitchView.swift in Sources */,
-				34A866C8EA47423A7ADC6AA4178CBA2B /* CPDFFormTextFieldView.swift in Sources */,
-				6FD0E63F7A2366B940C5F4E2D0D4FCDD /* CPDFFormTextViewController.swift in Sources */,
-				4881BFCBF0F65300DA3CB64823161D3D /* CPDFFormToolBar.swift in Sources */,
-				0012620413D149E803531DB9DC95A5DD /* CPDFFreeTextAnnotation+PDFListView.swift in Sources */,
-				A2037B411656F74318FF1E4D89072691 /* CPDFFreeTextViewController.swift in Sources */,
-				44904FC63770DE9E1DA061493C1DE6B3 /* CPDFHighlightViewController.swift in Sources */,
-				6A596FB72EDA03FAD719DD6368008BE3 /* CPDFImageProperty.swift in Sources */,
-				71F5A65C6DE472EAB53D8CE92B57FC74 /* CPDFImagePropertyCell.swift in Sources */,
-				8C391D5F457B6037734CAA647ED83FAD /* CPDFImageWatermarkSettingViewController.swift in Sources */,
-				8DF891B4EB17DA03EEFB8B18DA55C0F0 /* CPDFInfoTableCell.swift in Sources */,
-				1E6FEC1D1E5E2C2252F3393FB55DB533 /* CPDFInfoViewController.swift in Sources */,
-				DBED625B5A82DA35415154B44EA40D1F /* CPDFInkTopToolBar.swift in Sources */,
-				01E38E41DF1F771FBF3D85D77EE235E4 /* CPDFInkViewController.swift in Sources */,
-				EC00FAAB08943FE78EDF2D6E19F26AEB /* CPDFJSONDataParse.swift in Sources */,
-				A3186ADFCE9A8680F1B375B07F18284A /* CPDFKeyboardToolbar.swift in Sources */,
-				FECF21807D4332B3E6ED8AF2D25C6748 /* CPDFLineAnnotation+PDFListView.swift in Sources */,
-				F6463CDD9EBAC56DF78B6A495E70A2EE /* CPDFLinkViewController.swift in Sources */,
-				E86F862EF8F7D950AF0C68081D11C78B /* CPDFListView.swift in Sources */,
-				14861294E6E9E9BAA455019215165072 /* CPDFListView+Annotation.swift in Sources */,
-				080385FC8029DB98F69CCF3F89C8C6A0 /* CPDFListView+ContentEditor.swift in Sources */,
-				8FCF230B3714DBC267D459D2CFBB713C /* CPDFListView+Form.swift in Sources */,
-				DD8AF3FB31D3D3F74715F301A5831E8F /* CPDFListView+UndoManager.swift in Sources */,
-				88EBFE5C30A84852C42364F3048D54B4 /* CPDFListViewAnnotationConfig.swift in Sources */,
-				D76F2C5B9C956E7FDFEF715851C1EE80 /* CPDFMediaManager.swift in Sources */,
-				70FA095A9C6462E16CCC913341173BCF /* CPDFNoteOpenViewController.swift in Sources */,
-				2FE20CFAD4233650D639C58D9361FA27 /* CPDFNoteViewController.swift in Sources */,
-				208BB16ECBE09B4EBF87C89C62969A27 /* CPDFOpacitySliderView.swift in Sources */,
-				6FB1BA4AEB0997CBE5FE91A80F19EA0B /* CPDFOutlineModel.swift in Sources */,
-				BC49C1D8EF54B9937BA27C46ADBD1D2E /* CPDFOutlineViewCell.swift in Sources */,
-				A0799811592FC5E0105E3DC1638EDD05 /* CPDFOutlineViewController.swift in Sources */,
-				AD7263086F092DDD6EA19E742C5C3EDD /* CPDFPageEditViewCell.swift in Sources */,
-				E6545E26B032CAE60E1DF4A7AE0D077D /* CPDFPageEditViewController.swift in Sources */,
-				088F927E1171C23B8BB6BEC5EB6CBF40 /* CPDFPageIndicatorView.swift in Sources */,
-				79B2C393DDF7B0B0E9B922E8B9146841 /* CPDFPageInsertViewController.swift in Sources */,
-				D8F7D289973CF1FE3C0A8ECDB7B33FD7 /* CPDFPDFInsertViewController.swift in Sources */,
-				FE2D1E5C5996A14291359C609739B2D6 /* CPDFPopMenu.swift in Sources */,
-				F633B474D62B22ACA33672DD906053F7 /* CPDFPopMenuItem.swift in Sources */,
-				0259D762A6C5C71A0F334E999982634D /* CPDFPopMenuView.swift in Sources */,
-				D5BC8357055968E59AEDA4F554A64D8C /* CPDFSampleView.swift in Sources */,
-				614203AC5E964E4053535ED92CDCF920 /* CPDFSearchResultsViewController.swift in Sources */,
-				8D299161BC87D98FD4754057A3AF8B7F /* CPDFSearchViewCell.swift in Sources */,
-				2D6EA6D8D41A0626749C0485B9CBB6D6 /* CPDFSecureViewController.swift in Sources */,
-				01F33CB06A521BDC57FD3C0CDFE40588 /* CPDFShapeArrowViewController.swift in Sources */,
-				26DD4C410D92AAD74A077F37A86EDA10 /* CPDFShapeCircleViewController.swift in Sources */,
-				D424FBCA034EE6B250CCE9348CD956BC /* CPDFSignatureEditViewController.swift in Sources */,
-				D751179385196928BAABF09A04AB0EA1 /* CPDFSignatureViewCell.swift in Sources */,
-				BBCA9274C07C2AC7EB644E776922ACB4 /* CPDFSignatureViewController.swift in Sources */,
-				608B74E64947229202AAE9697185ECBE /* CPDFSignatureWidgetAnnotation+PDFListView.swift in Sources */,
-				957068B7F97A509B4CB5EFF7168A8E03 /* CPDFSigntureCells.swift in Sources */,
-				C71A86EB3026E1EC228E219CAB3A8E58 /* CPDFSigntureCells.xib in Sources */,
-				A054D9A0A453ABB63718293CD41241CC /* CPDFSigntureDetailsCells.swift in Sources */,
-				77E6F6839C69EDCF1C0472D294738339 /* CPDFSigntureDetailsCells.xib in Sources */,
-				AF239A0BF48660C18326B640D21A8A72 /* CPDFSigntureDetailsFootView.swift in Sources */,
-				99216A96EC52862853AD31F697888AAF /* CPDFSigntureDetailsViewController.swift in Sources */,
-				3F826B75AEA104DFD8016CF253182FB3 /* CPDFSigntureListViewController.swift in Sources */,
-				9C759C61835FA3BBCC03BE124E86C40A /* CPDFSigntureVerifyCells.swift in Sources */,
-				4691C8D86D94B85865063EE47765BE4C /* CPDFSigntureVerifyCells.xib in Sources */,
-				5C122577CB1B9776F8AA3FB23B0E2745 /* CPDFSigntureVerifyDetailsCells.swift in Sources */,
-				D4DAEECAC07BC215B53AD921A379EEB6 /* CPDFSigntureVerifyDetailsCells.xib in Sources */,
-				196C7BCB32BF9D8AF249B1B4C514A4B8 /* CPDFSigntureVerifyDetailsTopCell.swift in Sources */,
-				40351850A993EE0E6A2A4E3CBA1103ED /* CPDFSigntureVerifyDetailsViewController.swift in Sources */,
-				E9B048CFA8A79CE860BFE084937BA9F6 /* CPDFSigntureVerifyViewController.swift in Sources */,
-				A0BC265C80B34DEDF0B3E437D5C1F88E /* CPDFSigntureViewController.swift in Sources */,
-				EC7DD4A93D2F3811B72DAE245F61552E /* CPDFSlider.swift in Sources */,
-				4B0E1FB401435C84CDF5EE4B3C92E341 /* CPDFSoundPlayBar.swift in Sources */,
-				D210DFC60BE1B7D32D2BE89A9EEAEB7F /* CPDFSquareAnnotation+PDFListView.swift in Sources */,
-				308A78146258F429225F683DF26F37A4 /* CPDFSquigglyViewController.swift in Sources */,
-				71D9DAF5C7F718563944734AAB400549 /* CPDFStampViewController.swift in Sources */,
-				D44AE6CFF73B9EE4C2CDC8A35941E59C /* CPDFStrikeoutViewController.swift in Sources */,
-				07569B10C6A485BBA2CED596D5C9BCAB /* CPDFTextProperty.swift in Sources */,
-				62940F6A7947A8DC49E73DFEF4F0B484 /* CPDFTextPropertyCell.swift in Sources */,
-				DCF40110AD07DDB763EA1257F799AB7D /* CPDFTextWatermarkSettingViewController.swift in Sources */,
-				2A25E10D67EAAE25F376DC7D8765503D /* CPDFTextWidgetAnnotation+PDFListView.swift in Sources */,
-				8FD69CC46527915EA0710C185F3850DF /* CPDFThicknessSliderView.swift in Sources */,
-				3ADB8EBFEEFE03B45E80CF5EA21006CD /* CPDFThumbnailViewCell.swift in Sources */,
-				025E105171E6B5AD932923CCD5E78213 /* CPDFThumbnailViewController.swift in Sources */,
-				C17F925F8A20CB5DCE212CEDB911F15D /* CPDFTipsView.swift in Sources */,
-				A58E661FFED22907F1D4F336E4C75896 /* CPDFToolsViewController.swift in Sources */,
-				79E7A238AAFA21002D02E730A5EC98AC /* CPDFUnderlineViewController.swift in Sources */,
-				EB5B23A25C06FE89AA011BFBAEC06839 /* CPDFViewBaseController.swift in Sources */,
-				ED7D57041147350D74F60947E6F80444 /* CPDFWidgetAnnotation+PDFListView.swift in Sources */,
-				32C9ADD8B9D67A415D7F32EEF65F4D40 /* CReasonPropertiesCell.swift in Sources */,
-				39AAE6067E0C0DF8EF59FF2CC4844C90 /* CReasonPropertiesViewController.swift in Sources */,
-				BBB2E92002C79976798A87673D830AA0 /* CSearchContentView.swift in Sources */,
-				457B934632F64DF8E50AB4EFC5A2F931 /* CSearchSettingViewController.swift in Sources */,
-				7BE7BD7D7955BBDE3398B9F30904FC37 /* CSearchTitleView.swift in Sources */,
-				70134D8D6A645C34BD8FC36052FC0209 /* CSearchToolbar.swift in Sources */,
-				C0F6F2E0EC6F7910D77BD5D04B388FAB /* CShapeSelectView.swift in Sources */,
-				FBEF95C74A20E79BA6C23D97B5E57404 /* CSignatureDrawView.swift in Sources */,
-				4862AA73D93D0B28ADDFBFF4A9DE9B36 /* CSignatureManager.swift in Sources */,
-				16B0BCDD738EEC5E546B4366CA1879C9 /* CSignatureTextField.swift in Sources */,
-				E61587BFF0010059ACD3BDEFF8941326 /* CSignatureTypeSelectView.swift in Sources */,
-				8F99E7110ABAB979049ED66E173A17D5 /* CStampButton.swift in Sources */,
-				8339A587939207FBCB6448CED99590A7 /* CStampCollectionViewCell.swift in Sources */,
-				715C0B055662C087BF38B96772A0FD06 /* CStampColorSelectView.swift in Sources */,
-				BECF1CAFA3A4AD3F7F0F0A2A4B2D0C80 /* CStampFileManger.swift in Sources */,
-				6F44FE1650391F1810AB2429CDF11FD0 /* CStampPreview.swift in Sources */,
-				9978FCF630F57855DAB39D047CA1A3C7 /* CStampShapView.swift in Sources */,
-				7D34C107A62CC933F0D7C679C7B28293 /* CStampTextViewController.swift in Sources */,
-				7383BD77B0938C8833462ECF48F1436C /* CStringConstants.swift in Sources */,
-				1F3734C7AA653B9FDA349DECFECB5720 /* CTextWatermarkPreView.swift in Sources */,
-				73C4AFC761FA7DB1E2F7B9F00D55C065 /* CTileSelectView.swift in Sources */,
-				EF5FC522861C41B7D04D02689DD80C61 /* CTileWatermarkPreView.swift in Sources */,
-				9FD396F9CD733936D7F01E3B4601D751 /* CWatermarkModel.swift in Sources */,
-				EC22E9B8697A01FE3BA4BE5DA8EEDA39 /* KdanToolsKit-dummy.m in Sources */,
-				E5500D7CD2E883B8FEEC24B40990F003 /* NSUserDefaults+Utils.swift in Sources */,
-				E855A91AC81260B32677EA39C94FC7AA /* SignatureCustomPresentationController.swift in Sources */,
-				11E26B62AD9E40159C3491C0AA750D9B /* StampCollectionHeaderView.swift in Sources */,
-				D0851DD464E38873F28A7718FE35A928 /* StampCollectionHeaderView1.swift in Sources */,
-				27F8E8CC1184FF5A617F8D0D7DDD6035 /* UIPopBackgroundView.swift in Sources */,
-				64ED5BCF36ED2CC34B21B466864CA627 /* UIResponder+FirstResponder.swift in Sources */,
-				AA751F3F14C0AA5C699931ABCB6B8907 /* UIView+Extension.swift in Sources */,
-				705ED2E037C4F0C0F50D7AB9913476AB /* UIViewController+LeftItem.swift in Sources */,
-				4E1F2AF3295D39137860E6B947307523 /* WPAutoSpringTextViewController.swift in Sources */,
+				FCFC44193C3FE1FB9FDCFACCA0329226 /* Pods-KdanToolsKit_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		208FCAAC2771A667277A682AE53B1CE0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-KdanToolsKit_Example";
-			target = A86AB4D148BC48EB1658A8390BD44E82 /* Pods-KdanToolsKit_Example */;
-			targetProxy = 1A6B6C407AEC7C3ED48A18419D933F91 /* PBXContainerItemProxy */;
-		};
-		51D6C43E60BBE4CAE16708659025FEE5 /* PBXTargetDependency */ = {
+		4AA61AEF2E0688C7FFFA1DC6D63CF905 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = KdanToolsKit;
 			target = 082AB9600328DDF62A35A7A21B75F36D /* KdanToolsKit */;
-			targetProxy = 472134192F0B58863127501D3FE5EFBF /* PBXContainerItemProxy */;
+			targetProxy = 765FA2623A1BD20C715B5CFAC02C0E97 /* PBXContainerItemProxy */;
+		};
+		4E0FDA33AFDCBF8C0552B94B87EEC4E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-KdanToolsKit_Example";
+			target = A86AB4D148BC48EB1658A8390BD44E82 /* Pods-KdanToolsKit_Example */;
+			targetProxy = FB34A0C4CFCF14C6CBA9BA4BB98D03CE /* PBXContainerItemProxy */;
+		};
+		BD9B04B8C6E9EC1DA59EC3039E2680A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ComPDFKit;
+			target = 1E8F7349E745C0AE7F5F1321639BAB1D /* ComPDFKit */;
+			targetProxy = 1041A415626EF9A1A9ADE7DBF94903D1 /* PBXContainerItemProxy */;
+		};
+		FF87DCD5D8866951E672D2E2458655F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ComPDFKit;
+			target = 1E8F7349E745C0AE7F5F1321639BAB1D /* ComPDFKit */;
+			targetProxy = A3B061F71E7605354FF0705D659E28A9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0DA37203401CF53EFE6066E7FF82F0BB /* Release */ = {
+		2DA114EF7685E04A766CB20DE6E6FDC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B552D79F31C6FA4DB8EFEBCA1FA862A7 /* KdanToolsKit.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KdanToolsKit/KdanToolsKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KdanToolsKit/KdanToolsKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KdanToolsKit/KdanToolsKit.modulemap";
+				PRODUCT_MODULE_NAME = KdanToolsKit;
+				PRODUCT_NAME = KdanToolsKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		429C6D23B2D230BEE4040273EEF4A697 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 07DA414370282608719148A613E39699 /* Pods-KdanToolsKit_Example.release.xcconfig */;
 			buildSettings = {
@@ -1939,6 +576,53 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		68277F6C9AA4595FE4F6F6079E743FDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F4BD6CA40A58B2B6A3D9CE845A66B09 /* Pods-KdanToolsKit_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-KdanToolsKit_Example/Pods-KdanToolsKit_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KdanToolsKit_Example/Pods-KdanToolsKit_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		763EFEF992B9B2834D9F04E46CE0CA3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DC03698FA337DA40C9D2FF7F74A5F3F /* ComPDFKit.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
 		};
 		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2036,38 +720,20 @@
 			};
 			name = Release;
 		};
-		C1581FD5521A4FAE2867325AC9EC4C08 /* Debug */ = {
+		CE3720F9ECE81D76033F94D5431AE487 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F4BD6CA40A58B2B6A3D9CE845A66B09 /* Pods-KdanToolsKit_Example.debug.xcconfig */;
+			baseConfigurationReference = C40F3E0EDFD3C040CDF11EE0CBA54A6D /* ComPDFKit.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-KdanToolsKit_Example/Pods-KdanToolsKit_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-KdanToolsKit_Example/Pods-KdanToolsKit_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2135,6 +801,37 @@
 			};
 			name = Debug;
 		};
+		E278EE8B01F382FA97922CA50530FA0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C36A4FCEE69C746522D7F65B746B183 /* KdanToolsKit.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KdanToolsKit/KdanToolsKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KdanToolsKit/KdanToolsKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KdanToolsKit/KdanToolsKit.modulemap";
+				PRODUCT_MODULE_NAME = KdanToolsKit;
+				PRODUCT_NAME = KdanToolsKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		E5ED7F599F2A113CCAF46D0731630642 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BCC1CA0766BB04D8BAE35173FDB05503 /* Pods-KdanToolsKit_Tests.debug.xcconfig */;
@@ -2168,86 +865,32 @@
 			};
 			name = Debug;
 		};
-		E65E67C9123DDD8A50B3314B3893B4D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0EC8CD832D668B5398D6AA0B67D542FB /* KdanToolsKit.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KdanToolsKit/KdanToolsKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KdanToolsKit/KdanToolsKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KdanToolsKit/KdanToolsKit.modulemap";
-				PRODUCT_MODULE_NAME = KdanToolsKit;
-				PRODUCT_NAME = KdanToolsKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		F573D0CA8498355A32D2086AADEC8FBB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B625DBBB8A789C67ECAB9B5EA2843542 /* KdanToolsKit.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/KdanToolsKit/KdanToolsKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/KdanToolsKit/KdanToolsKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/KdanToolsKit/KdanToolsKit.modulemap";
-				PRODUCT_MODULE_NAME = KdanToolsKit;
-				PRODUCT_NAME = KdanToolsKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2A2BCBCC4C4E2DB232D777514292056E /* Build configuration list for PBXNativeTarget "Pods-KdanToolsKit_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68277F6C9AA4595FE4F6F6079E743FDF /* Debug */,
+				429C6D23B2D230BEE4040273EEF4A697 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43EAB29AD2134E980334A0AF48EC9C33 /* Build configuration list for PBXNativeTarget "KdanToolsKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E278EE8B01F382FA97922CA50530FA0B /* Debug */,
+				2DA114EF7685E04A766CB20DE6E6FDC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
 				7EE7A78859F657F6BEFC651185B43192 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		841863F969EAB20510D0C566DE75E497 /* Build configuration list for PBXNativeTarget "Pods-KdanToolsKit_Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C1581FD5521A4FAE2867325AC9EC4C08 /* Debug */,
-				0DA37203401CF53EFE6066E7FF82F0BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2261,11 +904,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CAEF3864B130F013C635E6E70046DCBE /* Build configuration list for PBXNativeTarget "KdanToolsKit" */ = {
+		C7BE94C3399A185DF8D1704B915E41C2 /* Build configuration list for PBXAggregateTarget "ComPDFKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F573D0CA8498355A32D2086AADEC8FBB /* Debug */,
-				E65E67C9123DDD8A50B3314B3893B4D8 /* Release */,
+				763EFEF992B9B2834D9F04E46CE0CA3B /* Debug */,
+				CE3720F9ECE81D76033F94D5431AE487 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
