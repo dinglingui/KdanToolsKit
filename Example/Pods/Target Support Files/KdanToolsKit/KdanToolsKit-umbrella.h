@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "ComPDFKit_Tools.h"
 
 FOUNDATION_EXPORT double KdanToolsKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char KdanToolsKitVersionString[];
