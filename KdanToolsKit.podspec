@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KdanToolsKit'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'A short description of toolsUI.'
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,49 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '11.0'
   s.swift_versions = '5.0'
-  s.source_files = 'KdanToolsKit/Classes/**/*'
+
+  s.subspec 'Secure' do |ss|
+    ss.source_files = 'KdanToolsKit/Classes/Secure/**/*.swift'
+  end
+
+  s.subspec 'Annotations' do |ss|
+    ss.source_files = 'KdanToolsKit/Classes/Annotations/**/*.swift'
+  end
+
+s.subspec 'Common' do |ss|
+    ss.source_files = 'KdanToolsKit/Classes/Common/**/*.swift'
+  end
+
+s.subspec 'ContentEditor' do |ss|
+    ss.source_files = 'KdanToolsKit/Classes/ContentEditor/**/*.swift'
+  end
+
+s.subspec 'DigitalSignature' do |ss|
+    ss.source_files = 'KdanToolsKit/Classes/DigitalSignature/**/*.swift'
+  end
+
+s.subspec 'DocsEditor' do |ss|
+    ss.source_files = 'KdanToolsKit/Classes/DocsEditor/**/*.swift'
+  end
+
+s.subspec 'Forms' do |ss|
+    ss.source_files = 'KdanToolsKit/Classes/Forms/**/*.swift'
+  end
+
+s.subspec 'Viewer' do |ss|
+    ss.source_files = 'KdanToolsKit/Classes/Viewer/**/*.swift'
+  end
+
+s.subspec 'Watermark' do |ss|
+    ss.source_files = 'KdanToolsKit/Classes/Watermark/**/*.swift'
+  end
+
+  s.source_files = 'KdanToolsKit/Classes/*.h'
+
+
+  s.resource_bundles = {
+  'KdanToolsKit' => ['KdanToolsKit/Assets/**/*.xcassets','KdanToolsKit/Assets/**/*.plist']
+    }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
