@@ -1,6 +1,6 @@
 PODS:
   - ComPDFKit (1.13.0)
-  - KdanToolsKit (0.0.2):
+  - KdanToolsKit (0.1.1):
     - ComPDFKit
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   ComPDFKit: 56bf4876cd6ac152604c28ba387f267b481aa58c
-  KdanToolsKit: e4ec33d922e5c2719eb5434329826c0b0e9f8935
+  KdanToolsKit: 77bcd75b785b2b1d02d7db9f8c847cefd24eb5aa
 
 PODFILE CHECKSUM: 247aa23eeba7818ee0da3e406c748f18db5da730
 

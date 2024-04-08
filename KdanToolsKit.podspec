@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KdanToolsKit'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'A short description of toolsUI.'
 
 # This description is used to generate tags and improve search results.
@@ -30,10 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '11.0'
   s.swift_versions = '5.0'
-  s.source_files = 'KdanToolsKit/Classes/Annotations/**/*.swift'
-  s.resource_bundles = {
-  'KdanToolsKit' => ['KdanToolsKit/Assets/**/*.xcassets','KdanToolsKit/Assets/**/*.plist']
-    }
+  s.source_files = 'KdanToolsKit/Classes/**/*'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

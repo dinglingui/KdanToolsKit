@@ -1,6 +1,6 @@
 {
   "name": "KdanToolsKit",
-  "version": "0.0.2",
+  "version": "0.1.1",
   "summary": "A short description of toolsUI.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/dinglingui/KdanToolsKit.git",
@@ -13,13 +13,19 @@
   },
   "source": {
     "git": "https://github.com/dinglingui/KdanToolsKit.git",
-    "tag": "0.0.2"
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "11.0"
   },
   "swift_versions": "5.0",
-  "source_files": "KdanToolsKit/Classes/**/*",
+  "source_files": "KdanToolsKit/Classes/**/*.swift",
+  "resource_bundles": {
+    "KdanToolsKit": [
+      "KdanToolsKit/Assets/**/*.xcassets",
+      "KdanToolsKit/Assets/**/*.plist"
+    ]
+  },
   "dependencies": {
     "ComPDFKit": [
 
