@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KdanToolsKit'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'A short description of toolsUI.'
 
 # This description is used to generate tags and improve search results.
@@ -71,7 +71,7 @@ s.subspec 'Watermark' do |ss|
 
 
   s.resource_bundles = {
-  'KdanToolsKit' => ['KdanToolsKit/Assets/**/*.xcassets','KdanToolsKit/Assets/**/*.plist']
+  'KdanToolsKit' => ['KdanToolsKit/Assets/**/*.xcassets','KdanToolsKit/Assets/**/*.plist','KdanToolsKit/Assets/**/*.png']
     }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
