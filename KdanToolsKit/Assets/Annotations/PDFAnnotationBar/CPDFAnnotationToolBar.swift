@@ -681,8 +681,8 @@ public class CPDFAnnotationToolBar: UIView,UINavigationControllerDelegate, UIIma
         let annotation = annotManage?.pdfListView?.activeAnnotations?.first
         
         if annotation is CPDFLinkAnnotation {
-            if linkVC?.isLink == true && annotation?.page != nil {
-                annotation?.page?.removeAnnotation(annotation)
+            if linkVC?.isLink == true {
+                annotation?.page.removeAnnotation(annotation)
                 annotManage?.pdfListView?.setNeedsDisplayFor(annotManage?.pdfListView?.activeAnnotation?.page)
                 annotManage?.pdfListView?.updateActiveAnnotations([])
             }
@@ -949,8 +949,8 @@ public class CPDFAnnotationToolBar: UIView,UINavigationControllerDelegate, UIIma
     func linkViewControllerDismiss(_ linkViewController: CPDFLinkViewController, isLink: Bool) {
         if !isLink {
             let annotation = annotManage?.pdfListView?.activeAnnotations?.first
-            if(annotation != nil && annotation?.page != nil) {
-                annotation!.page?.removeAnnotation(annotation!)
+            if(annotation != nil) {
+                annotation!.page.removeAnnotation(annotation!)
                 pdfListView?.setNeedsDisplayFor(annotManage?.pdfListView?.activeAnnotation?.page)
                 self.pdfListView?.updateActiveAnnotations([])
             }

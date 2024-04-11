@@ -36,9 +36,7 @@ let CPDFAnnotationBorderColorKey = "borderColor"
 
 let CPDFAnnotationBackgroundColorKey = "backgroundColor"
 
-let CPDFAnnotationFontKey = "cFont"
-
-let CPDFAnnotationFontSizeKey = "fontSize"
+let CPDFAnnotationFontKey = "font"
 
 let CPDFAnnotationFontColorKey = "fontColor"
 

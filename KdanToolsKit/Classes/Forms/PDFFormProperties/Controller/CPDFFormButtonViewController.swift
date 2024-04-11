@@ -30,7 +30,8 @@ class CPDFFormButtonViewController: CPDFFormBaseViewController, CPDFColorSelectV
     var colorPicker: CPDFColorPickerView?
     
     var baseName: String?
-    private var baseStyleName:String = ""
+    var isBold: Bool = false
+    var isItalic: Bool = false
     var fontSize: CGFloat = 0.0
     
     var buttonWidget: CPDFButtonWidgetAnnotation? {
@@ -55,27 +56,17 @@ class CPDFFormButtonViewController: CPDFFormBaseViewController, CPDFColorSelectV
             } else {
                 self.backGroundColorView?.selectedColor = buttonWidget?.backgroundColor
             }
-            if self.buttonWidget?.fontSize == 0 {
+            //Text content
+            analyzeFont(buttonWidget?.font.fontName)
+            if self.buttonWidget?.font.pointSize == 0 {
                 fontSize = 14
                 self.sizeThickNessView?.defaultValue = 0.14
                 refreshUI()
             } else {
-                self.fontSize = buttonWidget?.fontSize ?? 14
-
-                self.sizeThickNessView?.defaultValue = self.fontSize / 100
+                self.sizeThickNessView?.defaultValue = (buttonWidget?.font.pointSize ?? 0) / 100
+                self.fontSize = buttonWidget?.font.pointSize ?? 0
             }
             
-            let pdfFont = buttonWidget?.cFont
-            
-            baseName = pdfFont?.familyName ?? "Helvetica"
-            baseStyleName = pdfFont?.styleName ?? ""
-            if(baseStyleName.count == 0) {
-                let datasArray:[String] = CPDFFont.fontNames(forFamilyName: baseName ?? "Helvetica")
-                baseStyleName = datasArray.first ?? ""
-            }
-            self.fontSettingView?.fontNameSelectLabel?.text = baseName
-            self.fontSettingView?.fontStyleNameSelectLabel?.text = baseStyleName
-
         }
     }
     
@@ -157,13 +148,80 @@ class CPDFFormButtonViewController: CPDFFormBaseViewController, CPDFColorSelectV
         self.fontSize = 14
         self.baseName = "Helvetica"
         self.fontSettingView?.fontNameSelectLabel?.text = self.baseName
-        let datasArray:[String] = CPDFFont.fontNames(forFamilyName: baseName ?? "Helvetica")
-        baseStyleName = datasArray.first ?? ""
-
-        self.fontSettingView?.fontStyleNameSelectLabel?.text = baseStyleName
-
+        
         self.buttonWidget = self.annotManage?.annotStyle?.annotations.first as? CPDFButtonWidgetAnnotation
     }
+    
+    
+    func analyzeFont(_ fontName: String?) {
+        if fontName == nil {
+            fontSettingView?.isBold = false
+            fontSettingView?.isItalic = false
+            return
+        }
+        
+        if fontName?.range(of: "Bold") != nil {
+            fontSettingView?.isBold = true
+            isBold = true
+        } else {
+            fontSettingView?.isBold = false
+            isBold = false
+        }
+        
+        if fontName?.range(of: "Italic") != nil || fontName?.range(of: "Oblique") != nil {
+            fontSettingView?.isItalic = true
+            isItalic = true
+        } else {
+            fontSettingView?.isItalic = false
+            isItalic = false
+        }
+        
+        if fontName?.range(of: "Helvetica") != nil {
+            baseName = "Helvetica"
+            fontSettingView?.fontNameSelectLabel?.text = baseName
+        } else if fontName?.range(of: "Courier") != nil {
+            baseName = "Courier"
+            fontSettingView?.fontNameSelectLabel?.text = baseName
+        } else if fontName?.range(of: "Times") != nil {
+            baseName = "Times-Roman"
+            fontSettingView?.fontNameSelectLabel?.text = baseName
+        }
+    }
+    
+    func constructionFontname(baseName: String, isBold: Bool, isItalic: Bool) -> String {
+        var result = ""
+        
+        if baseName.range(of: "Times") != nil {
+            if isBold || isItalic {
+                if isBold && isItalic {
+                    return "Times-BoldItalic"
+                }
+                if isBold {
+                    return "Times-Bold"
+                }
+                if isItalic {
+                    return "Times-Italic"
+                }
+            } else {
+                return "Times-Roman"
+            }
+        }
+        
+        if isBold || isItalic {
+            result = "\(baseName)-"
+            if isBold {
+                result = "\(result)Bold"
+            }
+            if isItalic {
+                result = "\(result)Oblique"
+            }
+        } else {
+            return baseName
+        }
+        
+        return result
+    }
+    
     
     override func commomInitTitle() {
         self.titleLabel?.text = NSLocalizedString("Push Button tititle", comment: "")
@@ -196,21 +254,23 @@ class CPDFFormButtonViewController: CPDFFormBaseViewController, CPDFColorSelectV
            self.borderColorView?.frame = CGRect(x: self.view.safeAreaInsets.left, y: (self.buttonTextFiledView?.frame.maxY ?? 0) + 8, width: self.view.frame.size.width - self.view.safeAreaInsets.left - self.view.safeAreaInsets.right, height: 74)
            self.backGroundColorView?.frame = CGRect(x: self.view.safeAreaInsets.left, y: (self.borderColorView?.frame.maxY ?? 0) + 8, width: self.view.frame.size.width - self.view.safeAreaInsets.left - self.view.safeAreaInsets.right, height: 74)
            self.textColorView?.frame = CGRect(x: self.view.safeAreaInsets.left, y: (self.backGroundColorView?.frame.maxY ?? 0) + 8, width: self.view.frame.size.width - self.view.safeAreaInsets.left - self.view.safeAreaInsets.right, height: 74)
-           self.fontSettingView?.frame = CGRect(x: self.view.safeAreaInsets.left, y: (self.textColorView?.frame.maxY ?? 0) + 16, width: self.view.frame.size.width - self.view.safeAreaInsets.left - self.view.safeAreaInsets.right, height: 30)
-           self.sizeThickNessView?.frame = CGRect(x: self.view.safeAreaInsets.left, y: (self.fontSettingView?.frame.maxY ?? 0)+8, width: self.view.frame.size.width - self.view.safeAreaInsets.left - self.view.safeAreaInsets.right, height: 82)
+           self.fontSettingView?.frame = CGRect(x: self.view.safeAreaInsets.left, y: (self.textColorView?.frame.maxY ?? 0) + 8, width: self.view.frame.size.width - self.view.safeAreaInsets.left - self.view.safeAreaInsets.right, height: 30)
+           self.sizeThickNessView?.frame = CGRect(x: self.view.safeAreaInsets.left, y: self.fontSettingView?.frame.maxY ?? 0, width: self.view.frame.size.width - self.view.safeAreaInsets.left - self.view.safeAreaInsets.right, height: 82)
        } else {
        self.textFiledView?.frame = CGRect(x: 0, y: 8, width: self.view.bounds.size.width, height: 60)
            self.buttonTextFiledView?.frame = CGRect(x: 0, y: (self.textFiledView?.frame.maxY ?? 0) + 8, width: self.view.frame.size.width, height: 60)
            self.borderColorView?.frame = CGRect(x: 0, y: (self.buttonTextFiledView?.frame.maxY ?? 0) + 8, width: self.view.frame.size.width, height: 74)
            self.backGroundColorView?.frame = CGRect(x: 0, y: (self.borderColorView?.frame.maxY ?? 0) + 8, width: self.view.frame.size.width, height: 74)
            self.textColorView?.frame = CGRect(x: 0, y: (self.backGroundColorView?.frame.maxY ?? 0) + 8, width: self.view.frame.size.width, height: 74)
-           self.fontSettingView?.frame = CGRect(x: 0, y: (self.textColorView?.frame.maxY ?? 0) + 16, width: self.view.frame.size.width, height: 30)
-           self.sizeThickNessView?.frame = CGRect(x: 0, y: (self.fontSettingView?.frame.maxY ?? 0)+8, width: self.view.frame.size.width, height: 82)
+           self.fontSettingView?.frame = CGRect(x: 0, y: (self.textColorView?.frame.maxY ?? 0) + 8, width: self.view.frame.size.width, height: 30)
+           self.sizeThickNessView?.frame = CGRect(x: 0, y: self.fontSettingView?.frame.maxY ?? 0, width: self.view.frame.size.width, height: 82)
        }
 
     }
     
     func refreshUI() {
+        let fontName = constructionFontname(baseName: baseName ?? "", isBold: isBold, isItalic: isItalic)
+        buttonWidget?.font = UIFont(name: fontName, size: fontSize)
         buttonWidget?.updateAppearanceStream()
         let page = buttonWidget?.page
         if page != nil {
@@ -312,13 +372,27 @@ class CPDFFormButtonViewController: CPDFFormBaseViewController, CPDFColorSelectV
     // MARK: - CPDFThicknessSliderViewDelegate
     func thicknessSliderView(_ opacitySliderView: CPDFThicknessSliderView, thickness: CGFloat) {
         self.fontSize = thickness * 10
-        self.buttonWidget?.fontSize = self.fontSize
         self.refreshUI()
     }
-        
+    
     // MARK: - CPDFFontSettingViewDelegate
-    func setCPDFFontSettingViewFontSelect(view: CPDFFontSettingSubView,isFontStyle:Bool) {
-        fontStyleTableView = CPDFFontStyleTableView(frame: self.view.bounds, familyNames: view.fontNameSelectLabel?.text ?? "Helvetica",styleName: baseStyleName, isFontStyle: isFontStyle)
+    func CPDFFontSettingView(view: CPDFFontSettingSubView, text: String) {
+        
+    }
+    
+    func setCPDFFontSettingView(view: CPDFFontSettingSubView, isBold: Bool) {
+        self.isBold = isBold
+        self.refreshUI()
+    }
+    
+    func setCPDFFontSettingView(view: CPDFFontSettingSubView, isItalic: Bool) {
+        self.isItalic = isItalic
+        self.refreshUI()
+    }
+    
+    // MARK: - CPDFFontSettingViewDelegate
+    func setCPDFFontSettingViewFontSelect(view: CPDFFontSettingSubView) {
+        self.fontStyleTableView = CPDFFontStyleTableView(frame: self.view.bounds)
         self.fontStyleTableView?.delegate = self
         self.fontStyleTableView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.fontStyleTableView?.backgroundColor = CPDFColorUtils.CAnnotationPropertyViewControllerBackgoundColor()
@@ -329,23 +403,9 @@ class CPDFFormButtonViewController: CPDFFormBaseViewController, CPDFColorSelectV
     }
     
     // MARK: - CPDFFontStyleTableViewDelegate
-    func fontStyleTableView(_ fontStyleTableView: CPDFFontStyleTableView, fontName: String, isFontStyle: Bool) {
-        var familyName = baseName
-        if(isFontStyle) {
-            baseStyleName = fontName
-        } else {
-            baseName = fontName;
-            familyName = fontName
-            
-            let datasArray:[String] = CPDFFont.fontNames(forFamilyName: familyName ?? "Helvetica")
-            baseStyleName = datasArray.first ?? ""
-        }
-        
-        let pdfFont = CPDFFont.init(familyName: baseName ?? "Helvetica", fontStyle: baseStyleName)
-        buttonWidget?.cFont = pdfFont
-        
-        self.fontSettingView?.fontNameSelectLabel?.text = familyName
-        self.fontSettingView?.fontStyleNameSelectLabel?.text = baseStyleName
+    func fontStyleTableView(_ fontStyleTableView: CPDFFontStyleTableView, fontName: String) {
+        self.baseName = fontName
+        self.fontSettingView?.fontNameSelectLabel?.text = fontName
         self.refreshUI()
     }
 }

@@ -88,15 +88,13 @@ class CPDFOpacitySliderView: UIView {
     
     // MARK: - Action
     @objc func buttonItemClicked_changes(_ button: UISlider) {
+        sliderCount -= 1
         
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(updateNewAppearanceStream), object: button)
-        perform(#selector(updateNewAppearanceStream), with: button, afterDelay: 0.2)
-
-    }
-    
-    @objc func updateNewAppearanceStream(_ button: UISlider) {
-        startLabel?.text = "\(Int((button.value/1)*100))%"
-        self.delegate?.opacitySliderView?(self, opacity: CGFloat(button.value))
+        if sliderCount == 3 {
+            startLabel?.text = "\(Int((button.value/1)*100))%"
+            self.delegate?.opacitySliderView?(self, opacity: CGFloat(button.value))
+            sliderCount = 10
+        }
     }
     
 }

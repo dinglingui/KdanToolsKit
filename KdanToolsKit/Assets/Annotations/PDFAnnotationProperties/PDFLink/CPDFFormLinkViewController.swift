@@ -350,11 +350,9 @@ class CPDFFormLinkViewController: UIViewController,UITextFieldDelegate {
                 mAnnotation.setAction(urlAction)
             } else if self.linkType == .page {
                 let pageIndex = (Int(string ?? "0") ?? 1) - 1
-                if (mAnnotation.page != nil) {
-                    let destination = CPDFDestination(document: mAnnotation.page?.document, pageIndex: pageIndex)
-                    let goToAction = CPDFGoToAction(destination: destination)
-                    mAnnotation.setAction(goToAction)
-                }
+                let destination = CPDFDestination(document: mAnnotation.page.document, pageIndex: pageIndex)
+                let goToAction = CPDFGoToAction(destination: destination)
+                mAnnotation.setAction(goToAction)
             }
         }
         

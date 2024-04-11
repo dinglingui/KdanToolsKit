@@ -16,7 +16,6 @@ public class CWatermarkModel: NSObject {
     var text: String?
     var textColor: UIColor?
     var fontName: String?
-    var fontStyleName: String = ""
     var watermarkOpacity: CGFloat = 1.0
     var watermarkScale: CGFloat = 1.0
     var isTile: Bool = false

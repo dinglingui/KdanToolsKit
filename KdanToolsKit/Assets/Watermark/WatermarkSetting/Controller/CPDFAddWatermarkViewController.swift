@@ -144,7 +144,6 @@ public class CPDFAddWatermarkViewController: UIViewController, CPDFTextWatermark
         textWaterModel?.isFront = true
         textWaterModel?.textColor = .black
         textWaterModel?.fontName = "Helvetica"
-        textWaterModel?.fontStyleName = "Regular"
         textWaterModel?.watermarkRotation = 0.0
         textWaterModel?.fileURL = fileURL
         textWaterModel?.horizontalSpacing = 30
@@ -184,12 +183,8 @@ public class CPDFAddWatermarkViewController: UIViewController, CPDFTextWatermark
         textWatermarkPreView?.textTileView?.fontSize = textWaterModel?.watermarkScale ?? 20.0
         textWatermarkPreView?.textTileView?.waterString = textWaterModel?.text
         textWatermarkPreView?.textTileView?.centerPoint = textWatermarkPreView?.preLabel?.center ?? .zero
-        let familyName = textWaterModel?.fontName
-        let styleName = textWaterModel?.fontStyleName
-
-        textWatermarkPreView?.textTileView?.familyName = familyName
-        textWatermarkPreView?.textTileView?.fontStyleName = styleName
-
+        textWatermarkPreView?.textTileView?.fontName = textWaterModel?.fontName
+        
         textWatermarkPreView?.textTileView?.setNeedsDisplay()
     }
     
@@ -386,12 +381,7 @@ public class CPDFAddWatermarkViewController: UIViewController, CPDFTextWatermark
             let textWatermark = CPDFWatermark(document: waterDocument, type: .text)
             
             textWatermark?.text = textWaterModel?.text
-            let familyName = textWaterModel?.fontName
-            let styleName = textWaterModel?.fontStyleName
-
-            let font = CPDFFont(familyName: familyName ?? "Helvetica", fontStyle: styleName ?? "")
-            textWatermark?.cFont = font
-            textWatermark?.fontSize = textWaterModel?.watermarkScale ?? 0
+            textWatermark?.textFont = UIFont(name: textWaterModel?.fontName ?? "", size: textWaterModel?.watermarkScale ?? 0)
             textWatermark?.textColor = textWaterModel?.textColor
             textWatermark?.scale = (page?.size.width ?? 0) / (textWatermarkPreView?.documentView?.size.width ?? 24)
             textWatermark?.isTilePage = textWaterModel?.isTile ?? false
@@ -678,12 +668,9 @@ public class CPDFAddWatermarkViewController: UIViewController, CPDFTextWatermark
         textWatermarkPreView?.textTileView?.isHidden = !isTile
     }
     
-    func textWatermarkSettingViewControllerSetting(_ textWatermarkSettingViewController: CPDFTextWatermarkSettingViewController, FamilyName familyName: String, FontStyleName styleName: String) {
-        textWaterModel?.fontName = familyName
-        textWaterModel?.fontStyleName = styleName
-        let cFont = CPDFFont(familyName: familyName, fontStyle: styleName)
-        
-        textWatermarkPreView?.preLabel?.font = UIFont(name: CPDFFont.convertAppleFont(cFont) ?? "Helvetica", size: textWaterModel?.watermarkScale ?? 0)
+    func textWatermarkSettingViewControllerSetting(_ textWatermarkSettingViewController: CPDFTextWatermarkSettingViewController, FontName fontName: String) {
+        textWaterModel?.fontName = fontName
+        textWatermarkPreView?.preLabel?.font = UIFont(name: fontName, size: textWaterModel?.watermarkScale ?? 0)
         textTileViewRefresh()
         textWatermarkPreView?.setNeedsDisplay()
         
@@ -693,13 +680,8 @@ public class CPDFAddWatermarkViewController: UIViewController, CPDFTextWatermark
     }
     
     func textWatermarkSettingViewControllerSetting(_ textWatermarkSettingViewController: CPDFTextWatermarkSettingViewController, FontSize fontSize: CGFloat) {
-        let familyName = textWaterModel?.fontName
-        let styleName = textWaterModel?.fontStyleName
-
-        
-        let cFont = CPDFFont(familyName: familyName ?? "Helvetica", fontStyle: styleName ?? "")
         textWaterModel?.watermarkScale = fontSize
-        textWatermarkPreView?.preLabel?.font = UIFont(name: CPDFFont.convertAppleFont(cFont) ?? "Helvetica", size: fontSize)
+        textWatermarkPreView?.preLabel?.font = UIFont(name: textWaterModel?.fontName ?? "Helvetica", size: fontSize)
         textTileViewRefresh()
         textWatermarkPreView?.setNeedsDisplay()
         

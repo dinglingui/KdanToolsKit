@@ -20,7 +20,6 @@ extension CPDFChoiceWidgetAnnotation {
                                  CPDFAnnotationOpacityKey,
                                  CPDFAnnotationColorKey,
                                  CPDFAnnotationFontKey,
-                                 CPDFAnnotationFontSizeKey,
                                  CPDFAnnotationFontColorKey,
                                  CPDFAnnotationBorderColorKey,
                                  CPDFAnnotationBackgroundColorKey,

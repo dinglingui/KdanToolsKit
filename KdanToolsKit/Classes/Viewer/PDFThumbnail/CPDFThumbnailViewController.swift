@@ -78,15 +78,7 @@ public class CPDFThumbnailViewController: UIViewController,UICollectionViewDeleg
         navigationItem.leftBarButtonItem = nil
         
         view.backgroundColor = CPDFColorUtils.CPDFViewControllerBackgroundColor()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            if self.pdfView.document != nil {
-                let indexPath = NSIndexPath(item: self.pdfView.currentPageIndex, section: 0)
-                self.collectionView?.selectItem(at: indexPath as IndexPath, animated: false, scrollPosition: .centeredVertically)
-            }
-        }
     }
-    
     
     public override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)
@@ -110,6 +102,25 @@ public class CPDFThumbnailViewController: UIViewController,UICollectionViewDeleg
         }
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.collectionView?.reloadData()
+        
+        if self.pdfView.document != nil {
+            let indexPath = NSIndexPath(item: pdfView.currentPageIndex, section: 0)
+            collectionView?.selectItem(at: indexPath as IndexPath, animated: false, scrollPosition: .centeredVertically)
+        }
+    }
+    
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if self.pdfView.document != nil {
+            let indexPath = NSIndexPath(item: pdfView.currentPageIndex, section: 0)
+            collectionView?.selectItem(at: indexPath as IndexPath, animated: false, scrollPosition: .centeredVertically)
+        }
+    }
     
     // MARK: - Class Methods
     

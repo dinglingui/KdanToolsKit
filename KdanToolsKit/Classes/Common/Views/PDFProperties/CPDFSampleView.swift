@@ -11,7 +11,6 @@
 //
 
 import UIKit
-import ComPDFKit
 
 enum CPDFSamplesSelectedIndex: Int {
     case note = 0
@@ -52,9 +51,9 @@ class CPDFSampleView: UIView {
     var opcity:CGFloat = 0
     var thickness:CGFloat = 0
     var dotted:CGFloat = 0
-    var familyName:String = "Helvetica"
-    var styleName:String = ""
-
+    var fontName:String?
+    var isBold:Bool = false
+    var isItalic:Bool = false
     var textAlignment:NSTextAlignment = .center
     
     var centerRect:CGRect = CGRect.zero
@@ -341,14 +340,11 @@ class CPDFSampleView: UIView {
             let green = colorComponents?[1]
             let blue = colorComponents?[2]
         
-            
-            let cfont = CPDFFont(familyName: familyName, fontStyle: styleName)
-            var font = UIFont.init(name: CPDFFont.convertAppleFont(cfont) ?? "Helvetica", size: thickness)
+            var sampleStr = "Sample"
+            var font = UIFont(name: self.fontName ?? "", size: self.thickness)
             if font == nil {
-                font = UIFont(name: "Helvetica-Oblique", size: thickness)
+                font = UIFont.systemFont(ofSize: self.thickness)
             }
-
-            let sampleStr = "Sample"
             if self.color == nil {
                 self.color = UIColor.white
             }

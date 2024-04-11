@@ -21,10 +21,6 @@ public class CPDFEditViewController: UIViewController, UITableViewDelegate, UITa
     var tableView:UITableView?
     var colorPickerView:CPDFColorPickerView?
     var fontSelectView:CPDFEditFontNameSelectView?
-    var fontStyleSelectView:CPDFEditFontNameSelectView?
-    var fontName: String = "Helvetica"
-    var fontStyle: String = ""
-
     var backBtn:UIButton?
     var textSampleView:CPDFEditTextSampleView?
     var imageSampleView:CPDFEditImageSampleView?
@@ -39,19 +35,6 @@ public class CPDFEditViewController: UIViewController, UITableViewDelegate, UITa
     public init(pdfView: CPDFView) {
         super.init(nibName: nil, bundle: nil)
         self.pdfView = pdfView
-        
-        let editArea = self.pdfView?.editingArea()
-
-        if editArea != nil {
-            if editArea?.isTextArea() == true {
-                let cPDFFont = self.pdfView?.editingSelectionCFont(with: editArea as? CPDFEditTextArea)
-                fontName = cPDFFont?.familyName ?? "Helvetica"
-                fontStyle = cPDFFont?.styleName ?? ""
-            }
-        } else {
-            fontName = CPDFTextProperty.shared.fontNewFamilyName
-            fontStyle = CPDFTextProperty.shared.fontNewStyle
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -169,7 +152,10 @@ public class CPDFEditViewController: UIViewController, UITableViewDelegate, UITa
                     self.textSampleView?.textAlignmnet = self.pdfView?.editingSelectionAlignment(with: editArea as? CPDFEditTextArea) ?? .left
                     self.textSampleView?.textColor = self.pdfView?.editingSelectionFontColor(with: editArea as? CPDFEditTextArea) ?? UIColor.clear
                     self.textSampleView?.textOpacity = self.pdfView?.getCurrentOpacity() ?? 1.0
+                    self.textSampleView?.fontName = self.pdfView?.editingSelectionFontName(with: editArea as? CPDFEditTextArea) as NSString?
                     self.textSampleView?.fontSize = self.pdfView?.editingSelectionFontSizes(with: editArea as? CPDFEditTextArea) ?? 0
+                    self.textSampleView?.isBold = self.pdfView?.isBoldCurrentSelection(with: editArea as? CPDFEditTextArea) == true
+                    self.textSampleView?.isItalic = self.pdfView?.isItalicCurrentSelection(with: editArea as? CPDFEditTextArea) == true
                 }
                 
             } else {
@@ -185,20 +171,12 @@ public class CPDFEditViewController: UIViewController, UITableViewDelegate, UITa
                 
                 self.textSampleView?.textColor = color ?? .black
                 self.textSampleView?.textOpacity = CPDFTextProperty.shared.textOpacity
-
+                self.textSampleView?.fontName = CPDFTextProperty.shared.fontName
                 self.textSampleView?.fontSize = CPDFTextProperty.shared.fontSize
+                self.textSampleView?.isBold = CPDFTextProperty.shared.isBold
+                self.textSampleView?.isItalic = CPDFTextProperty.shared.isItalic
             }
-            let familyName =  self.fontName
-            let styleName = self.fontStyle
-
             
-            let cFont = CPDFFont(familyName: familyName, fontStyle: styleName )
-            var font = UIFont.init(name: CPDFFont.convertAppleFont(cFont) ?? "Helvetica", size: 16.0)
-
-            if font == nil {
-                font = UIFont(name: "Helvetica-Oblique", size: 16.0)
-            }
-            self.textSampleView?.fontName = font?.fontName
             if self.textSampleView != nil {
                 view.addSubview(self.textSampleView!)
             }
@@ -269,13 +247,20 @@ public class CPDFEditViewController: UIViewController, UITableViewDelegate, UITa
                 cell = CPDFTextPropertyCell(style: .default, reuseIdentifier: "Textcell")
             }
             cell?.backgroundColor = UIColor(red: 250/255, green: 252/255, blue: 255/255, alpha: 1)
-            let cFont = CPDFFont(familyName: fontName, fontStyle: fontStyle)
-            cell?.currentSelectCFont = cFont
-
+            if self.fontSelectView?.fontName.count ?? 0 > 0 {
+                cell?.currentSelectFontName = self.fontSelectView?.fontName
+            } else {
+                let editingArea = self.pdfView?.editingArea()
+                if editingArea != nil {
+                    cell?.currentSelectFontName = self.pdfView?.editingSelectionFontName(with: editingArea as? CPDFEditTextArea)
+                } else {
+                    cell?.currentSelectFontName = CPDFTextProperty.shared.fontName as String?
+                }
+            }
             if(self.pdfView != nil) {
                 cell?.setPdfView(self.pdfView!)
             }
-            let blockSelf = self
+            var blockSelf = self
             
             cell?.actionBlock = { actionType in
                 if actionType == .colorSelect {
@@ -293,18 +278,13 @@ public class CPDFEditViewController: UIViewController, UITableViewDelegate, UITa
                         }
                     }
                 } else if actionType == .fontNameSelect {
-                    blockSelf.fontSelectView = CPDFEditFontNameSelectView(frame: blockSelf.view.bounds, familyNames: blockSelf.fontName, styleName: blockSelf.fontStyle, isFontStyle: false)
+                    blockSelf.fontSelectView = CPDFEditFontNameSelectView(frame: blockSelf.view.bounds)
+                    blockSelf.fontSelectView?.fontNameArr = NSMutableArray(array: blockSelf.pdfView?.getFontList() ?? []) as? [Any]
+                    blockSelf.fontSelectView?.fontName = blockSelf.textSampleView?.fontName as? String ?? ""
                     blockSelf.fontSelectView?.delegate = blockSelf
                     blockSelf.fontSelectView?.backgroundColor = CPDFColorUtils.CPDFViewControllerBackgroundColor()
                     if(blockSelf.fontSelectView != nil) {
                         blockSelf.view.addSubview(blockSelf.fontSelectView!)
-                    }
-                } else if actionType == .fontStyleSelect {
-                    blockSelf.fontStyleSelectView = CPDFEditFontNameSelectView(frame: blockSelf.view.bounds, familyNames: blockSelf.fontName, styleName: blockSelf.fontStyle, isFontStyle: true)
-                    blockSelf.fontStyleSelectView?.delegate = blockSelf
-                    blockSelf.fontStyleSelectView?.backgroundColor = CPDFColorUtils.CPDFViewControllerBackgroundColor()
-                    if(blockSelf.fontStyleSelectView != nil) {
-                        blockSelf.view.addSubview(blockSelf.fontStyleSelectView!)
                     }
                 }
             }
@@ -317,6 +297,28 @@ public class CPDFEditViewController: UIViewController, UITableViewDelegate, UITa
                     blockSelf.pdfView?.setEditingSelectionFontColor(selectColor, with: editingArea as? CPDFEditTextArea)
                 } else {
                     CPDFTextProperty.shared.fontColor = selectColor
+                }
+            }
+            
+            cell?.boldBlock = { isBold in
+                blockSelf.textSampleView?.isBold = isBold
+                let editingArea = blockSelf.pdfView?.editingArea()
+                
+                if editingArea != nil {
+                    blockSelf.pdfView?.setCurrentSelectionIsBold(isBold, with: editingArea as? CPDFEditTextArea)
+                } else {
+                    CPDFTextProperty.shared.isBold = isBold
+                }
+            }
+            
+            cell?.italicBlock = { isItalic in
+                blockSelf.textSampleView?.isItalic = isItalic
+                let editingArea = blockSelf.pdfView?.editingArea()
+                
+                if editingArea != nil {
+                    blockSelf.pdfView?.setCurrentSelectionIsItalic(isItalic, with: editingArea as? CPDFEditTextArea)
+                } else {
+                    CPDFTextProperty.shared.isItalic = isItalic
                 }
             }
             
@@ -382,7 +384,7 @@ public class CPDFEditViewController: UIViewController, UITableViewDelegate, UITa
                 cell?.setPdfView(self.pdfView!)
             }
             
-            let blockSelf = self
+            var blockSelf = self
             cell?.rotateBlock = { rotateType, isRotated in
                 if rotateType == .left {
                     let editingArea = blockSelf.pdfView?.editingArea()
@@ -504,33 +506,13 @@ public class CPDFEditViewController: UIViewController, UITableViewDelegate, UITa
     
     // MARK: - CPDFEditFontNameSelectViewDelegate
     func pickerView(_ colorPickerView: CPDFEditFontNameSelectView, fontName: String) {
-        var styleName = fontStyle
-        var familyName = self.fontName
-        
-        if(colorPickerView == self.fontSelectView) {
-            familyName = fontName
-            let datasArray:[String] = CPDFFont.fontNames(forFamilyName: familyName)
-            styleName = datasArray.first ?? ""
-        } else {
-            styleName = fontName
-        }
-        self.fontName = familyName;
-        self.fontStyle = styleName
-        
-        let cfont = CPDFFont(familyName: self.fontName, fontStyle: self.fontStyle)
-        var font = UIFont.init(name: CPDFFont.convertAppleFont(cfont) ?? "Helvetica", size: 16.0)
-
-        if font == nil {
-            font = UIFont(name: "Helvetica-Oblique", size: 16.0)
-        }
-        textSampleView?.fontName = font?.fontName
+        textSampleView?.fontName = NSString(string: fontName)
         let editingArea = self.pdfView?.editingArea()
         
         if editingArea != nil {
-            pdfView?.setEditSelectionCFont(cfont, with: editingArea as? CPDFEditTextArea)
+            pdfView?.setEditingSelectionFontName(fontName, with: editingArea as? CPDFEditTextArea)
         } else {
-            CPDFTextProperty.shared.fontNewFamilyName = self.fontName
-            CPDFTextProperty.shared.fontNewStyle = self.fontStyle
+            CPDFTextProperty.shared.fontName = NSString(string: fontName)
         }
         tableView?.reloadData()
     }
@@ -564,43 +546,23 @@ public class CPDFEditViewController: UIViewController, UITableViewDelegate, UITa
         let editingArea = self.pdfView?.editingArea()
 
         if(editingArea != nil) {
-            var url:URL?
             if #available(iOS 11.0, *) {
-                url = info[UIImagePickerController.InfoKey.imageURL] as? URL
+                let url = info[UIImagePickerController.InfoKey.imageURL] as? URL
+                if(url != nil) {
+                    let image = UIImage.init(contentsOfFile: url!.path)
+                    let size:CGSize = image?.size ?? CGSize.init(width: 10, height: 10)
+                    pdfView?.replace(editingArea as? CPDFEditImageArea, imagePath: url!.path,rect: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+                }
             } else {
-                url = info[UIImagePickerController.InfoKey.mediaURL] as? URL
-            }
-            
-            if(url != nil) {
-                if var image = UIImage(contentsOfFile: url!.path) {
-                    var imgWidth: CGFloat = 0
-                    var imgHeight: CGFloat = 0
-                    var scaledWidth: CGFloat = 149
-                    var scaledHeight: CGFloat = 210
-
-                    if image.imageOrientation != .up {
-                        UIGraphicsBeginImageContext(image.size)
-                        image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
-                        if let rotatedImage = UIGraphicsGetImageFromCurrentImageContext() {
-                            image = rotatedImage
-                        }
-                        UIGraphicsEndImageContext()
-                        imgWidth = image.size.height
-                        imgHeight = image.size.width
-                    } else {
-                        imgWidth = image.size.width
-                        imgHeight = image.size.height
-                    }
-                    scaledHeight = scaledWidth * imgHeight / imgWidth
-                    
-                    let rect = CGRect(x: editingArea?.bounds.origin.x ?? 0, y: editingArea?.bounds.origin.y ?? 0, width: scaledWidth, height: scaledHeight)
-                    
-                    pdfView?.replace(editingArea as? CPDFEditImageArea, imagePath: url!.path,rect:rect)
-                    
-                    tableView?.reloadData()
-                    
+                let url = info[UIImagePickerController.InfoKey.mediaURL] as? URL
+                if(url != nil) {
+                    let image = UIImage.init(contentsOfFile: url!.path)
+                    let size:CGSize = image?.size ?? CGSize.init(width: 10, height: 10)
+                    pdfView?.replace(editingArea as? CPDFEditImageArea, imagePath: url!.path,rect: CGRect(x: 0, y: 0, width: size.width, height: size.height))
                 }
             }
+            
+            picker.dismiss(animated: true, completion: nil)
         }
         
         controllerDismiss()

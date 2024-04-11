@@ -11,19 +11,18 @@
 //
 
 import UIKit
-import ComPDFKit
 
 @objc protocol CPDFTextWatermarkSettingViewControllerDelegate: AnyObject {
     @objc optional func textWatermarkSettingViewControllerSetting(_ textWatermarkSettingViewController: CPDFTextWatermarkSettingViewController, Color color: UIColor)
     @objc optional func textWatermarkSettingViewControllerSetting(_ textWatermarkSettingViewController: CPDFTextWatermarkSettingViewController, Opacity opacity: CGFloat)
     @objc optional func textWatermarkSettingViewControllerSetting(_ textWatermarkSettingViewController: CPDFTextWatermarkSettingViewController, IsFront isFront: Bool)
     @objc optional func textWatermarkSettingViewControllerSetting(_ textWatermarkSettingViewController: CPDFTextWatermarkSettingViewController, IsTile isTile: Bool)
-    @objc optional func textWatermarkSettingViewControllerSetting(_ textWatermarkSettingViewController: CPDFTextWatermarkSettingViewController, FamilyName fontName: String,FontStyleName styleName: String)
+    @objc optional func textWatermarkSettingViewControllerSetting(_ textWatermarkSettingViewController: CPDFTextWatermarkSettingViewController, FontName fontName: String)
     @objc optional func textWatermarkSettingViewControllerSetting(_ textWatermarkSettingViewController: CPDFTextWatermarkSettingViewController, FontSize fontSize: CGFloat)
     @objc optional func textWatermarkSettingViewControllerSetting(_ imageWatermarkSettingViewController: CPDFTextWatermarkSettingViewController, PageRange pageRange: String)
 }
 
-class CPDFTextWatermarkSettingViewController: UIViewController, UIColorPickerViewControllerDelegate, CPDFColorSelectViewDelegate, CPDFColorPickerViewDelegate, CPDFOpacitySliderViewDelegate, CPDFThicknessSliderViewDelegate, CPDFFontStyleTableViewDelegate, CLocationSelectViewDelegate, CPageRangeSelectViewDelegate,CTileSelectViewDelegate,CPDFFontSettingViewDelegate {
+class CPDFTextWatermarkSettingViewController: UIViewController, UIColorPickerViewControllerDelegate, CPDFColorSelectViewDelegate, CPDFColorPickerViewDelegate, CPDFOpacitySliderViewDelegate, CPDFThicknessSliderViewDelegate, CPDFFontStyleTableViewDelegate, CLocationSelectViewDelegate, CPageRangeSelectViewDelegate,CTileSelectViewDelegate {
     
     weak var delegate: CPDFTextWatermarkSettingViewControllerDelegate?
     
@@ -38,15 +37,32 @@ class CPDFTextWatermarkSettingViewController: UIViewController, UIColorPickerVie
     private var opacitySliderView: CPDFOpacitySliderView?
     
     private var colorPicker: CPDFColorPickerView?
-        
+    
+    private var boldBtn: UIButton?
+    
+    private var italicBtn: UIButton?
+    
     private var fontsizeSliderView: CPDFThicknessSliderView?
     
+    private var isBold: Bool = false
+    
+    private var isItalic: Bool = false
+    
     private var baseName:String?
-    private var baseStyleName:String = ""
     
     private var fontStyleTableView: CPDFFontStyleTableView?
     
-    var fontSettingView: CPDFFontSettingSubView?
+    private var dropMenuView: UIView?
+    
+    private var splitView: UIView?
+    
+    private var fontSelectBtn: UIButton?
+    
+    private var dropDownIcon: UIImageView?
+    
+    private var fontNameLabel: UILabel?
+    
+    private var fontNameSelectLabel: UILabel?
     
     private var locationSelectView: CLocationSelectView?
     
@@ -166,10 +182,15 @@ class CPDFTextWatermarkSettingViewController: UIViewController, UIColorPickerVie
             backBtn?.frame = CGRect(x: view.frame.size.width - 60 - view.safeAreaInsets.right, y: 5, width: 50, height: 50)
             colorView?.frame = CGRect(x: view.safeAreaInsets.left, y: 0, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: 90)
             opacitySliderView?.frame = CGRect(x: view.safeAreaInsets.left, y: colorView?.frame.maxY ?? 0, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: 90)
-            
-            fontSettingView?.frame = CGRect(x: view.safeAreaInsets.left, y: opacitySliderView?.frame.maxY ?? 0, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: 30)
-
-            locationSelectView?.frame = CGRect(x: view.safeAreaInsets.left, y: (fontSettingView?.frame.maxY ?? 0)+5, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: 30)
+            fontNameLabel?.frame = CGRect(x: view.safeAreaInsets.left+20, y: opacitySliderView?.frame.maxY ?? 0, width: 40, height: 30)
+            dropMenuView?.frame = CGRect(x: view.safeAreaInsets.left+60, y: opacitySliderView?.frame.maxY ?? 0, width: view.frame.size.width - 150 - view.safeAreaInsets.right-view.safeAreaInsets.left, height: 30)
+            dropDownIcon?.frame = CGRect(x: (dropMenuView?.bounds.size.width ?? 0) - 24 - 5, y: 3, width: 24, height: 24)
+            fontNameSelectLabel?.frame = CGRect(x: 10, y: 0, width: (dropMenuView?.bounds.size.width ?? 0) - 40, height: 29)
+            fontSelectBtn?.frame = dropMenuView?.bounds ?? CGRect.zero
+            splitView?.frame = CGRect(x: 0, y: 29, width: dropMenuView?.bounds.size.width ?? 0, height: 1)
+            boldBtn?.frame = CGRect(x: view.frame.size.width - 80 - view.safeAreaInsets.right, y: opacitySliderView?.frame.maxY ?? 0, width: 30, height: 30)
+            italicBtn?.frame = CGRect(x: view.frame.size.width - 50 - view.safeAreaInsets.right, y: opacitySliderView?.frame.maxY ?? 0, width: 30, height: 30)
+            locationSelectView?.frame = CGRect(x: view.safeAreaInsets.left, y: (fontNameLabel?.frame.maxY ?? 0)+5, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: 30)
             fontsizeSliderView?.frame = CGRect(x: view.safeAreaInsets.left, y: locationSelectView?.frame.maxY ?? 0, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: 90)
             pageRangeSelectView?.frame = CGRect(x: view.safeAreaInsets.left, y: (fontsizeSliderView?.frame.maxY ?? 0)+5, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: 30)
             tileSelectView?.frame = CGRect(x: view.safeAreaInsets.left, y: (pageRangeSelectView?.frame.maxY ?? 0)+5, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: 45)
@@ -178,9 +199,15 @@ class CPDFTextWatermarkSettingViewController: UIViewController, UIColorPickerVie
             colorView?.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 90)
             backBtn?.frame = CGRect(x: view.frame.size.width - 60, y: 5, width: 50, height: 50)
             opacitySliderView?.frame = CGRect(x: 0, y: colorView?.frame.maxY ?? 0, width: view.frame.size.width, height: 90)
-            fontSettingView?.frame = CGRect(x: 20, y: opacitySliderView?.frame.maxY ?? 0, width: view.frame.size.width - 40, height: 30)
-
-            locationSelectView?.frame = CGRect(x: 0, y: (fontSettingView?.frame.maxY ?? 0)+5, width: view.frame.size.width, height: 30)
+            fontNameLabel?.frame = CGRect(x: 20, y: opacitySliderView?.frame.maxY ?? 0, width: 30, height: 30)
+            dropMenuView?.frame = CGRect(x: 60, y: opacitySliderView?.frame.maxY ?? 0, width: view.frame.size.width - 150, height: 30)
+            dropDownIcon?.frame = CGRect(x: (dropMenuView?.bounds.size.width ?? 0) - 24 - 5, y: 3, width: 24, height: 24)
+            fontNameSelectLabel?.frame = CGRect(x: 10, y: 0, width: (dropMenuView?.bounds.size.width ?? 0) - 40, height: 29)
+            fontSelectBtn?.frame = dropMenuView?.bounds ?? CGRect.zero
+            splitView?.frame = CGRect(x: 0, y: 29, width: dropMenuView?.bounds.size.width ?? 0, height: 1)
+            boldBtn?.frame = CGRect(x: view.frame.size.width - 80, y: opacitySliderView?.frame.maxY ?? 0, width: 30, height: 30)
+            italicBtn?.frame = CGRect(x: view.frame.size.width - 50, y: opacitySliderView?.frame.maxY ?? 0, width: 30, height: 30)
+            locationSelectView?.frame = CGRect(x: 0, y: (fontNameLabel?.frame.maxY ?? 0)+5, width: view.frame.size.width, height: 30)
             fontsizeSliderView?.frame = CGRect(x: 0, y: locationSelectView?.frame.maxY ?? 0, width: view.frame.size.width, height: 90)
             pageRangeSelectView?.frame = CGRect(x: 0, y: (fontsizeSliderView?.frame.maxY ?? 0)+5, width: view.frame.size.width, height: 30)
             tileSelectView?.frame = CGRect(x: 0, y: (pageRangeSelectView?.frame.maxY ?? 0)+5, width: view.frame.size.width , height: 45)
@@ -212,21 +239,143 @@ class CPDFTextWatermarkSettingViewController: UIViewController, UIColorPickerVie
         opacitySliderView?.startLabel?.text = "\(Int(((opacitySliderView?.opacitySlider?.value ?? 0)/1)*100))%"
         fontsizeSliderView?.thicknessSlider?.value = Float(waterModel?.watermarkScale ?? 0)
         fontsizeSliderView?.startLabel?.text = "\(Int(fontsizeSliderView?.thicknessSlider?.value ?? 0))pt"
-        fontSettingView?.fontNameSelectLabel?.text = waterModel?.fontName
-        fontSettingView?.fontStyleNameSelectLabel?.text = waterModel?.fontStyleName
+        fontNameSelectLabel?.text = waterModel?.fontName
+        analyzeFont(waterModel?.fontName ?? "")
         tileSelectView?.tileSwitch?.isOn = waterModel?.isTile ?? false
         locationSelectView?.setLocation(waterModel?.isFront ?? true)
     }
     
-    func createFreeTextProperty() {
-        self.fontSettingView = CPDFFontSettingSubView(frame: CGRect.zero)
-        self.fontSettingView?.fontNameLabel?.font = UIFont.boldSystemFont(ofSize: 13.0)
-        self.fontSettingView?.fontNameLabel?.textColor = UIColor(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1)
-        self.fontSettingView?.fontNameLabel?.text = NSLocalizedString("Font", comment: "")
-        self.fontSettingView?.delegate = self
+    func analyzeFont(_ fontName: String) {
+        if fontName.range(of: "Bold") != nil {
+            self.isBold = true
+            
+            self.boldBtn?.backgroundColor = CPDFColorUtils.CAnnotationBarSelectBackgroundColor()
+           
+        } else {
+            self.isBold = false
+            
+            self.boldBtn?.backgroundColor = CPDFColorUtils.CAnnotationPropertyViewControllerBackgoundColor()
+            
+        }
+        if fontName.range(of: "Italic") != nil || fontName.range(of: "Oblique") != nil {
+            self.isItalic = true
+           
+            self.italicBtn?.backgroundColor = CPDFColorUtils.CAnnotationBarSelectBackgroundColor()
+            
+        } else {
+            self.isItalic = false
+          
+            self.italicBtn?.backgroundColor = CPDFColorUtils.CAnnotationPropertyViewControllerBackgoundColor()
+           
+        }
         
-        if(self.fontSettingView != nil) {
-            self.scrcollView?.addSubview(self.fontSettingView!)
+        if fontName.range(of: "Helvetica") != nil {
+            self.baseName = "Helvetica"
+          
+            return
+        }
+        
+        if fontName.range(of: "Courier") != nil {
+            self.baseName = "Courier"
+            
+            return
+        }
+        
+        if fontName.range(of: "Times") != nil {
+            self.baseName = "Times-Roman"
+            
+        }
+        
+    }
+    
+    func constructionFontname(_ baseName: String, isBold: Bool, isItalic: Bool) -> String {
+        var result: String
+        if baseName.range(of: "Times") != nil {
+            if isBold || isItalic {
+                if isBold && isItalic {
+                    return "Times-BoldItalic"
+                }
+                if isBold {
+                    return "Times-Bold"
+                }
+                if isItalic {
+                    return "Times-Italic"
+                }
+            } else {
+                return "Times-Roman"
+            }
+        }
+        
+        if isBold || isItalic {
+            result = "\(baseName)-"
+            if isBold {
+                result = "\(result)Bold"
+            }
+            if isItalic {
+                result = "\(result)Oblique"
+            }
+        } else {
+            return baseName
+        }
+        
+        return result
+        
+    }
+    
+    func createFreeTextProperty() {
+        fontNameLabel = UILabel()
+        fontNameLabel?.text = NSLocalizedString("Font", comment: "")
+        fontNameLabel?.font = UIFont.systemFont(ofSize: 14)
+        fontNameLabel?.textColor = UIColor(red: 153/255, green: 153/255, blue: 153/255, alpha: 1)
+        if fontNameLabel != nil {
+            scrcollView?.addSubview(fontNameLabel!)
+        }
+        
+        dropMenuView = UIView()
+        if dropMenuView != nil {
+            scrcollView?.addSubview(self.dropMenuView!)
+        }
+        
+        splitView = UIView()
+        splitView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+        if splitView != nil {
+            dropMenuView?.addSubview(splitView!)
+        }
+        
+        dropDownIcon = UIImageView()
+        dropDownIcon?.image = UIImage(named: "CPDFEditArrow", in: Bundle(for: self.classForCoder), compatibleWith: nil)
+        if dropDownIcon != nil {
+            dropMenuView?.addSubview(self.dropDownIcon!)
+        }
+        
+        fontNameSelectLabel = UILabel()
+        fontNameSelectLabel?.font = UIFont.systemFont(ofSize: 14)
+        fontNameSelectLabel?.textColor = UIColor.black
+        if fontNameSelectLabel != nil {
+            dropMenuView?.addSubview(fontNameSelectLabel!)
+        }
+        
+        fontSelectBtn = UIButton(type: .custom)
+        fontSelectBtn?.backgroundColor = UIColor.clear
+        fontSelectBtn?.addTarget(self, action: #selector(buttonItemClicked_FontStyle), for: .touchUpInside)
+        if fontSelectBtn != nil {
+            dropMenuView?.addSubview(self.fontSelectBtn!)
+        }
+        
+        boldBtn = UIButton()
+        boldBtn?.setImage(UIImage(named: "CPDFFreeTextImageBold", in: Bundle(for: self.classForCoder), compatibleWith: nil), for: .normal)
+        boldBtn?.setImage(UIImage(named: "CPDFFreeTextImageBoldHighLinght", in: Bundle(for: self.classForCoder), compatibleWith: nil), for: .selected)
+        boldBtn?.addTarget(self, action: #selector(buttonItemClicked_Bold), for: .touchUpInside)
+        if boldBtn != nil {
+            scrcollView?.addSubview(self.boldBtn!)
+        }
+        
+        italicBtn = UIButton()
+        italicBtn?.setImage(UIImage(named: "CPDFFreeTextImageUnderline", in: Bundle(for: self.classForCoder), compatibleWith: nil), for: .normal)
+        italicBtn?.setImage(UIImage(named: "CPDFFreeTextImageItailcHighLight", in: Bundle(for: self.classForCoder), compatibleWith: nil), for: .selected)
+        italicBtn?.addTarget(self, action: #selector(buttonItemClicked_Italic), for: .touchUpInside)
+        if italicBtn != nil {
+            scrcollView?.addSubview(self.italicBtn!)
         }
         
         fontsizeSliderView = CPDFThicknessSliderView()
@@ -251,9 +400,31 @@ class CPDFTextWatermarkSettingViewController: UIViewController, UIColorPickerVie
         dismiss(animated: true)
     }
     
-    // MARK: - CPDFFontSettingViewDelegate
-    func setCPDFFontSettingViewFontSelect(view: CPDFFontSettingSubView,isFontStyle:Bool) {
-        fontStyleTableView = CPDFFontStyleTableView(frame: self.view.bounds, familyNames: view.fontNameSelectLabel?.text ?? "Helvetica", styleName: baseStyleName,isFontStyle: isFontStyle)
+    @objc func buttonItemClicked_Bold(_ sender: UIButton) {
+        isBold = !isBold
+        if self.isBold {
+            self.boldBtn?.backgroundColor = CPDFColorUtils.CAnnotationBarSelectBackgroundColor()
+        } else {
+            self.boldBtn?.backgroundColor = CPDFColorUtils.CAnnotationPropertyViewControllerBackgoundColor()
+        }
+        
+        waterModel?.fontName = constructionFontname(self.baseName ?? "", isBold: self.isBold, isItalic: self.isItalic)
+        delegate?.textWatermarkSettingViewControllerSetting?(self, FontName: (waterModel?.fontName)!)
+    }
+    
+    @objc func buttonItemClicked_Italic(_ sender: UIButton) {
+        self.isItalic = !self.isItalic
+        if self.isItalic {
+            self.italicBtn?.backgroundColor = CPDFColorUtils.CAnnotationBarSelectBackgroundColor()
+        } else {
+            self.italicBtn?.backgroundColor = CPDFColorUtils.CAnnotationPropertyViewControllerBackgoundColor()
+        }
+        waterModel?.fontName = constructionFontname(self.baseName ?? "", isBold: self.isBold, isItalic: self.isItalic)
+        delegate?.textWatermarkSettingViewControllerSetting?(self, FontName: (waterModel?.fontName)!)
+    }
+    
+    @objc func buttonItemClicked_FontStyle(sender: AnyObject) {
+        fontStyleTableView = CPDFFontStyleTableView(frame: self.view.bounds)
         fontStyleTableView?.delegate = self
         fontStyleTableView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         fontStyleTableView?.backgroundColor = CPDFColorUtils.CAnnotationPropertyViewControllerBackgoundColor()
@@ -282,23 +453,15 @@ class CPDFTextWatermarkSettingViewController: UIViewController, UIColorPickerVie
     
     // MARK: - CPDFFontStyleTableViewDelegate
     
-    func fontStyleTableView(_ fontStyleTableView: CPDFFontStyleTableView, fontName: String, isFontStyle: Bool) {
-        if(isFontStyle) {
-            baseStyleName = fontName
-        } else {
-            baseName = fontName;
-            
-            let datasArray:[String] = CPDFFont.fontNames(forFamilyName: baseName ?? "Helvetica")
-            baseStyleName = datasArray.first ?? ""
-        }
-
-        fontSettingView?.fontNameSelectLabel?.text = baseName
-        fontSettingView?.fontStyleNameSelectLabel?.text = baseStyleName
+    func fontStyleTableView(_ fontStyleTableView: CPDFFontStyleTableView, fontName: String) {
         
-        waterModel?.fontName = baseName
-        waterModel?.fontStyleName = baseStyleName
-
-        delegate?.textWatermarkSettingViewControllerSetting?(self, FamilyName: baseName ?? "Helvetica", FontStyleName: baseStyleName)
+        baseName = fontName
+        
+        fontNameSelectLabel?.text = fontName;
+        
+        waterModel?.fontName = constructionFontname(self.baseName ?? "", isBold: self.isBold, isItalic: self.isItalic)
+        
+        delegate?.textWatermarkSettingViewControllerSetting?(self, FontName: (waterModel?.fontName)!)
     }
     
     // MARK: - CPDFColorSelectViewDelegate

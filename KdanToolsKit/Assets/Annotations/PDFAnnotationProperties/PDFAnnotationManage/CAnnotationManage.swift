@@ -31,11 +31,9 @@ public class CAnnotationManage: NSObject {
     public func refreshPage(with annotations: [CPDFAnnotation]) {
         var pages = [CPDFPage]()
         for annotation in annotations {
-            if annotation.page != nil {
-                let page:CPDFPage = annotation.page!
-                if !pages.contains(page) {
-                    pages.append(page)
-                }
+            let page:CPDFPage = annotation.page
+            if !pages.contains(page) {
+                pages.append(page)
             }
         }
         for page in pages {

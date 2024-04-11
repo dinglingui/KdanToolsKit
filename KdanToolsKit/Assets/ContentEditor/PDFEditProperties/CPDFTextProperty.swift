@@ -55,39 +55,54 @@ public class CPDFTextProperty: NSObject {
          }
      }
     
-    public var fontNewFamilyName: String {
+    public var fontName: NSString? {
          get {
              let userDefaults = UserDefaults.standard
-             if (userDefaults.object(forKey: CPDFContentEditTextCreateFontNewNameKey) != nil) {
-                 return (userDefaults.object(forKey: CPDFContentEditTextCreateFontNewNameKey) ?? "Helvetica") as! String
+             if (userDefaults.object(forKey: CPDFContentEditTextCreateFontNameKey) != nil) {
+                 return userDefaults.object(forKey: CPDFContentEditTextCreateFontNameKey) as? NSString
              } else {
                  return "Helvetica"
              }
          }
          set {
              let userDefaults = UserDefaults.standard
-             userDefaults.set(newValue, forKey: CPDFContentEditTextCreateFontNewNameKey)
-             
-             userDefaults.synchronize()
-
+             if(newValue != nil) {
+                 userDefaults.set(newValue, forKey: CPDFContentEditTextCreateFontNameKey)
+                 
+                 userDefaults.synchronize()
+             }
          }
      }
     
-    public var fontNewStyle: String {
+    public var isBold: Bool {
          get {
              let userDefaults = UserDefaults.standard
-             if (userDefaults.object(forKey: CPDFContentEditTextCreateFontNewStyleKey) != nil) {
-                 return (userDefaults.object(forKey: CPDFContentEditTextCreateFontNewStyleKey) ?? "") as! String
+             if userDefaults.bool(forKey: CPDFContentEditTextCreateFontIsBoldKey) {
+                 return userDefaults.bool(forKey: CPDFContentEditTextCreateFontIsBoldKey)
              } else {
-                 return ""
+                 return false
              }
          }
          set {
              let userDefaults = UserDefaults.standard
-             userDefaults.set(newValue, forKey: CPDFContentEditTextCreateFontNewStyleKey)
-             
+             userDefaults.set(newValue, forKey: CPDFContentEditTextCreateFontIsBoldKey)
              userDefaults.synchronize()
-
+         }
+     }
+    
+    public var isItalic: Bool  {
+         get {
+             let userDefaults = UserDefaults.standard
+             if userDefaults.bool(forKey: CPDFContentEditTextCreateFontIsItalicKey) {
+                 return userDefaults.bool(forKey: CPDFContentEditTextCreateFontIsItalicKey)
+             } else {
+                 return false
+             }
+         }
+         set {
+             let userDefaults = UserDefaults.standard
+             userDefaults.set(newValue, forKey: CPDFContentEditTextCreateFontIsItalicKey)
+             userDefaults.synchronize()
          }
      }
     

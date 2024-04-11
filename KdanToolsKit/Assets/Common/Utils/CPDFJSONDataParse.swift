@@ -515,8 +515,10 @@ open class CPDFJSONDataParse: NSObject {
                             userDefaults.set(fontSize, forKey: CTextFieldFontSizeKey)
                         } else if innerKey == "isBold" {
                             isBold = innerValue as? Bool ?? false
+                            userDefaults.set(isBold, forKey: CTextFieldIsBoldKey)
                         } else if innerKey == "isItalic" {
                             isItalic = innerValue as? Bool ?? false
+                            userDefaults.set(isItalic, forKey: CTextFieldIsItalicKey)
                         } else if innerKey == "alignment" {
                             let string = innerValue as? String ?? ""
                             
@@ -536,8 +538,7 @@ open class CPDFJSONDataParse: NSObject {
                     }
                     
                     let constructName = CPDFJSONDataParse.constructionFontName(BaseName: baseName, isBold: isBold, isItalic: isItalic)
-                    userDefaults.set(baseName, forKey: CTextFieldFontFamilyNameKey)
-                    userDefaults.set(constructName, forKey: CTextFieldFontStyleNameKey)
+                    userDefaults.set(constructName, forKey: CTextFieldFontNameKey)
                 }
             } else if key == "checkBox" {
                 if let innerDict = value as? [String: Any] {
@@ -646,16 +647,17 @@ open class CPDFJSONDataParse: NSObject {
                             userDefaults.set(fontSize, forKey: CListBoxFontSizeKey)
                         } else if innerKey == "isBold" {
                             isBold = innerValue as? Bool ?? false
+                            userDefaults.set(isBold, forKey: CListBoxIsBoldKey)
                         } else if innerKey == "isItalic" {
                             isItalic = innerValue as? Bool ?? false
+                            userDefaults.set(isItalic, forKey: CListBoxIsItalicKey)
                         } else if innerKey == "typeface" {
                             baseName = innerValue as? String ?? ""
                         }
                     }
                     
                     let constructName = CPDFJSONDataParse.constructionFontName(BaseName: baseName, isBold: isBold, isItalic: isItalic)
-                    userDefaults.set(baseName, forKey: CListBoxFontFamilyNameKey)
-                    userDefaults.set(constructName, forKey: CListBoxFontStyleNameKey)
+                    userDefaults.set(constructName, forKey: CListBoxFontNameKey)
                 }
             } else if key == "comboBox" {
                 if let innerDict = value as? [String: Any] {
@@ -684,16 +686,17 @@ open class CPDFJSONDataParse: NSObject {
                             userDefaults.set(fontSize, forKey: CComboBoxFontSizeKey)
                         } else if innerKey == "isBold" {
                             isBold = innerValue as? Bool ?? false
+                            userDefaults.set(isBold, forKey: CComboBoxIsBoldKey)
                         } else if innerKey == "isItalic" {
                             isItalic = innerValue as? Bool ?? false
+                            userDefaults.set(isItalic, forKey: CComboBoxIsItalicKey)
                         } else if innerKey == "typeface" {
                             baseName = innerValue as? String ?? ""
                         }
                     }
                     
                     let constructName = CPDFJSONDataParse.constructionFontName(BaseName: baseName, isBold: isBold, isItalic: isItalic)
-                    userDefaults.set(baseName, forKey: CComboBoxFontFamilyNameKey)
-                    userDefaults.set(constructName, forKey: CComboBoxFontStyleNameKey)
+                    userDefaults.set(constructName, forKey: CComboBoxFontNameKey)
                 }
             } else if key == "pushButton" {
                 if let innerDict = value as? [String: Any] {
@@ -722,8 +725,10 @@ open class CPDFJSONDataParse: NSObject {
                             userDefaults.set(fontSize, forKey: CPushButtonFontSizeKey)
                         } else if innerKey == "isBold" {
                             isBold = innerValue as? Bool ?? false
+                            userDefaults.set(isBold, forKey: CPushButtonIsBoldKey)
                         } else if innerKey == "isItalic" {
                             isItalic = innerValue as? Bool ?? false
+                            userDefaults.set(isItalic, forKey: CPushButtonIsItalicKey)
                         } else if innerKey == "typeface" {
                             baseName = innerValue as? String ?? ""
                         } else if innerKey == "title" {
@@ -733,9 +738,7 @@ open class CPDFJSONDataParse: NSObject {
                     }
                     
                     let constructName = CPDFJSONDataParse.constructionFontName(BaseName: baseName, isBold: isBold, isItalic: isItalic)
-                    userDefaults.set(baseName, forKey: CPushButtonFontFamilyNameKey)
-                    userDefaults.set(constructName, forKey: CPushButtonFontStyleNameKey)
-
+                    userDefaults.set(constructName, forKey: CPushButtonFontNameKey)
                 }
             } else if key == "signaturesFields" {
                 if let innerDict = value as? [String: Any] {
@@ -798,8 +801,10 @@ open class CPDFJSONDataParse: NSObject {
                             userDefaults.set(fontSize, forKey: CPDFContentEditTextCreateFontSizeKey)
                         } else if innerKey == "isBold" {
                             isBold = innerValue as? Bool ?? false
+                            userDefaults.set(isBold, forKey: CPDFContentEditTextCreateFontIsBoldKey)
                         } else if innerKey == "isItalic" {
                             isItalic = innerValue as? Bool ?? false
+                            userDefaults.set(isItalic, forKey: CPDFContentEditTextCreateFontIsItalicKey)
                         } else if innerKey == "alignment" {
                             let string = innerValue as? String ?? ""
                             
@@ -812,12 +817,8 @@ open class CPDFJSONDataParse: NSObject {
                             }
                         } else if innerKey == "typeface" {
                             baseName = innerValue as? String ?? ""
-                            userDefaults.set(baseName, forKey: CPDFContentEditTextCreateFontNewNameKey)
+                            userDefaults.set(baseName, forKey: CPDFContentEditTextCreateFontNameKey)
                         }
-                        
-                        let constructName = CPDFJSONDataParse.constructionFontName(BaseName: baseName, isBold: isBold, isItalic: isItalic)
-                        userDefaults.set(constructName, forKey: CPDFContentEditTextCreateFontNewStyleKey)
-
                     }
                 }
             }
@@ -1120,14 +1121,12 @@ open class CPDFJSONDataParse: NSObject {
                                 userDefaults.set(2, forKey: CFreeTextNoteAlignmentKey)
                             }
                         } else if innerKey == "typeface" {
-                            baseName = innerValue as? String ?? "Helvetica"
+                            baseName = innerValue as? String ?? ""
                         }
                     }
                     
                     let constructName = CPDFJSONDataParse.constructionFontName(BaseName: baseName, isBold: isBold, isItalic: isItalic)
-                    userDefaults.set(baseName, forKey: CFreeTextNoteFontFamilyNameKey)
-                    userDefaults.set(constructName, forKey: CFreeTextNoteFontNewStyleKey)
-
+                    userDefaults.set(constructName, forKey: CFreeTextNoteFontNameKey)
                 }
             }
         }
@@ -1136,32 +1135,33 @@ open class CPDFJSONDataParse: NSObject {
     }
     
     class func constructionFontName(BaseName baseName: String, isBold: Bool, isItalic: Bool) -> String {
-        var result: String = ""
+        var result: String
         if baseName.range(of: "Times") != nil {
             if isBold || isItalic {
                 if isBold && isItalic {
-                    return "BoldItalic"
+                    return "Times-BoldItalic"
                 }
                 if isBold {
-                    return "Bold"
+                    return "Times-Bold"
                 }
                 if isItalic {
-                    return "Italic"
+                    return "Times-Italic"
                 }
             } else {
-                return "Roman"
+                return "Times-Roman"
             }
         }
         
         if isBold || isItalic {
+            result = "\(baseName)-"
             if isBold {
-                result = "Bold"
+                result = "\(result)Bold"
             }
             if isItalic {
-                result = "Oblique"
+                result = "\(result)Oblique"
             }
         } else {
-            return ""
+            return baseName
         }
         
         return result

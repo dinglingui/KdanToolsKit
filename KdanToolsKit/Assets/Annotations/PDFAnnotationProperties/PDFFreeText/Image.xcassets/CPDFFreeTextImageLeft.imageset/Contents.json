@@ -1,17 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Style=left 1.pdf",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "Style=left.pdf",
+      "filename" : "ic.pdf",
       "idiom" : "universal"
     }
   ],

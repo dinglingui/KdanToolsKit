@@ -11,7 +11,6 @@
 //
 
 import UIKit
-import ComPDFKit
 
 @objc protocol CPDFEditFontNameSelectViewDelegate: AnyObject {
     @objc optional func pickerView(_ colorPickerView: CPDFEditFontNameSelectView, fontName: String);
@@ -21,11 +20,9 @@ class CPDFEditFontNameSelectView: UIView, UITableViewDelegate, UITableViewDataSo
     
     weak var delegate: CPDFEditFontNameSelectViewDelegate?
     
-    private var fontNameArr: [String]?
-    private var fontName: String = ""
-    private var fontStyle: String = ""
-    private var isFontStyle: Bool = false
-
+    var fontNameArr: [Any]?
+    var fontName: String = ""
+    
     var titleLabel: UILabel = UILabel()
     var backBtn: UIButton = UIButton()
     var mTableView: UITableView?
@@ -33,39 +30,16 @@ class CPDFEditFontNameSelectView: UIView, UITableViewDelegate, UITableViewDataSo
     var current: IndexPath?
     var recordRow: NSInteger = 0
     
-    init(frame: CGRect,familyNames:String,styleName:String,isFontStyle: Bool) {
+    
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        if(isFontStyle == false) {
-            fontNameArr = CPDFFont.familyNames
-            fontName = familyNames
-            self.selectedFontName = familyNames
-        } else {
-            fontNameArr = CPDFFont.fontNames(forFamilyName: familyNames)
-            if((fontNameArr?.count ?? 0) < 1) {
-                fontNameArr?.append("Regular")
-            }
-            self.selectedFontName = styleName
-            if self.selectedFontName.count < 1 {
-                self.selectedFontName = "Regular"
-            }
-        }
-        fontName = familyNames
-        fontStyle = styleName
-        if fontStyle.count < 1 {
-            fontStyle = "Regular"
-        }
-        self.isFontStyle = isFontStyle
         
-        titleLabel = UILabel(frame: CGRect(x: (frame.size.width - 120)/2, y: 0, width: 120, height: 50))
-        titleLabel.textAlignment = .center
-        if(isFontStyle) {
-            titleLabel.text = NSLocalizedString("Font Style", comment: "")
-        } else {
-            titleLabel.text = NSLocalizedString("Font List", comment: "")
-        }
+        titleLabel = UILabel(frame: CGRect(x: (frame.size.width - 120)/2, y: 0, width: 120, height: (bounds.size.height - 40)/6))
+        titleLabel.text = NSLocalizedString("Font Style", comment: "")
+        titleLabel.autoresizingMask = .flexibleHeight
         self.addSubview(titleLabel)
         
-        backBtn = UIButton(frame: CGRect(x: 10, y: 0, width: 40, height: 50))
+        backBtn = UIButton(frame: CGRect(x: 10, y: 0, width: 40, height: (bounds.size.height - 40)/6))
         backBtn.autoresizingMask = .flexibleHeight
         
         if fontNameArr == nil {
@@ -76,28 +50,6 @@ class CPDFEditFontNameSelectView: UIView, UITableViewDelegate, UITableViewDataSo
         backBtn.addTarget(self, action: #selector(buttonItemClicked_back(_:)), for: .touchUpInside)
         self.addSubview(backBtn)
        
-        if mTableView == nil {
-            mTableView = UITableView(frame: CGRect(x: 0, y: titleLabel.frame.maxY, width: self.frame.size.width, height: self.frame.size.height - titleLabel.frame.size.height))
-            if(mTableView != nil) {
-                self.addSubview(mTableView!)
-            }
-            mTableView?.delegate = self
-            mTableView?.dataSource = self
-            mTableView?.reloadData()
-        }
-        if(fontNameArr?.count ?? 0 > 0) {
-            var fontIndex = 0
-            for i in 0..<(fontNameArr?.count ?? 0) {
-                let h = fontNameArr![i]
-                if self.selectedFontName == h {
-                    fontIndex = i
-                    break
-                }
-            }
-            let indexPath = IndexPath(row: fontIndex, section: 0)
-            
-            mTableView?.scrollToRow(at: indexPath, at: .top, animated: false)
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -107,8 +59,15 @@ class CPDFEditFontNameSelectView: UIView, UITableViewDelegate, UITableViewDataSo
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        mTableView?.frame = CGRect(x: 0, y: titleLabel.frame.maxY, width: self.frame.size.width, height: self.frame.size.height - titleLabel.frame.size.height)
-
+        if mTableView == nil {
+            mTableView = UITableView(frame: CGRect(x: 0, y: titleLabel.frame.maxY, width: self.frame.size.width, height: self.frame.size.height - titleLabel.frame.size.height))
+            if(mTableView != nil) {
+                self.addSubview(mTableView!)
+            }
+            mTableView?.delegate = self
+            mTableView?.dataSource = self
+            mTableView?.reloadData()
+        }
     }
     
     // MARK: - Action
@@ -128,38 +87,16 @@ class CPDFEditFontNameSelectView: UIView, UITableViewDelegate, UITableViewDataSo
         if cell == nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentity)
         }
-        
-        let cellFontName = fontNameArr?[indexPath.row] ?? ""
-        var familyName:String?
-        var styleName:String?
-
-        if(isFontStyle) {
-            if(fontStyle == cellFontName) {
-                recordRow = indexPath.row
-                current = indexPath
-                cell?.accessoryType = .checkmark
-            } else {
-                cell?.accessoryType = .none
-            }
-            styleName = fontStyle
-            familyName = fontName
+        let cellFont = UIFont(name: fontNameArr?[indexPath.row] as? String ?? "Helvetica", size: 15)
+        let selectFont = UIFont(name: fontName, size: 15)
+        if cellFont == selectFont {
+            recordRow = indexPath.row
+            current = indexPath
+            cell?.accessoryType = .checkmark
         } else {
-            if(self.fontName == cellFontName) {
-                recordRow = indexPath.row
-                current = indexPath
-                cell?.accessoryType = .checkmark
-            } else {
-                cell?.accessoryType = .none
-            }
-            let datasArray:[String] = CPDFFont.fontNames(forFamilyName: fontName)
-            styleName = datasArray.first ?? ""
-            familyName = cellFontName
+            cell?.accessoryType = .none
         }
         
-        let cFont = CPDFFont(familyName: familyName ?? "Helvetica", fontStyle: styleName ?? "")
-                        
-        let cellFont = UIFont.init(name: CPDFFont.convertAppleFont(cFont) ?? "Helvetica", size: 15.0)
-
         cell?.textLabel?.text = fontNameArr?[indexPath.row] as? String
         cell?.textLabel?.font = cellFont
         return cell!
@@ -181,13 +118,11 @@ class CPDFEditFontNameSelectView: UIView, UITableViewDelegate, UITableViewDataSo
         }
         
         selectedFontName = fontNameArr?[indexPath.row] as? String ?? ""
-        if(isFontStyle) {
-            fontStyle = selectedFontName
-        } else {
-            fontName = selectedFontName
-        }
+        fontName = selectedFontName
+
+        self.delegate?.pickerView?(self, fontName: selectedFontName)
         
-        buttonItemClicked_back(backBtn)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

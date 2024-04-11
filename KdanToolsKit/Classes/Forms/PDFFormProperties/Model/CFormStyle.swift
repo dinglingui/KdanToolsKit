@@ -382,6 +382,106 @@ public class CFormStyle: NSObject {
         }
     }
     
+    var isBold: Bool {
+        get {
+            let userDefaults = UserDefaults.standard
+            switch annotMode {
+            case .formModeText:
+                if userDefaults.bool(forKey: CTextFieldIsBoldKey) {
+                    return userDefaults.bool(forKey: CTextFieldIsBoldKey)
+                } else {
+                    return false
+                }
+            case .formModeCombox:
+                if userDefaults.bool(forKey: CComboBoxIsBoldKey) {
+                    return userDefaults.bool(forKey: CComboBoxIsBoldKey)
+                } else {
+                    return false
+                }
+            case .formModeList:
+                if userDefaults.bool(forKey: CListBoxIsBoldKey) {
+                    return userDefaults.bool(forKey: CListBoxIsBoldKey)
+                } else {
+                    return false
+                }
+            case .formModeButton:
+                if userDefaults.bool(forKey: CPushButtonIsBoldKey) {
+                    return userDefaults.bool(forKey: CPushButtonIsBoldKey)
+                } else {
+                    return false
+                }
+            default:
+                return false
+            }
+        }
+        set {
+            let userDefaults = UserDefaults.standard
+            switch annotMode {
+            case .formModeText:
+                userDefaults.set(newValue, forKey: CTextFieldIsBoldKey)
+            case .formModeCombox:
+                userDefaults.set(newValue, forKey: CComboBoxIsBoldKey)
+            case .formModeList:
+                userDefaults.set(newValue, forKey: CListBoxIsBoldKey)
+            case .formModeButton:
+                userDefaults.set(newValue, forKey: CPushButtonIsBoldKey)
+            default:
+               break
+            }
+            userDefaults.synchronize()
+        }
+    }
+    
+    var isItalic: Bool {
+        get {
+            let userDefaults = UserDefaults.standard
+            switch annotMode {
+            case .formModeText:
+                if userDefaults.bool(forKey: CTextFieldIsItalicKey) {
+                    return userDefaults.bool(forKey: CTextFieldIsItalicKey)
+                } else {
+                    return false
+                }
+            case .formModeCombox:
+                if userDefaults.bool(forKey: CComboBoxIsItalicKey) {
+                    return userDefaults.bool(forKey: CComboBoxIsItalicKey)
+                } else {
+                    return false
+                }
+            case .formModeList:
+                if userDefaults.bool(forKey: CListBoxIsItalicKey) {
+                    return userDefaults.bool(forKey: CListBoxIsItalicKey)
+                } else {
+                    return false
+                }
+            case .formModeButton:
+                if userDefaults.bool(forKey: CPushButtonIsItalicKey) {
+                    return userDefaults.bool(forKey: CPushButtonIsItalicKey)
+                } else {
+                    return false
+                }
+            default:
+                return false
+            }
+        }
+        set {
+            let userDefaults = UserDefaults.standard
+            switch annotMode {
+            case .formModeText:
+                userDefaults.set(newValue, forKey: CTextFieldIsItalicKey)
+            case .formModeCombox:
+                userDefaults.set(newValue, forKey: CComboBoxIsItalicKey)
+            case .formModeList:
+                userDefaults.set(newValue, forKey: CListBoxIsItalicKey)
+            case .formModeButton:
+                userDefaults.set(newValue, forKey: CPushButtonIsItalicKey)
+            default:
+               break
+            }
+            userDefaults.synchronize()
+        }
+    }
+    
     var textAlignment: NSTextAlignment  {
         get {
             let userDefaults = UserDefaults.standard
@@ -408,31 +508,31 @@ public class CFormStyle: NSObject {
         }
     }
     
-    var fontFamilyName: String {
+    var fontName: NSString? {
         get {
             let userDefaults = UserDefaults.standard
             switch annotMode {
             case .formModeText:
-                if (userDefaults.object(forKey: CTextFieldFontFamilyNameKey) != nil) {
-                    return userDefaults.object(forKey: CTextFieldFontFamilyNameKey) as! String
+                if (userDefaults.object(forKey: CTextFieldFontNameKey) != nil) {
+                    return userDefaults.object(forKey: CTextFieldFontNameKey) as? NSString
                 } else {
                     return "Helvetica"
                 }
             case .formModeCombox:
-                if (userDefaults.object(forKey: CComboBoxFontFamilyNameKey) != nil) {
-                    return userDefaults.object(forKey: CComboBoxFontFamilyNameKey) as! String
+                if (userDefaults.object(forKey: CComboBoxFontNameKey) != nil) {
+                    return userDefaults.object(forKey: CComboBoxFontNameKey) as? NSString
                 } else {
                     return "Helvetica"
                 }
             case .formModeList:
-                if (userDefaults.object(forKey: CListBoxFontFamilyNameKey) != nil) {
-                    return userDefaults.object(forKey: CListBoxFontFamilyNameKey) as! String
+                if (userDefaults.object(forKey: CListBoxFontNameKey) != nil) {
+                    return userDefaults.object(forKey: CListBoxFontNameKey) as? NSString
                 } else {
                     return "Helvetica"
                 }
             case .formModeButton:
-                if (userDefaults.object(forKey: CPushButtonFontFamilyNameKey) != nil) {
-                    return userDefaults.object(forKey: CPushButtonFontFamilyNameKey) as! String
+                if (userDefaults.object(forKey: CPushButtonFontNameKey) != nil) {
+                    return userDefaults.object(forKey: CPushButtonFontNameKey) as? NSString
                 } else {
                     return "Helvetica"
                 }
@@ -444,65 +544,21 @@ public class CFormStyle: NSObject {
             let userDefaults = UserDefaults.standard
             switch annotMode {
             case .formModeText:
-                userDefaults.set(newValue, forKey: CTextFieldFontFamilyNameKey)
-            case .formModeCombox:
-                userDefaults.set(newValue, forKey: CComboBoxFontFamilyNameKey)
-            case .formModeList:
-                userDefaults.set(newValue, forKey: CListBoxFontFamilyNameKey)
-            case .formModeButton:
-                userDefaults.set(newValue, forKey: CPushButtonFontFamilyNameKey)
-            default:
-                break
-            }
-            userDefaults.synchronize()
-        }
-    }
-    
-    var fontStyleName: String {
-        get {
-            let userDefaults = UserDefaults.standard
-            switch annotMode {
-            case .formModeText:
-                if (userDefaults.object(forKey: CTextFieldFontStyleNameKey) != nil) {
-                    return userDefaults.object(forKey: CTextFieldFontStyleNameKey) as! String
-                } else {
-                    return "Regular"
+                if(newValue != nil) {
+                    userDefaults.set(newValue, forKey: CTextFieldFontNameKey)
                 }
             case .formModeCombox:
-                if (userDefaults.object(forKey: CComboBoxFontStyleNameKey) != nil) {
-                    return userDefaults.object(forKey: CComboBoxFontStyleNameKey) as! String
-                } else {
-                    return "Regular"
+                if(newValue != nil) {
+                    userDefaults.set(newValue, forKey: CComboBoxFontNameKey)
                 }
             case .formModeList:
-                if (userDefaults.object(forKey: CListBoxFontStyleNameKey) != nil) {
-                    return userDefaults.object(forKey: CListBoxFontStyleNameKey) as! String
-                } else {
-                    return "Regular"
+                if(newValue != nil) {
+                    userDefaults.set(newValue, forKey: CListBoxFontNameKey)
                 }
             case .formModeButton:
-                if (userDefaults.object(forKey: CPushButtonFontStyleNameKey) != nil) {
-                    return userDefaults.object(forKey: CPushButtonFontStyleNameKey) as! String
-                } else {
-                    return "Regular"
+                if(newValue != nil) {
+                    userDefaults.set(newValue, forKey: CPushButtonFontNameKey)
                 }
-            default:
-                return ""
-            }
-        }
-        set {
-            let userDefaults = UserDefaults.standard
-            switch annotMode {
-            case .formModeText:
-                userDefaults.set(newValue, forKey: CTextFieldFontStyleNameKey)
-
-            case .formModeCombox:
-                userDefaults.set(newValue, forKey: CComboBoxFontStyleNameKey)
-            case .formModeList:
-                userDefaults.set(newValue, forKey: CListBoxFontStyleNameKey)
-            case .formModeButton:
-                userDefaults.set(newValue, forKey: CPushButtonFontStyleNameKey)
-
             default:
                 break
             }

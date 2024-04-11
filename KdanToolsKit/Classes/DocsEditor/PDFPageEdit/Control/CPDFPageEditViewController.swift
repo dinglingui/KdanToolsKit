@@ -146,15 +146,8 @@ public class CPDFPageEditViewController: CPDFThumbnailViewController,CPageEditTo
         collectionView?.allowsMultipleSelection = isEdit
         
         collectionView?.reloadData()
-        pageIndex = Int(pdfView.document.index(for: currentPage))
-        if(pageIndex == NSNotFound) {
-            pageIndex = self.pdfView.currentPageIndex
-        }
-
-        if(self.pageIndex >= self.pdfView.document.pageCount) {
-            self.pageIndex = 0
-        }
         
+        pageIndex = Int(pdfView.document.index(for: currentPage))
         let indexPath = IndexPath(item: pageIndex, section: 0)
         
         collectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
@@ -169,19 +162,10 @@ public class CPDFPageEditViewController: CPDFThumbnailViewController,CPageEditTo
         if isPageEdit {
             result = pdfView.document.write(to: pdfView.document.documentURL)
         }
-        let indexPathsForSelectedItems = collectionView?.indexPathsForSelectedItems
-        let indexPage = indexPathsForSelectedItems?.first
-        var pageIndexz = pageIndex
-        
-        if indexPage != nil {
-            pageIndexz = indexPage?.item ?? pageIndex
-        }
+
         if result == true {
             pageEditDelegate?.pageEditViewControllerDone(self)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                
-                self.pdfView.go(toPageIndex: pageIndexz, animated: true)
-            }
+            pdfView.go(toPageIndex: pageIndex, animated: true)
         }
     }
     
@@ -571,7 +555,6 @@ public class CPDFPageEditViewController: CPDFThumbnailViewController,CPageEditTo
     
     public func pageEditToolBarReplace(_ pageEditToolBar: CPageEditToolBar, document: CPDFDocument) {
         let min = getMinSelectIndex()
-
         var indexSet = IndexSet()
         for i in 0..<document.pageCount {
             indexSet.insert(IndexSet.Element(i))

@@ -86,14 +86,13 @@ class CPDFThicknessSliderView: UIView {
     
     // MARK: - Action
     @objc func buttonItemClicked_changes(_ button: UISlider) {
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(updateNewAppearanceStream), object: button)
-        perform(#selector(updateNewAppearanceStream), with: button, afterDelay: 0.2)
+        self.sliderCount -= 1
+        if self.sliderCount == 3 {
+            self.startLabel?.text = String(format: "%.0f pt", button.value * self.thick)
+            self.delegate?.thicknessSliderView?(self, thickness: CGFloat(button.value))
+            self.sliderCount = 10
+        }
         
-    }
-    
-    @objc func updateNewAppearanceStream(_ button: UISlider) {
-        self.startLabel?.text = String(format: "%.0f pt", button.value * self.thick)
-        self.delegate?.thicknessSliderView?(self, thickness: CGFloat(button.value))
     }
 
 }

@@ -28,6 +28,58 @@ class CPDFEditTextSampleView: UIView {
         }
     }
     
+    var isBold: Bool = false {
+        didSet {
+            if isBold {
+                if isItalic {
+                    let fontD = self.sampleLabel?.font.fontDescriptor.withSymbolicTraits([.traitBold, .traitItalic])
+                    self.sampleLabel?.font = UIFont(descriptor: fontD ?? UIFontDescriptor(), size: 0)
+                } else {
+                    let fontD = self.sampleLabel?.font.fontDescriptor.withSymbolicTraits(.traitBold)
+                    self.sampleLabel?.font = UIFont(descriptor: fontD ?? UIFontDescriptor(), size: 0)
+                }
+            } else {
+                if isItalic {
+                    let fontD = self.sampleLabel?.font.fontDescriptor.withSymbolicTraits(.traitItalic)
+                    self.sampleLabel?.font = UIFont(descriptor: fontD ?? UIFontDescriptor(), size: 0)
+                } else {
+                    if self.fontName != nil {
+                        self.sampleLabel?.font = UIFont(name: fontName! as String, size: self.fontSize )
+                    } else {
+                        self.sampleLabel?.font = UIFont.systemFont(ofSize: self.fontSize )
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    var isItalic: Bool = false {
+        didSet {
+            if isItalic {
+                if isBold {
+                    let fontD = self.sampleLabel?.font.fontDescriptor.withSymbolicTraits([.traitBold, .traitItalic])
+                    self.sampleLabel?.font = UIFont(descriptor: fontD ?? UIFontDescriptor(), size: 0)
+                } else {
+                    let fontD = self.sampleLabel?.font.fontDescriptor.withSymbolicTraits(.traitItalic)
+                    self.sampleLabel?.font = UIFont(descriptor: fontD ?? UIFontDescriptor(), size: 0)
+                }
+            } else {
+                if isBold {
+                    let fontD = self.sampleLabel?.font.fontDescriptor.withSymbolicTraits(.traitBold)
+                    self.sampleLabel?.font = UIFont(descriptor: fontD ?? UIFontDescriptor(), size: 0)
+                } else {
+                    if self.fontName != nil {
+                        self.sampleLabel?.font = UIFont(name: fontName! as String, size: self.fontSize )
+                    } else {
+                        self.sampleLabel?.font = UIFont.systemFont(ofSize: self.fontSize )
+                    }
+                }
+            }
+            
+        }
+    }
+    
     var textAlignmnet: NSTextAlignment = .center {
         didSet {
             self.sampleLabel?.textAlignment = textAlignmnet
@@ -45,7 +97,7 @@ class CPDFEditTextSampleView: UIView {
         }
     }
     
-    var fontName: String? {
+    var fontName: NSString? {
         didSet {
             if(fontName != nil) {
                 self.sampleLabel?.font = UIFont(name: fontName! as String, size: self.fontSize)

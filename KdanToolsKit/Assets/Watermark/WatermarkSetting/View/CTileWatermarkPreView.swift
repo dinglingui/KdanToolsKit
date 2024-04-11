@@ -11,7 +11,6 @@
 //
 
 import UIKit
-import ComPDFKit
 
 class CTileWatermarkPreView: UIView {
     var waterString: String?
@@ -21,8 +20,7 @@ class CTileWatermarkPreView: UIView {
     var stransform: CGAffineTransform = .identity
     var fontColor: UIColor = .black
     var fontSize: CGFloat = 0
-    var familyName: String?
-    var fontStyleName: String?
+    var fontName: String?
     var centerPoint: CGPoint = .zero
     
     override init(frame: CGRect) {
@@ -32,9 +30,8 @@ class CTileWatermarkPreView: UIView {
         fontSize = 20
         fontColor = UIColor.black
         stransform = CGAffineTransform.identity
-        familyName = "Helvetica"
-        fontStyleName = "Regular"
-
+        fontName = "Helvetica"
+        
         super.init(frame: frame)
         
         backgroundColor = .clear
@@ -60,12 +57,9 @@ class CTileWatermarkPreView: UIView {
             context.translateBy(x: centerPoint.x, y: centerPoint.y)
             context.concatenate(stransform)
             context.translateBy(x: -(centerPoint.x), y: -(centerPoint.y))
-                      
-            let cfont = CPDFFont(familyName: familyName ?? "Helvetica", fontStyle: fontStyleName ?? "")
-
-           let font = UIFont(name: CPDFFont.convertAppleFont(cfont) ?? "Helvetica", size: fontSize)
             
-            guard let contentRealSizes = waterString?.boundingRect(with: CGSize(width: new_w, height: new_h), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: fontSize) ], context: nil).size else {
+            let font = UIFont(name: fontName ?? "Helvetica", size: fontSize)
+            guard let contentRealSizes = waterString?.boundingRect(with: CGSize(width: new_w, height: new_h), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font ?? UIFont()], context: nil).size else {
                 return
             }
             let verticalWidth = contentRealSizes.width + horizontalSpacing
@@ -81,20 +75,15 @@ class CTileWatermarkPreView: UIView {
                 row += 1
             }
             
-            let attributes: [NSAttributedString.Key: Any] = [
-                   NSAttributedString.Key.font: font!,
-                   NSAttributedString.Key.foregroundColor: fontColor
-               ]
-            
             let point = CGPoint(x: centerPoint.x - contentRealSizes.width/2, y: centerPoint.y - contentRealSizes.height/2)
             for i in 0..<line {
                 for j in 0..<row {
-                    waterString?.draw(in: CGRect(x: point.x + CGFloat(j) * verticalWidth, y: point.y + CGFloat(i) * horizontalHeight, width: contentRealSizes.width, height: contentRealSizes.height), withAttributes: attributes)
+                    waterString?.draw(in: CGRect(x: point.x + CGFloat(j) * verticalWidth, y: point.y + CGFloat(i) * horizontalHeight, width: contentRealSizes.width, height: contentRealSizes.height), withAttributes: [NSAttributedString.Key.font: font ?? UIFont(), NSAttributedString.Key.foregroundColor: fontColor])
                 }
             }
             for i in 1..<line {
                 for j in 0..<row {
-                    waterString?.draw(in: CGRect(x: point.x + CGFloat(j) * verticalWidth, y: point.y - CGFloat(i) * horizontalHeight, width: contentRealSizes.width, height: contentRealSizes.height), withAttributes: attributes)
+                    waterString?.draw(in: CGRect(x: point.x + CGFloat(j) * verticalWidth, y: point.y - CGFloat(i) * horizontalHeight, width: contentRealSizes.width, height: contentRealSizes.height), withAttributes: [NSAttributedString.Key.font: font ?? UIFont(), NSAttributedString.Key.foregroundColor: fontColor])
                 }
             }
             

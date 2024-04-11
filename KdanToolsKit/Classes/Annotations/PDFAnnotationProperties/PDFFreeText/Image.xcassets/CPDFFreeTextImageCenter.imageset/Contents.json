@@ -1,17 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Style=mid 1.pdf",
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "Style=mid.pdf",
+      "filename" : "Segmented Item.pdf",
       "idiom" : "universal"
     }
   ],

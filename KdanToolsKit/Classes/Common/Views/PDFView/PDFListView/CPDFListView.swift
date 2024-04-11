@@ -167,12 +167,11 @@ public class CPDFListView: CPDFView, UIImagePickerControllerDelegate,UINavigatio
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-        let inset:UIEdgeInsets = self.documentView().contentInset
-
+        
         if #available(iOS 11.0, *) {
-            pageSliderView?.frame = CGRect(x: self.bounds.size.width-22, y: self.safeAreaInsets.top, width: 22, height: self.bounds.size.height - safeAreaInsets.top - inset.bottom)
+            pageSliderView?.frame = CGRect(x: self.bounds.size.width-22, y: self.safeAreaInsets.top, width: 22, height: self.bounds.size.height - safeAreaInsets.top - self.safeAreaInsets.bottom)
         } else {
-            pageSliderView?.frame = CGRect(x: self.bounds.size.width-22, y: 0, width: 22, height: self.bounds.size.height - inset.bottom)
+            pageSliderView?.frame = CGRect(x: self.bounds.size.width-22, y: 0, width: 22, height: self.bounds.size.height)
         }
     }
     
@@ -217,12 +216,8 @@ public class CPDFListView: CPDFView, UIImagePickerControllerDelegate,UINavigatio
                     annotationMode == .formModeList ||
                     annotationMode == .formModeButton ||
                     annotationMode == .formModeSign {
-            let currentOffset = self.documentView().contentOffset
             scrollEnabled = false
             endDrawing()
-            //Set scrolling to appear offset
-            self.documentView().setContentOffset(currentOffset, animated: false)
-
         } else if annotationMode == .ink ||
                     annotationMode == .pencilDrawing {
             scrollEnabled = false
@@ -487,9 +482,7 @@ public class CPDFListView: CPDFView, UIImagePickerControllerDelegate,UINavigatio
     }
     
     public override func longPressGestureShouldBegin(at point: CGPoint, for page: CPDFPage!) -> Bool {
-       let annotation = page.annotation(at: point)
-
-        if toolModel == .viewer &&  annotation != nil {
+        if toolModel == .viewer {
             return false
         } else {
            return true

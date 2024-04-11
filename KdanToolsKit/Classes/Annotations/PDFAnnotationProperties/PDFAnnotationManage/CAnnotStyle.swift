@@ -541,7 +541,7 @@ public class CAnnotStyle: NSObject {
         var zfontSize: CGFloat = 11
         if self.isSelectAnnot {
             if let freeTextAnnotation = self.annotation as? CPDFFreeTextAnnotation {
-                zfontSize = freeTextAnnotation.fontSize
+                zfontSize = freeTextAnnotation.font.pointSize
             }
         } else {
             let userDefaults = UserDefaults.standard
@@ -559,20 +559,18 @@ public class CAnnotStyle: NSObject {
         if self.isSelectAnnot {
             for annotation in self.annotations {
                 if let freeTextAnnotation = annotation as? CPDFFreeTextAnnotation {
-                    let cFont = freeTextAnnotation.cFont
-                    freeTextAnnotation.fontSize = fontSize
-                    
-                    let appleFont = UIFont.init(name: CPDFFont.convertAppleFont(cFont ?? CPDFFont(familyName: "Helvetica", fontStyle: "")) ?? "Helvetica", size: fontSize)
-                    let attributes: [NSAttributedString.Key: Any] = [.font: appleFont ?? UIFont.systemFont(ofSize: 11.0)]
-                    let bounds = annotation.bounds
-                    
-                    let rect = freeTextAnnotation.contents.boundingRect(with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
-                    var newBounds = bounds
-                    newBounds.origin.y = bounds.maxY - rect.size.height
-                    newBounds.size.height = rect.size.height + 6
-                    
-                    annotation.bounds = newBounds
-
+                    if let font = freeTextAnnotation.font {
+                        freeTextAnnotation.font = UIFont(name: font.fontName, size: fontSize)
+                        let attributes: [NSAttributedString.Key: Any] = [.font: freeTextAnnotation.font ?? UIFont.systemFont(ofSize: 11.0)]
+                        let bounds = annotation.bounds
+                        
+                        let rect = freeTextAnnotation.contents.boundingRect(with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+                        var newBounds = bounds
+                        newBounds.origin.y = bounds.maxY - rect.size.height
+                        newBounds.size.height = rect.size.height + 6
+                        
+                        annotation.bounds = newBounds
+                    }
                 }
             }
         } else {
@@ -586,55 +584,38 @@ public class CAnnotStyle: NSObject {
             userDefaults.synchronize()
         }
     }
-    
-    var newCFont: CPDFFont {
-        var cfont: CPDFFont = CPDFFont.init(familyName: "Helvetica", fontStyle: "")
-
+    var fontName: String {
+        var zfontName: String? = ""
         if self.isSelectAnnot {
             if let freeTextAnnotation = self.annotation as? CPDFFreeTextAnnotation {
-                cfont = freeTextAnnotation.cFont
+                zfontName = freeTextAnnotation.font.fontName
             }
         } else {
             let userDefaults = UserDefaults.standard
             switch self.annotMode {
             case .freeText:
-               let zfontName = userDefaults.string(forKey: CFreeTextNoteFontFamilyNameKey)
-               let zfontStyle = userDefaults.string(forKey: CFreeTextNoteFontNewStyleKey)
-                cfont = CPDFFont.init(familyName: zfontName ?? "Helvetica", fontStyle: zfontStyle ?? "")
-                break
+                zfontName = userDefaults.string(forKey: CFreeTextNoteFontNameKey)
             default:
                 break
             }
         }
-        return cfont
+        return zfontName ?? ""
     }
     
-    func setNewCFont(_ font: CPDFFont) {
+    func setFontName(_ fontName: String?) {
         if self.isSelectAnnot {
             for annotation in self.annotations {
                 if let freeTextAnnotation = annotation as? CPDFFreeTextAnnotation {
-                    freeTextAnnotation.cFont = font
+                    if let font = freeTextAnnotation.font {
+                        freeTextAnnotation.font = UIFont(name: fontName ?? "", size: font.pointSize)
+                    }
                 }
             }
         } else {
             let userDefaults = UserDefaults.standard
             switch self.annotMode {
             case .freeText:
-                let styleName = font.styleName
-                let familyName = font.familyName
-                if styleName?.count != 0 {
-                    userDefaults.set(styleName, forKey: CFreeTextNoteFontNewStyleKey)
-                } else {
-                    userDefaults.set("", forKey: CFreeTextNoteFontNewStyleKey)
-                }
-                
-                if familyName.count != 0 {
-                    userDefaults.set(familyName, forKey: CFreeTextNoteFontFamilyNameKey)
-                } else {
-                    userDefaults.set("Helvetica", forKey: CFreeTextNoteFontNewStyleKey)
-                }
-
-                break
+                userDefaults.set(fontName, forKey: CFreeTextNoteFontNameKey)
             default:
                 break
             }

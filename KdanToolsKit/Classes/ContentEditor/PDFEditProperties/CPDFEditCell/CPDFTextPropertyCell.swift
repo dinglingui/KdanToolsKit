@@ -16,8 +16,6 @@ import ComPDFKit
 enum CPDFTextActionType: UInt {
     case colorSelect
     case fontNameSelect
-    case fontStyleSelect
-
 }
 
 enum CPDFTextAlignment: UInt {
@@ -32,6 +30,8 @@ class CPDFTextPropertyCell: UITableViewCell, CPDFColorSelectViewDelegate, CPDFOp
     
     var actionBlock: ((CPDFTextActionType) -> Void)?
     var colorBlock: ((UIColor) -> Void)?
+    var boldBlock: ((Bool) -> Void)?
+    var italicBlock: ((Bool) -> Void)?
     var opacityBlock: ((CGFloat) -> Void)?
     var alignmentBlock: ((CPDFTextAlignment) -> Void)?
     var fontSizeBlock: ((CGFloat) -> Void)?
@@ -48,37 +48,29 @@ class CPDFTextPropertyCell: UITableViewCell, CPDFColorSelectViewDelegate, CPDFOp
     var fontView: UIView?
     var alignmentView: UIView?
     var alignmnetCoverView: UIView?
+    var styleView: UIView?
     var dropMenuView: UIView?
     var splitView: UIView?
-    var splitStyleView: UIView?
-
     var menu: CPDFDropDownMenu?
     
     var dropDownIcon: UIImageView?
-    var dropStyleDownIcon: UIImageView?
-
+    
     var fontNameLabel: UILabel?
     var alignmentLabel: UILabel?
     var fontNameSelectLabel: UILabel?
-    var fontStyleSelectLabel: UILabel?
-
+    
     var leftAlignBtn: UIButton?
     var centerAlignBtn: UIButton?
     var rightAlignBtn: UIButton?
     
+    var boldBtn: UIButton?
+    var italicBtn: UIButton?
     var fontSelectBtn: UIButton?
-    var fontStyleSelectBtn: UIButton?
-
+    
     var lastSelectAlignBtn: UIButton?
-    var currentSelectCFont: CPDFFont = CPDFFont.init(familyName: "Helvetica", fontStyle: "") {
+    var currentSelectFontName: String? {
         didSet {
-            fontNameSelectLabel?.text = currentSelectCFont.familyName
-            if(currentSelectCFont.styleName?.count == 0) {
-                let styles = CPDFFont.fontNames(forFamilyName: currentSelectCFont.familyName)
-                fontStyleSelectLabel?.text = styles.first
-            } else {
-                fontStyleSelectLabel?.text = currentSelectCFont.styleName ?? ""
-            }
+            fontNameSelectLabel?.text = currentSelectFontName
         }
     }
     
@@ -174,6 +166,28 @@ class CPDFTextPropertyCell: UITableViewCell, CPDFColorSelectViewDelegate, CPDFOp
         
         self.backgroundColor = UIColor(red: 250/255, green: 252/255, blue: 255/255, alpha: 1)
         
+        self.italicBtn = UIButton(type: .custom)
+        self.italicBtn?.setImage(UIImage(named: "CPDFEditItalicNormal", in: Bundle(for: type(of: self)), compatibleWith: nil), for:.normal)
+        self.italicBtn?.setImage(UIImage(named: "CPDFEditItalicHighlight", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .selected)
+        self.italicBtn?.addTarget(self, action: #selector(fontItalicAction(_:)), for: .touchUpInside)
+        
+        self.boldBtn = UIButton(type: .custom)
+        self.boldBtn?.setImage(UIImage(named: "CPDFEditBoldNormal", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .normal)
+        self.boldBtn?.setImage(UIImage(named: "CPDFEditBoldHighlight", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .selected)
+        self.boldBtn?.addTarget(self, action: #selector(fontBoldAction(_:)), for: .touchUpInside)
+        
+        self.styleView = UIView()
+        self.styleView?.layer.cornerRadius = 4
+        if(styleView != nil) {
+            self.fontView?.addSubview(self.styleView!)
+        }
+        if(italicBtn != nil) {
+            self.styleView?.addSubview(self.italicBtn!)
+        }
+        if(boldBtn != nil) {
+            self.styleView?.addSubview(self.boldBtn!)
+        }
+        
         self.dropMenuView = UIView()
         if(dropMenuView != nil) {
             self.fontView?.addSubview(self.dropMenuView!)
@@ -185,22 +199,10 @@ class CPDFTextPropertyCell: UITableViewCell, CPDFColorSelectViewDelegate, CPDFOp
             self.dropMenuView?.addSubview(self.splitView!)
         }
         
-        splitStyleView = UIView()
-        splitStyleView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
-        if(splitStyleView != nil) {
-            dropMenuView?.addSubview(splitStyleView!)
-        }
-        
         self.dropDownIcon = UIImageView()
         self.dropDownIcon?.image = UIImage(named: "CPDFEditArrow", in: Bundle(for: type(of: self)), compatibleWith: nil)
         if(dropDownIcon != nil) {
             self.dropMenuView?.addSubview(self.dropDownIcon!)
-        }
-        
-        dropStyleDownIcon = UIImageView()
-        dropStyleDownIcon?.image = UIImage(named: "CPDFEditArrow", in: Bundle(for: type(of: self)), compatibleWith: nil)
-        if(dropStyleDownIcon != nil) {
-            self.dropMenuView?.addSubview(dropStyleDownIcon!)
         }
         
         self.fontNameSelectLabel = UILabel()
@@ -210,13 +212,6 @@ class CPDFTextPropertyCell: UITableViewCell, CPDFColorSelectViewDelegate, CPDFOp
             self.dropMenuView?.addSubview(self.fontNameSelectLabel!)
         }
         
-        self.fontStyleSelectLabel = UILabel()
-        self.fontStyleSelectLabel?.adjustsFontSizeToFitWidth = true
-        self.fontStyleSelectLabel?.textColor = CPDFColorUtils.CPageEditToolbarFontColor()
-        if(fontStyleSelectLabel != nil) {
-            self.dropMenuView?.addSubview(self.fontStyleSelectLabel!)
-        }
-        
         self.fontSelectBtn = UIButton(type: .custom)
         self.fontSelectBtn?.backgroundColor = UIColor.clear
         self.fontSelectBtn?.addTarget(self, action: #selector(showFontNameAction(_:)), for: .touchUpInside)
@@ -224,13 +219,7 @@ class CPDFTextPropertyCell: UITableViewCell, CPDFColorSelectViewDelegate, CPDFOp
             self.dropMenuView?.addSubview(self.fontSelectBtn!)
         }
         
-        fontStyleSelectBtn = UIButton(type: .custom)
-        fontStyleSelectBtn?.backgroundColor = UIColor.clear
-        fontStyleSelectBtn?.addTarget(self, action: #selector(showFontStyleNameAction(_:)), for: .touchUpInside)
-        if(fontStyleSelectBtn != nil) {
-            self.dropMenuView?.addSubview(fontStyleSelectBtn!)
-        }
-        
+        self.styleView?.backgroundColor = UIColor(red: 73/255, green: 130/255, blue: 230/255, alpha: 0.08)
         self.opacityView?.rightMargin = 10
         self.opacityView?.leftMargin = 5
         self.opacityView?.rightTitleMargin = 10
@@ -252,6 +241,7 @@ class CPDFTextPropertyCell: UITableViewCell, CPDFColorSelectViewDelegate, CPDFOp
         self.fontView?.frame = CGRect(x: 10, y: (self.opacityView?.frame.maxY ?? 0) + 20, width: self.frame.size.width-20, height: 30)
         self.alignmentView?.frame = CGRect(x: 10, y: (self.fontView?.frame.maxY ?? 0) + 20, width: self.frame.size.width-20, height: 30)
         self.thickSliderView?.frame = CGRect(x: 10, y: (self.alignmentView?.frame.maxY ?? 0), width: self.frame.size.width-20, height: 90)
+        self.styleView?.frame = CGRect(x: self.frame.size.width - 100, y: 0, width: 80, height: 30)
         
         self.alignmnetCoverView?.frame = CGRect(x: self.frame.size.width - 170, y: 0, width: 150, height: 30)
         
@@ -261,25 +251,21 @@ class CPDFTextPropertyCell: UITableViewCell, CPDFColorSelectViewDelegate, CPDFOp
         self.leftAlignBtn?.frame = CGRect(x: 0, y: 0, width: 50, height: 30)
         self.centerAlignBtn?.frame = CGRect(x: 50, y: 0, width: 50, height: 30)
         self.rightAlignBtn?.frame = CGRect(x: 100, y: 0, width: 50, height: 30)
+        self.boldBtn?.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
+        self.italicBtn?.frame = CGRect(x: 40, y: 0, width: 40, height: 30)
         
         let fontNameLabelMaxX = self.fontNameLabel?.frame.maxX ?? 0
-        let dropMenuViewWidth = self.frame.size.width - fontNameLabelMaxX - 20 - 20
+        let dropMenuViewWidth = self.frame.size.width - fontNameLabelMaxX - 20 - 20 - 80 - 20
 
         self.dropMenuView?.frame = CGRect(x: fontNameLabelMaxX + 20, y: 0, width: dropMenuViewWidth, height: 30)
 
-        let subWidth = (self.dropMenuView?.bounds.size.width ?? 0) - 10
-
-        self.splitView?.frame = CGRect(x: 0, y: 29, width: (subWidth / 5 * 3), height: 1)
-        self.splitStyleView?.frame = CGRect(x: (subWidth / 5 * 3) + 10, y: 29, width: (subWidth / 5 * 2), height: 1)
-
-        self.dropDownIcon?.frame = CGRect(x: (subWidth / 5 * 3) - 24, y: 3, width: 24, height: 24)
-        self.dropStyleDownIcon?.frame = CGRect(x: subWidth - 24 + 10, y: 3, width: 24, height: 24)
-
-        self.fontNameSelectLabel?.frame = CGRect(x: 10, y: 0, width: (subWidth / 5 * 3) - 40, height: 29)
-        self.fontStyleSelectLabel?.frame = CGRect(x: (subWidth / 5 * 3) + 30, y: 0, width: (subWidth / 5 * 2) - 40, height: 29)
+        self.splitView?.frame = CGRect(x: 0, y: 29, width: self.dropMenuView?.bounds.size.width ?? 0, height: 1)
         
-        self.fontSelectBtn?.frame = CGRect(x: 0, y:0, width: subWidth / 5 * 3, height: 30)
-        self.fontStyleSelectBtn?.frame = CGRect(x: subWidth / 5 * 3 + 10, y:0, width: subWidth / 5 * 2, height: 30)
+        self.dropDownIcon?.frame = CGRect(x: (self.dropMenuView?.bounds.size.width ?? 0) - 24 - 5, y: 3, width: 24, height: 24)
+        self.fontNameSelectLabel?.frame = CGRect(x: 10, y: 0, width: (self.dropMenuView?.bounds.size.width ?? 0) - 40, height: 29)
+        
+        self.fontSelectBtn?.frame = self.dropMenuView?.bounds ?? CGRect.zero
+        
     }
     
     func setPdfView(_ zpdfView: CPDFView) {
@@ -287,6 +273,18 @@ class CPDFTextPropertyCell: UITableViewCell, CPDFColorSelectViewDelegate, CPDFOp
         let editingArea = self.pdfView?.editingArea()
         if editingArea != nil  {
             self.opacityView?.defaultValue = (pdfView?.getCurrentOpacity())!
+            if ((pdfView?.isItalicCurrentSelection(with: editingArea as? CPDFEditTextArea)) == true) {
+                self.italicBtn?.isSelected = false
+                if(italicBtn != nil) {
+                    fontItalicAction(self.italicBtn!)
+                }
+            }
+            if ((pdfView?.isBoldCurrentSelection(with: editingArea as? CPDFEditTextArea)) == true) {
+                self.boldBtn?.isSelected = false
+                if(boldBtn != nil) {
+                    fontBoldAction(self.boldBtn!)
+                }
+            }
             
             let alignment:NSTextAlignment = NSTextAlignment(rawValue: (self.pdfView?.editingSelectionAlignment(with: editingArea as? CPDFEditTextArea))!.rawValue) ?? .center
             if alignment == .left {
@@ -311,6 +309,19 @@ class CPDFTextPropertyCell: UITableViewCell, CPDFColorSelectViewDelegate, CPDFOp
             self.thickSliderView?.defaultValue = (pdfView?.editingSelectionFontSizes(with: editingArea as? CPDFEditTextArea) ?? 0 ) / 100
         } else {
             self.opacityView?.defaultValue = CPDFTextProperty.shared.textOpacity
+            if CPDFTextProperty.shared.isItalic {
+                self.italicBtn?.isSelected = false
+                if(italicBtn != nil) {
+                    fontItalicAction(self.italicBtn!)
+                }
+            }
+            
+            if CPDFTextProperty.shared.isBold {
+                self.boldBtn?.isSelected = false
+                if(boldBtn != nil) {
+                    fontBoldAction(self.boldBtn!)
+                }
+            }
             
             if CPDFTextProperty.shared.textAlignment == .left {
                 self.leftAlignBtn?.isSelected = false
@@ -352,6 +363,25 @@ class CPDFTextPropertyCell: UITableViewCell, CPDFColorSelectViewDelegate, CPDFOp
     
     func opacitySliderView(_ opacitySliderView: CPDFOpacitySliderView, opacity: CGFloat) {
         self.opacityBlock?(opacity)
+    }
+    
+    // MARK: - Action
+    @objc func fontBoldAction(_ button: UIButton) {
+        if(button.isSelected == true) {
+            button.isSelected = false;
+        } else {
+            button.isSelected = true
+        }
+        self.boldBlock?(button.isSelected)
+    }
+    
+    @objc func fontItalicAction(_ button: UIButton) {
+        if(button.isSelected == true) {
+            button.isSelected = false;
+        } else {
+            button.isSelected = true
+        }
+        self.italicBlock?(button.isSelected)
     }
     
     @objc func fontAlignmentAction(_ sender: UIButton) {
@@ -406,10 +436,6 @@ class CPDFTextPropertyCell: UITableViewCell, CPDFColorSelectViewDelegate, CPDFOp
     
     @objc func showFontNameAction(_ button: UIButton) {
         self.actionBlock?(.fontNameSelect)
-    }
-    
-    @objc func showFontStyleNameAction(_ button: UIButton) {
-        self.actionBlock?(.fontStyleSelect)
     }
     
     override func awakeFromNib() {

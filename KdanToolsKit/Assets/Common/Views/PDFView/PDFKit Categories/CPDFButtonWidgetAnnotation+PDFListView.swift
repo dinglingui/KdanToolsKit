@@ -21,7 +21,6 @@ extension CPDFButtonWidgetAnnotation {
                                  CPDFAnnotationColorKey,
                                  CPDFAnnotationStateKey,
                                  CPDFAnnotationFontKey,
-                                 CPDFAnnotationFontSizeKey,
                                  CPDFAnnotationFontColorKey,
                                  CPDFAnnotationBorderColorKey,
                                  CPDFAnnotationBackgroundColorKey,

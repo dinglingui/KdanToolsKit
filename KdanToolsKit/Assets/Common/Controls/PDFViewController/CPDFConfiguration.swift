@@ -24,7 +24,16 @@ public class CPDFConfiguration: NSObject {
         let more = CNavBarButtonItem(viewRightBarButtonItem: .more)
         
         self.showleftItems = [back, thumbnail]
-        self.showRightItems = [search, bota, more]        
+        self.showRightItems = [search, bota, more]
+        self.availableViewModes = [.viewer, .annotation, .edit, .form, .signature]
+        self.annotationsTypes = [.note, .highlight, .underline, .strikeout, .squiggly, .freehand, .pencilDrawing, .shapeCircle, .shapeRectangle, .shapeArrow, .shapeLine, .freeText, .signature, .stamp, .image, .sound]
+        self.annotationsTools = [.setting, .undo, .redo]
+        self.contentEditorTools = [.setting, .undo, .redo]
+        self.contentEditorTypes = [.text, .image]
+        self.formTypes = [.text, .checkBox, .radioButton, .comboBox, .list, .button, .sign]
+        self.formTools = [.undo, .redo]
+        
+        self.showMoreItems = [.setting, .pageEdit, .info, .save, .flattened, .share, .addFile]
     }
     
     public var showleftItems: [CNavBarButtonItem] = []
@@ -33,23 +42,23 @@ public class CPDFConfiguration: NSObject {
     
     public var enterToolModel: CPDFToolFunctionTypeState = .viewer
     
-    public var availableViewModes: [CPDFToolFunctionTypeState] = [.viewer, .annotation, .edit, .form, .signature]
+    public var availableViewModes: [CPDFToolFunctionTypeState] = []
     
     public var readerOnly: Bool = false
     
-    public var showMoreItems: [CPDFPopMenuViewType] = [.setting, .pageEdit, .info, .save, .flattened, .share, .addFile]
+    public var showMoreItems: [CPDFPopMenuViewType] = []
     
-    public var annotationsTypes: [CPDFAnnotationToolbarType] = [.note, .highlight, .underline, .strikeout, .squiggly, .freehand, .pencilDrawing, .shapeCircle, .shapeRectangle, .shapeArrow, .shapeLine, .freeText, .signature, .stamp, .image,.link, .sound]
+    public var annotationsTypes: [CPDFAnnotationToolbarType] = []
     
-    public var annotationsTools: [CPDFAnnotationPropertieType] = [.setting, .undo, .redo]
+    public var annotationsTools: [CPDFAnnotationPropertieType] = []
     
-    public var contentEditorTypes: [CPDFEditMode] = [.text, .image]
+    public var contentEditorTypes: [CPDFEditMode] = []
     
-    public var contentEditorTools: [CPDFEditToolMode] = [.setting, .undo, .redo]
+    public var contentEditorTools: [CPDFEditToolMode] = []
     
-    public var formTypes: [CPDFFormToolbarSelectedIndex] = [.text, .checkBox, .radioButton, .comboBox, .list, .button, .sign]
+    public var formTypes: [CPDFFormToolbarSelectedIndex] = []
     
-    public var formTools: [CPDFFormPropertieType] = [.undo, .redo]
+    public var formTools: [CPDFFormPropertieType] = []
     
     public var annotationAttribute: [String: Any] = [:]
     

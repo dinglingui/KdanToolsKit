@@ -355,143 +355,144 @@ class CAddSignatureViewController: UIViewController,CHeaderViewDelegate,CAddSign
     // MARK: - CAddSignatureCellDelegate
     
     func addSignatureCell(_ addSignatureCell: CAddSignatureCell, button: UIButton) {
-        
+   
         addSignatureCell.textSelectBtn?.isSelected = !(addSignatureCell.textSelectBtn?.isSelected ?? false)
         
         let indexPath2 = IndexPath(row: 0, section: 1)
-        let cell2 = self.tableView?.cellForRow(at: indexPath2) as? CAddSignatureCell
-        let indexPath3 = IndexPath(row: 5, section: 1)
-        let cell3 = self.tableView?.cellForRow(at: indexPath3) as? CAddSignatureCell
-        if let indexPath = self.tableView?.indexPath(for: addSignatureCell) {
-            var contents = self.signatureConfig?.contents ?? []
-            
-            if contents.count <= 1 && self.customType == .none {
-                if let configItem = contents.first,
-                   configItem.key == NAME_KEY,
-                   self.signatureConfig?.isDrawKey == true {
-                    let nameBtn = cell2?.textSelectBtn
-                    if nameBtn?.state == .normal {
-                        contents.removeAll()
+        if let cell2 = self.tableView?.cellForRow(at: indexPath2) as? CAddSignatureCell {
+            let indexPath3 = IndexPath(row: 5, section: 1)
+            if let cell3 = self.tableView?.cellForRow(at: indexPath3) as? CAddSignatureCell {
+                if let indexPath = self.tableView?.indexPath(for: addSignatureCell) {
+                    var contents = self.signatureConfig?.contents ?? []
+                    
+                    if contents.count <= 1 && self.customType == .none {
+                        if let configItem = contents.first,
+                           configItem.key == NAME_KEY,
+                           self.signatureConfig?.isDrawKey == true {
+                            let nameBtn = cell2.textSelectBtn
+                            if nameBtn?.state == .normal {
+                                contents.removeAll()
+                            }
+                            
+                            let tapBtn = cell3.textSelectBtn
+                            if tapBtn?.state == .normal {
+                                self.signatureConfig?.isDrawKey = false
+                            }
+                        }
                     }
                     
-                    let tapBtn = cell3?.textSelectBtn
-                    if tapBtn?.state == .normal {
-                        self.signatureConfig?.isDrawKey = false
+                    var configItem: CPDFSignatureConfigItem?
+                    
+                    switch indexPath.row {
+                    case 0:
+                        if button.isSelected {
+                            configItem = CPDFSignatureConfigItem()
+                            configItem?.key = NAME_KEY
+                            configItem?.value = NSLocalizedString(self.signatureCertificate?.issuerDict?["CN"] as? String ?? "", comment: "")
+                            contents.append(configItem!)
+                        } else {
+                            for item in contents {
+                                if item.key == NAME_KEY {
+                                    configItem = item
+                                    break
+                                }
+                            }
+                            if let configItem = configItem {
+                                contents.removeAll { $0 === configItem }
+                            }
+                        }
+                        self.isName = button.isSelected
+                    case 1:
+                        if button.isSelected {
+                            configItem = CPDFSignatureConfigItem()
+                            configItem?.key = DATE_KEY
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                            configItem?.value = dateFormatter.string(from: Date())
+                            contents.append(configItem!)
+                        } else {
+                            for item in contents {
+                                if item.key == DATE_KEY {
+                                    configItem = item
+                                    break
+                                }
+                            }
+                            if let configItem = configItem {
+                                contents.removeAll { $0 === configItem }
+                            }
+                        }
+                        self.isDate = button.isSelected
+                    case 2:
+                        if button.isSelected {
+                            self.signatureConfig?.isDrawLogo = true
+                        } else {
+                            self.signatureConfig?.isDrawLogo = false
+                        }
+                        self.isLogo = button.isSelected
+                    case 3:
+                        if button.isSelected {
+                            configItem = CPDFSignatureConfigItem()
+                            configItem?.key = DN_KEY
+                            let dn = getDNString()
+                            configItem?.value = NSLocalizedString(dn, comment: "")
+                            contents.append(configItem!)
+                        } else {
+                            for item in contents {
+                                if item.key == DN_KEY {
+                                    configItem = item
+                                    break
+                                }
+                            }
+                            if let configItem = configItem {
+                                contents.removeAll { $0 === configItem }
+                            }
+                        }
+                        self.isDN = button.isSelected
+                    case 4:
+                        if button.isSelected {
+                            configItem = CPDFSignatureConfigItem()
+                            configItem?.key = VERSION_KEY
+                            if let infoDictionary = Bundle.main.infoDictionary,
+                               let app_Version = infoDictionary["CFBundleShortVersionString"] as? String {
+                                configItem?.value = app_Version
+                            }
+                            contents.append(configItem!)
+                        } else {
+                            for item in contents {
+                                if item.key == VERSION_KEY {
+                                    configItem = item
+                                    break
+                                }
+                            }
+                            if let configItem = configItem {
+                                contents.removeAll { $0 === configItem }
+                            }
+                        }
+                        self.isVersion = button.isSelected
+                    case 5:
+                        if button.isSelected {
+                            self.signatureConfig?.isDrawKey = true
+                        } else {
+                            self.signatureConfig?.isDrawKey = false
+                        }
+                        self.isDraw = button.isSelected
+                    default:
+                        break
                     }
+                    
+                    if self.customType == CSignatureCustomType.none && contents.isEmpty {
+                        configItem = CPDFSignatureConfigItem()
+                        configItem?.key = NAME_KEY
+                        configItem?.value = NSLocalizedString(self.signatureCertificate?.issuerDict?["CN"] as? String ?? "", comment: "")
+                        contents.append(configItem!)
+                        self.signatureConfig?.isDrawKey = true
+                    }
+                    
+                    self.signatureConfig?.contents = sortContents(contents)
+                    reloadData()
                 }
             }
-            
-            var configItem: CPDFSignatureConfigItem?
-            
-            switch indexPath.row {
-            case 0:
-                if button.isSelected {
-                    configItem = CPDFSignatureConfigItem()
-                    configItem?.key = NAME_KEY
-                    configItem?.value = NSLocalizedString(self.signatureCertificate?.issuerDict?["CN"] as? String ?? "", comment: "")
-                    contents.append(configItem!)
-                } else {
-                    for item in contents {
-                        if item.key == NAME_KEY {
-                            configItem = item
-                            break
-                        }
-                    }
-                    if let configItem = configItem {
-                        contents.removeAll { $0 === configItem }
-                    }
-                }
-                self.isName = button.isSelected
-            case 1:
-                if button.isSelected {
-                    configItem = CPDFSignatureConfigItem()
-                    configItem?.key = DATE_KEY
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                    configItem?.value = dateFormatter.string(from: Date())
-                    contents.append(configItem!)
-                } else {
-                    for item in contents {
-                        if item.key == DATE_KEY {
-                            configItem = item
-                            break
-                        }
-                    }
-                    if let configItem = configItem {
-                        contents.removeAll { $0 === configItem }
-                    }
-                }
-                self.isDate = button.isSelected
-            case 2:
-                if button.isSelected {
-                    self.signatureConfig?.isDrawLogo = true
-                } else {
-                    self.signatureConfig?.isDrawLogo = false
-                }
-                self.isLogo = button.isSelected
-            case 3:
-                if button.isSelected {
-                    configItem = CPDFSignatureConfigItem()
-                    configItem?.key = DN_KEY
-                    let dn = getDNString()
-                    configItem?.value = NSLocalizedString(dn, comment: "")
-                    contents.append(configItem!)
-                } else {
-                    for item in contents {
-                        if item.key == DN_KEY {
-                            configItem = item
-                            break
-                        }
-                    }
-                    if let configItem = configItem {
-                        contents.removeAll { $0 === configItem }
-                    }
-                }
-                self.isDN = button.isSelected
-            case 4:
-                if button.isSelected {
-                    configItem = CPDFSignatureConfigItem()
-                    configItem?.key = VERSION_KEY
-                    if let infoDictionary = Bundle.main.infoDictionary,
-                       let app_Version = infoDictionary["CFBundleShortVersionString"] as? String {
-                        configItem?.value = app_Version
-                    }
-                    contents.append(configItem!)
-                } else {
-                    for item in contents {
-                        if item.key == VERSION_KEY {
-                            configItem = item
-                            break
-                        }
-                    }
-                    if let configItem = configItem {
-                        contents.removeAll { $0 === configItem }
-                    }
-                }
-                self.isVersion = button.isSelected
-            case 5:
-                if button.isSelected {
-                    self.signatureConfig?.isDrawKey = true
-                } else {
-                    self.signatureConfig?.isDrawKey = false
-                }
-                self.isDraw = button.isSelected
-            default:
-                break
-            }
-            
-            if self.customType == CSignatureCustomType.none && contents.isEmpty {
-                configItem = CPDFSignatureConfigItem()
-                configItem?.key = NAME_KEY
-                configItem?.value = NSLocalizedString(self.signatureCertificate?.issuerDict?["CN"] as? String ?? "", comment: "")
-                contents.append(configItem!)
-                self.signatureConfig?.isDrawKey = true
-            }
-            
-            self.signatureConfig?.contents = sortContents(contents)
-            reloadData()
         }
-        
     }
     
     func addSignatureCellAccess(_ addSignatureCell: CAddSignatureCell) {

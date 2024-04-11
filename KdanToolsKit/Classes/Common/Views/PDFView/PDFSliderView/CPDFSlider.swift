@@ -48,22 +48,20 @@ public class CPDFSlider: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func reloadData() {
+    func reloadData() {
         var center:CGPoint = self.valueView?.center ?? CGPoint.zero
         let pageIndex:Int = self.pdfView?.currentPageIndex ?? 0
         let height:CGFloat = self.valueView?.frame.height ?? 0
-        if self.pdfView?.document != nil {
-            let pageHeight = self.frame.height / CGFloat(self.pdfView?.document.pageCount ?? 0)
-            
-            if center.y >= CGFloat(pageIndex) * pageHeight && center.y <= (CGFloat(pageIndex) + 1) * pageHeight {
-                return
-            }
-            
-            center.y = CGFloat(pageIndex) * pageHeight + pageHeight
-            center.y = max(height / 2.0, center.y)
-            center.y = min(center.y, self.frame.height - height)
-            self.valueView?.center = center
+        let pageHeight = self.frame.height / CGFloat(self.pdfView?.document.pageCount ?? 0)
+        
+        if center.y >= CGFloat(pageIndex) * pageHeight && center.y <= (CGFloat(pageIndex) + 1) * pageHeight {
+            return
         }
+        
+        center.y = CGFloat(pageIndex) * pageHeight + pageHeight / 2.0
+        center.y = max(height / 2.0, center.y)
+        center.y = min(center.y, self.frame.height - height / 2.0)
+        self.valueView?.center = center
     }
     
     func updateLabelFrame() {

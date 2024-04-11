@@ -20,7 +20,6 @@ extension CPDFFreeTextAnnotation {
                                  CPDFAnnotationOpacityKey,
                                  CPDFAnnotationColorKey,
                                  CPDFAnnotationFontKey,
-                                 CPDFAnnotationFontSizeKey,
                                  CPDFAnnotationFontColorKey,
                                  CPDFAnnotationAlignmentKey]
         return keys

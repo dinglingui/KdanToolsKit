@@ -189,10 +189,8 @@ extension CPDFListView {
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         fontColor?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         fontColor = UIColor(red: red, green: green, blue: blue, alpha: CPDFTextProperty.shared.textOpacity)
-             
-        let cFont = CPDFFont(familyName: CPDFTextProperty.shared.fontNewFamilyName, fontStyle: CPDFTextProperty.shared.fontNewStyle )
-        var font = UIFont.init(name: CPDFFont.convertAppleFont(cFont) ?? "Helvetica", size: CPDFTextProperty.shared.fontSize)
-
+        
+        var font = UIFont(name: (CPDFTextProperty.shared.fontName ?? "Helvetica-Oblique") as String, size: CPDFTextProperty.shared.fontSize)
         if font == nil {
             font = UIFont(name: "Helvetica-Oblique", size: 10)
         }
@@ -204,8 +202,8 @@ extension CPDFListView {
         let atributes = CEditAttributes()
         atributes.font = font ?? UIFont()
         atributes.fontColor = fontColor ?? .black
-        atributes.isBold = false
-        atributes.isItalic = false
+        atributes.isBold = CPDFTextProperty.shared.isBold
+        atributes.isItalic = CPDFTextProperty.shared.isItalic
         atributes.alignment = CPDFTextProperty.shared.textAlignment
         
         self.createStringBounds(rect, with: atributes, page: page)
@@ -427,14 +425,9 @@ extension CPDFListView {
                         scaledHeight = imgHeight * scaled
                         scaledWidth = imgWidth * scaled
                         
-                        var rect = CGRect(x: self.menuPoint.x, y: self.menuPoint.y, width: scaledWidth, height: scaledHeight)
-                        let imageEditArea = self.editingArea()
-                        if(imageEditArea != nil) {
-                             rect = CGRect(x: imageEditArea!.bounds.origin.x, y: imageEditArea!.bounds.origin.y, width: scaledWidth, height: scaledHeight)
-
-                        }
+                        let rect = CGRect(x: self.menuPoint.x, y: self.menuPoint.y, width: scaledWidth, height: scaledHeight)
                         
-                        if(imageEditArea != nil && self.editingArea().isImageArea()) {
+                        if(self.editingArea() != nil && self.editingArea().isImageArea()) {
                             let imageArea:CPDFEditImageArea = (self.editingArea() as? CPDFEditImageArea) ?? CPDFEditImageArea()
                             self.replace(imageArea, imagePath: url.path, rect: rect)
                             

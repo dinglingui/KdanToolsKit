@@ -11,7 +11,6 @@
 //
 
 import UIKit
-import ComPDFKit
 
 enum CSignatureTopBarSelectedIndex: Int {
     case defaults = 0
@@ -26,7 +25,7 @@ let kKMSignayureTextMaxWidth:CGFloat = 200.0
     @objc optional func signatureEditViewControllerCancel(_ signatureEditViewController: CPDFSignatureEditViewController)
 }
 
-class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIColorPickerViewControllerDelegate, UITextFieldDelegate,UIGestureRecognizerDelegate, CPDFColorSelectViewDelegate, CPDFColorPickerViewDelegate, CSignatureDrawViewDelegate, CPDFFontSettingViewDelegate,CPDFFontStyleTableViewDelegate {
+class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIColorPickerViewControllerDelegate, UITextFieldDelegate,UIGestureRecognizerDelegate, CPDFColorSelectViewDelegate, CPDFColorPickerViewDelegate, CSignatureDrawViewDelegate {
     weak var delegate: CPDFSignatureEditViewControllerDelegate?
     var customType: CSignatureCustomType = .draw
     
@@ -41,8 +40,6 @@ class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationCo
     private var bottomBorder: CALayer?
     private var createButton: UIButton?
     private var selectedIndex: CSignatureTopBarSelectedIndex?
-    public var fontSettingView: CPDFFontSettingSubView?
-    private var fontStyleTableView: CPDFFontStyleTableView?
     private var thicknessView: UIView?
     private var thicknessLabel: UILabel?
     private var thicknessSlider: UISlider?
@@ -52,9 +49,7 @@ class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationCo
     private var isDrawSignature = false
     private var isTextSignature = false
     private var isImageSignature = false
-    private var baseName:String = "Helvetica"
-    private var baseStyleName:String = ""
-
+    
     // MARK: - ViewController Methods
     
     override func viewDidLoad() {
@@ -158,31 +153,6 @@ class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationCo
             self.textField?.layer.addSublayer(self.bottomBorder!)
         }
         self.textField?.isHidden = true
-        
-        fontSettingView = CPDFFontSettingSubView(frame: CGRect.zero)
-        fontSettingView?.fontNameLabel?.font = UIFont.boldSystemFont(ofSize: 13.0)
-        fontSettingView?.delegate = self
-        fontSettingView?.fontNameLabel?.textColor = UIColor(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1)
-        fontSettingView?.fontNameLabel?.text = NSLocalizedString("Font", comment: "")
-        if(fontSettingView != nil) {
-            self.view?.addSubview(fontSettingView!)
-        }
-        fontSettingView?.isHidden = true
-        
-        let datasArray:[String] = CPDFFont.fontNames(forFamilyName: baseName)
-        baseStyleName = datasArray.first ?? ""
-
-        fontSettingView?.fontNameSelectLabel?.text = baseName
-        fontSettingView?.fontStyleNameSelectLabel?.text = baseStyleName
-        
-        let cFont = CPDFFont(familyName: baseName, fontStyle: baseStyleName )
-        var cellFont = UIFont.init(name: CPDFFont.convertAppleFont(cFont) ?? "Helvetica", size: 30.0)
-
-        if cellFont == nil {
-            cellFont = UIFont(name: "Helvetica-Oblique", size: 30)
-        }
-        self.textField?.font = cellFont
-        
         self.createButton = UIButton()
         self.createButton?.layer.cornerRadius = 25.0
         self.createButton?.clipsToBounds = true
@@ -226,8 +196,6 @@ class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationCo
             let currentOrientation = UIApplication.shared.statusBarOrientation
             if currentOrientation.isPortrait {
                 colorSelectView?.frame = CGRect(x: view.safeAreaInsets.left, y: 50, width: 380, height: 60)
-                fontSettingView?.frame = CGRect(x: view.safeAreaInsets.left, y: 140, width: 380, height: 30)
-
                 colorSelectView?.colorPickerView?.frame = CGRect(x: 0, y: 0, width: colorSelectView?.frame.size.width ?? 0, height: colorSelectView?.frame.size.height ?? 0)
                 thicknessView?.frame = CGRect(x: view.safeAreaInsets.left, y: 140, width: view.frame.size.width-view.safeAreaInsets.left-view.safeAreaInsets.right, height: 60)
                 thicknessLabel?.frame = CGRect(x: 20, y: 15, width: 60, height: 30)
@@ -235,8 +203,6 @@ class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationCo
                 signatureDrawTextView?.frame = CGRect(x: view.safeAreaInsets.left, y: 210, width: view.frame.size.width - view.safeAreaInsets.left - view.safeAreaInsets.right, height: view.frame.size.height-view.safeAreaInsets.top-view.safeAreaInsets.bottom-150)
             } else if currentOrientation.isLandscape {
                 colorSelectView?.frame = CGRect(x: view.safeAreaInsets.left, y: 50, width: 380, height: 60)
-                let maxX = colorSelectView?.frame.maxX ?? 0
-                fontSettingView?.frame = CGRect(x: maxX + 10, y: (colorSelectView?.frame.midY ?? 0), width: self.view.frame.width - maxX - 10, height: 30)
                 thicknessView?.frame = CGRect(x: 380, y: 70, width: view.frame.size.width-380-view.safeAreaInsets.right, height: 60)
                 thicknessLabel?.frame = CGRect(x: 20, y: 15, width: 60, height: 30)
                 thicknessSlider?.frame = CGRect(x: 90, y: 0, width: (thicknessView?.bounds.size.width ?? 0)-110, height: 60)
@@ -251,8 +217,6 @@ class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationCo
             let currentOrientation = UIApplication.shared.statusBarOrientation
             if currentOrientation.isPortrait {
                 colorSelectView?.frame = CGRect(x: 10, y: 50, width: 380, height: 60)
-                fontSettingView?.frame = CGRect(x: 10, y: 140, width: 380, height: 30)
-
                 colorSelectView?.colorPickerView?.frame = CGRect(x: 0, y: 0, width: colorSelectView?.frame.size.width ?? 0, height: colorSelectView?.frame.size.height ?? 0)
                 thicknessView?.frame = CGRect(x: 10, y: 140, width: view.frame.size.width-20, height: 60)
                 thicknessLabel?.frame = CGRect(x: 20, y: 15, width: 60, height: 30)
@@ -260,9 +224,6 @@ class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationCo
                 signatureDrawTextView?.frame = CGRect(x: 10, y: 210, width: view.frame.size.width-20, height: view.frame.size.height-114-150)
             } else if currentOrientation.isLandscape {
                 colorSelectView?.frame = CGRect(x: 10, y: 50, width: 380, height: 60)
-                let maxX = colorSelectView?.frame.maxX ?? 0
-                fontSettingView?.frame = CGRect(x: maxX + 10, y: (colorSelectView?.frame.midY ?? 0), width: self.view.frame.width - maxX - 10, height: 30)
-
                 thicknessView?.frame = CGRect(x: 380, y: 70, width: view.frame.size.width-380-10, height: 60)
                 thicknessLabel?.frame = CGRect(x: 20, y: 15, width: 60, height: 30)
                 thicknessSlider?.frame = CGRect(x: 90, y: 0, width: (thicknessView?.bounds.size.width ?? 0)-110, height: 60)
@@ -391,7 +352,6 @@ class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationCo
         self.signatureDrawImageView?.isHidden = true
         self.createButton?.isHidden = true
         self.textField?.isHidden = true
-        fontSettingView?.isHidden = true
         self.textField?.resignFirstResponder()
         if self.isDrawSignature {
             self.saveButton?.setTitleColor(UIColor(red: 20.0/255.0, green: 96.0/255.0, blue: 243.0/255.0, alpha: 1.0), for: .normal)
@@ -408,7 +368,6 @@ class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationCo
         self.signatureDrawTextView?.isHidden = true
         self.signatureDrawImageView?.isHidden = true
         self.textField?.isHidden = false
-        fontSettingView?.isHidden = false
         self.selectedIndex = .text
         self.colorSelectView?.isHidden = false
         self.createButton?.isHidden = true
@@ -432,7 +391,6 @@ class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationCo
         self.signatureDrawTextView?.isHidden = true
         self.signatureDrawImageView?.isHidden = false
         self.textField?.isHidden = true
-        fontSettingView?.isHidden = true
         self.selectedIndex = .image
         self.createButton?.isHidden = false
         self.colorSelectView?.isHidden = true
@@ -751,43 +709,6 @@ class CPDFSignatureEditViewController: UIViewController, UIPopoverPresentationCo
         }
     }
     
-    // MARK: - CPDFFontSettingViewDelegate
-    func setCPDFFontSettingViewFontSelect(view: CPDFFontSettingSubView,isFontStyle:Bool) {
-        fontStyleTableView = CPDFFontStyleTableView(frame: self.view.bounds, familyNames: view.fontNameSelectLabel?.text ?? "Helvetica", styleName: baseStyleName,isFontStyle: isFontStyle)
-        self.fontStyleTableView?.delegate = self
-        self.fontStyleTableView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.fontStyleTableView?.backgroundColor = CPDFColorUtils.CAnnotationPropertyViewControllerBackgoundColor()
-        if(self.fontStyleTableView != nil) {
-            self.view.addSubview(self.fontStyleTableView!)
-        }
-        self.textField?.endEditing(true)
-    }
-    
-    // MARK: - CPDFFontStyleTableViewDelegate
-    func fontStyleTableView(_ fontStyleTableView: CPDFFontStyleTableView, fontName: String, isFontStyle: Bool) {
-        var familyName = baseName
-        if(isFontStyle) {
-            baseStyleName = fontName
-        } else {
-            baseName = fontName;
-            familyName = fontName
-            
-            let datasArray:[String] = CPDFFont.fontNames(forFamilyName: familyName)
-            baseStyleName = datasArray.first ?? ""
-        }
-        
-        self.fontSettingView?.fontNameSelectLabel?.text = familyName
-        self.fontSettingView?.fontStyleNameSelectLabel?.text = baseStyleName
-        
-        let cFont = CPDFFont(familyName: baseName, fontStyle: baseStyleName )
-        var cellFont = UIFont.init(name: CPDFFont.convertAppleFont(cFont) ?? "Helvetica", size: 30.0)
-
-        if cellFont == nil {
-            cellFont = UIFont(name: "Helvetica-Oblique", size: 30)
-        }
-
-        self.textField?.font = cellFont
-    }
     
 }
 

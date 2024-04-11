@@ -84,7 +84,13 @@ open class CPDFViewBaseController: UIViewController, CPDFListViewDelegate, CPDFV
         
         self.configuration?.showleftItems = [thumbnail]
         self.configuration?.showRightItems = [search, bota, more]
-
+        configuration?.availableViewModes = [.viewer, .annotation, .edit, .form, .signature]
+        configuration?.annotationsTypes = [.note, .highlight, .underline, .strikeout, .squiggly, .freehand, .pencilDrawing, .shapeCircle, .shapeRectangle, .shapeArrow, .shapeLine, .freeText, .signature, .stamp, .image, .sound]
+        configuration?.annotationsTools = [.setting, .undo, .redo]
+        configuration?.contentEditorTools = [.setting, .undo, .redo]
+        configuration?.contentEditorTypes = [.text, .image]
+        configuration?.formTypes = [.text, .checkBox, .radioButton, .comboBox, .list, .button, .sign]
+        configuration?.formTools = [.undo, .redo]
     }
     
     public init(filePath: String, password: String?, configuration: CPDFConfiguration) {
@@ -148,10 +154,18 @@ open class CPDFViewBaseController: UIViewController, CPDFListViewDelegate, CPDFV
         
         let documentView = self.pdfListView!.documentView()
         if CPDFKitConfig.sharedInstance().displayDirection() == .vertical {
-            if #available(iOS 11.0, *) {
-                documentView?.contentInsetAdjustmentBehavior = .automatic
+            if self.pdfListView?.currentPageIndex != 0 {
+                if #available(iOS 11.0, *) {
+                    documentView?.contentInsetAdjustmentBehavior = .never
+                } else {
+                    self.automaticallyAdjustsScrollViewInsets = false
+                }
             } else {
-                self.automaticallyAdjustsScrollViewInsets = true
+                if #available(iOS 11.0, *) {
+                    documentView?.contentInsetAdjustmentBehavior = .automatic
+                } else {
+                    self.automaticallyAdjustsScrollViewInsets = true
+                }
             }
         } else {
             if #available(iOS 11.0, *) {
@@ -308,31 +322,13 @@ open class CPDFViewBaseController: UIViewController, CPDFListViewDelegate, CPDFV
                 DispatchQueue.main.async {
                     if self.pdfListView?.document.isModified() == true {
                         self.pdfListView?.document.write(to: self.pdfListView?.document.documentURL)
-                        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil)
-                        let alert = UIAlertController(title: NSLocalizedString("Save successfully！", comment: ""), message:"", preferredStyle: .alert)
-                        alert.addAction(okAction)
-                        self.present(alert, animated: true, completion: nil)
-                    } else {
-                        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil)
-                        let alert = UIAlertController(title: NSLocalizedString("No changes have been made to the document!", comment: ""), message: "", preferredStyle: .alert)
-                        alert.addAction(okAction)
-                        self.present(alert, animated: true, completion: nil)
                     }
                 }
             }
+            
         } else {
             if self.pdfListView?.document.isModified() == true {
                 self.pdfListView?.document.write(to: self.pdfListView?.document.documentURL)
-                
-                let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil)
-                let alert = UIAlertController(title: NSLocalizedString("Save successfully！", comment: ""), message:"", preferredStyle: .alert)
-                alert.addAction(okAction)
-                present(alert, animated: true, completion: nil)
-            } else {
-                let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil)
-                let alert = UIAlertController(title: NSLocalizedString("No changes have been made to the document!", comment: ""), message: "", preferredStyle: .alert)
-                alert.addAction(okAction)
-                present(alert, animated: true, completion: nil)
             }
         }
     }
@@ -796,11 +792,6 @@ open class CPDFViewBaseController: UIViewController, CPDFListViewDelegate, CPDFV
             self.navigationItem.rightBarButtonItems = [rightItem]
         }
         self.updatePDFViewDocumentView()
-        
-        //Avoid jumping back to the first page when it is not the first page (because the same PDFView display is used)
-        if(self.pdfListView?.currentPageIndex != 0) {
-            self.pdfListView?.go(toPageIndex: 0, animated: false)
-        }
         
         self.loadingView.startAnimating()
         let signatures = self.pdfListView?.document.signatures() ?? []

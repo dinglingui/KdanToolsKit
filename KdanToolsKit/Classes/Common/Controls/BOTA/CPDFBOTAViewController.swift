@@ -195,8 +195,7 @@ public class CPDFBOTAViewController: UIViewController, CPDFOutlineViewController
             pdfView?.go(to: CGRect(x: annot.bounds.origin.x, y: annot.bounds.origin.y + visibleRect!.height/2, width: annot.bounds.size.width, height: annot.bounds.size.height), on: pdfView?.document.page(at: UInt(pageIndex)), animated: true)
         } else {
             pdfView?.go(to: CGRect(x: annot.bounds.origin.x, y: annot.bounds.origin.y + 100, width: annot.bounds.size.width, height: annot.bounds.size.height), on: pdfView?.document.page(at: UInt(pageIndex)), animated: true)
-        }
-        
+        }        
         self.delegate?.botaViewControllerDismiss(self)
     }
 }

@@ -25,10 +25,6 @@ class CPDFDigitalSignatureEditViewController: CPDFSignatureEditViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if self.fontSettingView?.superview != nil {
-            self.fontSettingView?.removeFromSuperview()
-        }
 
         // Do any additional setup after loading the view.
         

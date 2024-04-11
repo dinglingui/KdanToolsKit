@@ -55,7 +55,7 @@ extension CPDFListView {
     
     
     func showMenuForAnnotation(_ annotation: CPDFAnnotation?) {
-        if(annotation == nil || annotation?.page == nil) {
+        if(annotation == nil) {
             UIMenuController.shared.menuItems = nil
             if #available(iOS 13.0, *) {
                 UIMenuController.shared.hideMenu(from: self)
@@ -175,12 +175,10 @@ extension CPDFListView {
     }
     
     @objc func menuItemClick_Delete(_ sender: UIMenuController) {
-        if (activeAnnotation?.page != nil) {
-            activeAnnotation?.page?.removeAnnotation(activeAnnotation)
-            setNeedsDisplayFor(activeAnnotation?.page)
-            updateActiveAnnotations([])
-            updateScrollEnabled()
-        }
+        activeAnnotation?.page.removeAnnotation(activeAnnotation)
+        setNeedsDisplayFor(activeAnnotation?.page)
+        updateActiveAnnotations([])
+        updateScrollEnabled()
     }
     
     @objc func menuItemClick_Note(_ sender: UIMenuController) {
@@ -283,9 +281,7 @@ extension CPDFListView {
             clearSelection()
             setNeedsDisplayFor(annotation?.page)
         } else {
-            if menuPage != nil {
-                self.addAnnotation(.note, at: menuPoint, for: menuPage ?? CPDFPage())
-            }
+            [self .addAnnotation(.note, at: menuPoint, for: menuPage ?? CPDFPage())]
         }
     }
     
@@ -789,7 +785,7 @@ extension CPDFListView {
             line.endPoint = endPoint
             bounds = line.bounds
         } else if annotation is CPDFFreeTextAnnotation {
-            let transform = annotation.page?.transform() ?? CGAffineTransform()
+            let transform = annotation.page.transform()
             if CPDFKitConfig.sharedInstance().enableAnnotationNoRotate() {
                 bounds = bounds.applying(transform)
                 toPoint = toPoint.applying(transform)
@@ -914,14 +910,14 @@ extension CPDFListView {
             if bounds.minX < 0 {
                 bounds.origin.x = 0
             }
-            if bounds.maxX > (annotation.page?.bounds.width ?? 0) {
-                bounds.origin.x = (annotation.page?.bounds.width ?? 0) - bounds.width
+            if bounds.maxX > annotation.page.bounds.width {
+                bounds.origin.x = annotation.page.bounds.width - bounds.width
             }
             if bounds.minY < 0 {
                 bounds.origin.y = 0
             }
-            if bounds.maxY > (annotation.page?.bounds.height ?? 0) {
-                bounds.origin.y = (annotation.page?.bounds.height ?? 0) - bounds.height
+            if bounds.maxY > annotation.page.bounds.height {
+                bounds.origin.y = annotation.page.bounds.height - bounds.height
             }
         }
         annotation.bounds = bounds
@@ -1168,16 +1164,14 @@ extension CPDFListView {
                 width = page.bounds.maxX - point.x - 20
             }
             
-            var bounds = CGRect(x: point.x, y: point.y, width: width!, height: annotation!.fontSize)
+            var bounds = CGRect(x: point.x, y: point.y, width: width!, height: annotation!.font.pointSize)
             bounds = bounds.applying(transform.inverted())
             annotation?.bounds = bounds
         } else {
             let width = page.bounds.maxX - point.x - 20
-            annotation?.bounds = CGRect(x: point.x, y: point.y, width: width, height: annotation!.fontSize)
+            annotation?.bounds = CGRect(x: point.x, y: point.y, width: width, height: annotation!.font.pointSize)
         }
-        let currentFont = annotStyle.newCFont
-        annotation?.cFont = currentFont
-        annotation?.fontSize = annotStyle.fontSize
+        annotation?.font = UIFont(name: annotStyle.fontName, size: annotStyle.fontSize)
         annotation?.fontColor = annotStyle.fontColor
         annotation?.opacity = annotStyle.opacity
         annotation?.setModificationDate(NSDate() as Date)

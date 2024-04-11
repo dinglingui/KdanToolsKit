@@ -294,14 +294,14 @@ extension CPDFListView {
         if bounds.minX < 0 {
             bounds.origin.x = 0
         }
-        if bounds.maxX > (annotation.page?.bounds.width ?? 0) {
-            bounds.origin.x = (annotation.page?.bounds.width ?? 0) - bounds.width
+        if bounds.maxX > annotation.page.bounds.width {
+            bounds.origin.x = annotation.page.bounds.width - bounds.width
         }
         if bounds.minY < 0 {
             bounds.origin.y = 0
         }
-        if bounds.maxY > (annotation.page?.bounds.height ?? 0) {
-            bounds.origin.y = (annotation.page?.bounds.height ?? 0) - bounds.height
+        if bounds.maxY > annotation.page.bounds.height {
+            bounds.origin.y = annotation.page.bounds.height - bounds.height
         }
         annotation.bounds = bounds
     }
@@ -310,9 +310,6 @@ extension CPDFListView {
         var widgetAnnotation:CPDFWidgetAnnotation?
         let formsStyle = CFormStyle(formMode: self.annotationMode)
         var isPushButton:Bool = false
-        
-        let cfont = CPDFFont.init(familyName: formsStyle.fontFamilyName, fontStyle: formsStyle.fontStyleName)
-        
         switch self.annotationMode {
         case .formModeText:
             widgetAnnotation = CPDFTextWidgetAnnotation.init(document: self.document)
@@ -321,8 +318,7 @@ extension CPDFListView {
             widgetAnnotation?.borderWidth = formsStyle.lineWidth
             widgetAnnotation?.borderColor = formsStyle.color
             widgetAnnotation?.backgroundColor = formsStyle.interiorColor
-            widgetAnnotation?.cFont = cfont
-            widgetAnnotation?.fontSize = formsStyle.fontSize
+            widgetAnnotation?.font = UIFont(name: (formsStyle.fontName ?? "helvetica") as String, size: formsStyle.fontSize)
             (widgetAnnotation as? CPDFTextWidgetAnnotation)?.alignment = formsStyle.textAlignment
             (widgetAnnotation as? CPDFTextWidgetAnnotation)?.isMultiline = formsStyle.isMultiline
         case .formModeCheckBox:
@@ -350,8 +346,7 @@ extension CPDFListView {
             widgetAnnotation?.borderWidth = formsStyle.lineWidth
             widgetAnnotation?.borderColor = formsStyle.color
             widgetAnnotation?.backgroundColor = formsStyle.interiorColor
-            widgetAnnotation?.cFont = cfont
-            widgetAnnotation?.fontSize = formsStyle.fontSize
+            widgetAnnotation?.font = UIFont(name: (formsStyle.fontName ?? "helvetica") as String, size: formsStyle.fontSize)
         case .formModeList:
             widgetAnnotation = CPDFChoiceWidgetAnnotation.init(document: self.document, listChoice: true)
             widgetAnnotation?.setFieldName("List Choice_" + tagString())
@@ -359,8 +354,7 @@ extension CPDFListView {
             widgetAnnotation?.borderWidth = formsStyle.lineWidth
             widgetAnnotation?.borderColor = formsStyle.color
             widgetAnnotation?.backgroundColor = formsStyle.interiorColor
-            widgetAnnotation?.cFont = cfont
-            widgetAnnotation?.fontSize = formsStyle.fontSize
+            widgetAnnotation?.font = UIFont(name: (formsStyle.fontName ?? "helvetica") as String, size: formsStyle.fontSize)
         case .formModeButton:
             isPushButton = true
             widgetAnnotation = CPDFButtonWidgetAnnotation.init(document: self.document, controlType:.pushButtonControl)
@@ -370,8 +364,7 @@ extension CPDFListView {
             widgetAnnotation?.borderWidth = formsStyle.lineWidth
             widgetAnnotation?.borderColor = formsStyle.color
             widgetAnnotation?.backgroundColor = formsStyle.interiorColor
-            widgetAnnotation?.cFont = cfont
-            widgetAnnotation?.fontSize = formsStyle.fontSize
+            widgetAnnotation?.font = UIFont(name: (formsStyle.fontName ?? "helvetica") as String, size: formsStyle.fontSize)
             widgetAnnotation?.setFieldName("Push Button_" + tagString())
         case .formModeSign:
             widgetAnnotation = CPDFSignatureWidgetAnnotation.init(document: self.document)
@@ -441,7 +434,7 @@ extension CPDFListView {
     }
     
     func showMenuForWidgetAnnotation(_ annotation: CPDFAnnotation?) {
-        if(annotation == nil || annotation?.page == nil) {
+        if(annotation == nil) {
             UIMenuController.shared.menuItems = nil
             if #available(iOS 13.0, *) {
                 UIMenuController.shared.hideMenu(from: self)
@@ -511,8 +504,8 @@ extension CPDFListView {
     }
         
     @objc func menuItemClick_FormDelete(_ sender: UIMenuController) {
-        if (self.activeAnnotation != nil && self.activeAnnotation?.page != nil) {
-            self.activeAnnotation?.page?.removeAnnotation(self.activeAnnotation)
+        if (self.activeAnnotation != nil) {
+            self.activeAnnotation?.page.removeAnnotation(self.activeAnnotation)
             setNeedsDisplayFor(self.activeAnnotation?.page)
             self.updateActiveAnnotations([])
         }

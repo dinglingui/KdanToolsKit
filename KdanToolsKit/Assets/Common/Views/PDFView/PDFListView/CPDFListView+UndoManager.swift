@@ -159,7 +159,7 @@ extension CPDFListView {
     @objc func PDFPageDidLoadAnnotationNotification(_ notification: Notification) {
         if let annotation = notification.object as? CPDFAnnotation,
            annotation.page != nil,
-           !(annotation is CPDFLinkAnnotation) {
+            !(annotation is CPDFLinkAnnotation) {
             startObservingNotes(newNotes: [annotation])
         }
     }
@@ -167,7 +167,6 @@ extension CPDFListView {
     @objc func PDFPageDidAddAnnotationNotification(_ notification: Notification) {
         if let annotation = notification.object as? CPDFAnnotation,
            annotation.page != nil ,
-           (annotation.page.document == self.document) == true,
            !(annotation is CPDFLinkAnnotation) {
             startObservingNotes(newNotes: [annotation])
             undoAddAnnotation(annotation: annotation)
@@ -177,7 +176,6 @@ extension CPDFListView {
     @objc func PDFPageDidRemoveAnnotationNotification(_ notification: Notification) {
         if let annotation = notification.object as? CPDFAnnotation,
            annotation.page != nil,
-           (annotation.page.document == self.document) == true,
            !(annotation is CPDFLinkAnnotation) {
             undoRemoveAnnotation(annotation: annotation)
             stopObservingNotes(oldNotes: [annotation])
